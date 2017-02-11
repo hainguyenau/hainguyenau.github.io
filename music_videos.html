@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<!--Nav Bar-->
+  <!--Nav Bar-->
 
     <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -40,86 +40,44 @@
           <ul class="dropdown-menu">
             <li><a href="#">Audio</a></li>
             <li><a href="music_videos.html">Video</a></li>
+
           </ul>
         </li>
       </ul>
+
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<!--End navbar>
 
 <!--Header-->
 <div class="container">
   <div class="page-header">
-    <h1>Welcome to My Website</h1>
+    <h1>Music Videos</h1>
   </div>
 </div>
 <!--End header-->
 
-<!--Profile Picture-->
-<div>
-  <a href="profile.html"><button type="button" class="btn btn-success btn-lg center-block">About Me</button></a>
+<!--Intro-->
+<div class="container">
+  <p>
+    I am an avid guitar player. I taught myself how to learn the guitar when I first came to the U.S. I fell in love with fingerstyle guitar because of its beauty and simplicity (or complexity, depending on how you view it). My influences include Kotaro Oshio, Tommy Emmanuel, Andy Mckee and many more. I stil consider myself an amateur guitar player and am still learning to get to the next level. Here are some of my videos. Check out my Youtbe channel for more updates. Thanks for viewing.
+  </p>
 </div>
+<!--End intro-->
+
+<!--Videos-->
 
 <div class="container">
-      <img class="img-responsive center-block" src="img/profile.jpg" alt="Hai Nguyen Au"/>
+  <iframe class="center-block" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL9mNMH6SPnYUrmuxjpU83ZcXaOs7PaGFf" frameborder="0" allowfullscreen></iframe>
 </div>
+<!--End videos-->
 
-<!--End profile picture-->
-
-
-<!--Carousel-->
+<!--Button to Youtube Channel-->
 <div class="container">
-      <div id="my-slider" class="carousel slide" data-ride="carousel">
-        <!--indicator dot nav-->
-        <ol class="carousel-indicators">
-          <li data-target="#my-slider" data-slide-to="0" class="active"></li>
-          <li data-target="#my-slider" data-slide-to="1"></li>
-          <li data-target="#my-slider" data-slide-to="2"></li>
-        </ol>
-
-        <!--wrapper for slides-->
-        <!--only 1 item active, the slide that first appear-->
-        <!--add width=100% so that image is filled-->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="img/music.jpg" alt="Music" width="100%"/>
-            <div class="carousel-caption">
-              <h1>Music</h1>
-            </div>
-          </div>
-
-          <div class="item">
-            <img src="img/data science.jpg" alt="Data Science" width="100%" />
-            <div class="carousel-caption">
-              <h1>Data Science</h1>
-            </div>
-          </div>
-
-          <div class="item">
-            <img src="img/games.jpg" alt="Games" width="100%"/>
-            <div class="carousel-caption">
-              <h1>Games</h1>
-            </div>
-          </div>
-        </div>
-
-        <!--controls or next/prev buttons-->
-        <a class="left carousel-control" href="#my-slider" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"</span>
-        </a>
-
-        <a class="right carousel-control" href="#my-slider" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"</span>
-        </a>
-
-        </div>
-      </div>
+  <a href="https://www.youtube.com/user/hainguyenau"><button type="button" class="btn btn-primary btn-lg center-block">My Youtube Channel</button></a>
 </div>
-<!--End carousel-->
-
-
-
+<!--End button to Youtube channle-->
 
 
 <!--JQuery and JS links -->

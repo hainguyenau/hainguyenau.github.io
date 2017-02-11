@@ -1,0 +1,27 @@
+body {
+  background-image: url('img/background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: auto;
+}
+
+.jumbotron {
+  background-image: url("img/jumbotron.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 1000 px;
+}
+
+#name {
+  color: white;
+}
+
+.container {
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
