@@ -1,5 +1,6 @@
 body {
-  background-image: url('img/background.jpg');
+  /* fallback */
+  background-color: #dbdbdb;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
