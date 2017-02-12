@@ -1,0 +1,46 @@
+
+img {
+	height: 200px;
+	float: left;
+
+}
+div {
+	padding: 10px;
+	text-align: center;
+
+}
+
+
+.em {
+
+	border: 2px solid red;
+	padding-top: 0px;
+	color: purple;
+	width: 30%;
+	float: left;
+	margin: 10px auto;
+}
+.anh {
+
+	border: 2px solid red;
+	padding-top:0px;
+	color: blue;
+	width: 30%;
+	float: left;
+	margin: 10px auto;
+}
+.result {
+	width: 30%;
+	float: left;
+}
+
+.em img{
+	position: relative;
+}
+canvas {
+	display: inline;
+}
+h1, h2 {
+	text-shadow: 1px 1px 0px #cccccc;
+}
+
