@@ -64,3 +64,8 @@ img {
     background: #3B5998;
     color: white;
 }
+
+th, td {
+  padding: 5px;
+  text-align: left;
+}
