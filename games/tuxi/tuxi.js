@@ -10,13 +10,27 @@
 
 	alert('QUÁNH TÙ XÌ RA CÁI GÌ RA CÁI NÀY. EM RA CÁI GÌ?')
 	console.log(anh);//check my random variable
-
+	
+	// Make images fade when hover
+	$('#bao, #bua, #keo').mouseenter(function(){
+		$(this).fadeTo('fast', 0.5)
+	});
+	$('#bao, #bua, #keo').mouseleave(function(){
+		
+		$(this).fadeTo('fast', 1)
+	});
+	
+	// Play again button
+	$('button').click(function() {
+    location.reload();
+	});
+	
 	$('#bao').click(function() {
 		alert('EM CHỌN BAO');
 		$('.em img').remove();
 		$('.em').css('height','400px');
 		$('.em').append('<img src="bao.png"/>');
-
+	
 		if (anh=='bao') {
 			alert('HUỀ, ANH CŨNG RA BAO LUÔN');
 			$('.anh img').remove();
