@@ -1,7 +1,7 @@
 
 img {
 	height: 200px;
-	float: left;
+	/* float: left; */
 
 }
 div {
@@ -26,12 +26,12 @@ div {
 	padding-top:0px;
 	color: blue;
 	width: 30%;
-	float: right;
+	float: left;
 	margin: 10px auto;
 
 }
 .result {
-	width: 30%;
+	width: 40%;
 	float: left;
 
 }
@@ -50,3 +50,10 @@ h1, h2 {
 	background-color: #fffb87;
 }
 
+button {
+	clear: both;
+}
+
+.body-center {
+	text-align: center;
+}
