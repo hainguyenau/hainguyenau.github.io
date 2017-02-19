@@ -7,8 +7,9 @@
 	var x = Math.floor(Math.random()*3)+1;
 	var anh = d[x];
 	
+	
 
-	alert('QUÁNH TÙ XÌ RA CÁI GÌ RA CÁI NÀY. EM RA CÁI GÌ?')
+	// alert('QUÁNH TÙ XÌ RA CÁI GÌ RA CÁI NÀY. EM RA CÁI GÌ?')
 	console.log(anh);//check my random variable
 	
 	//Make images fade when hover
@@ -30,8 +31,8 @@
 
 	
 	$('#bao').click(function() {
-		
 		// alert('EM CHỌN BAO');
+		$('.result').empty();
 		$('.em img').remove();
 		$('.anh img').remove();
 		$('.em').append('<img class="img-responsive" src="bao.png"/>');
@@ -63,8 +64,9 @@
 	});
 	
 	$('#bua').click(function() {
-
+	
 		// alert('EM CHỌN BÚA');
+		$('.result').empty();
 		$('.em img').remove();
 		$('.anh img').remove();
 		$('.em').append('<img class="img-responsive" src="bua.png"/>');
@@ -92,8 +94,8 @@
 			}
 	});
 	$('#keo').click(function() {
-		$('#keo').animate({top:'+=100px'}, 1000);
 		// alert('EM CHỌN KÉO');
+		$('.result').empty();
 		$('.em img').remove();
 		$('.anh img').remove();
 		$('.em').append('<img class="img-responsive" src="keo.png"/>');

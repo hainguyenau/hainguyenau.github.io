@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Rock-Paper-Scissors</title>
+  <title>Mind Reading</title>
   <!-- metas -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
@@ -9,16 +9,16 @@
 
   <!-- link to bootstrap and my css -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="tuxi.css" />
+  <link rel="stylesheet" href="mind_reading.css" />
   
   <!--JQuery and JS links -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="jquery-ui.min.js"></script>
-	<script type="text/javascript" src="tuxi.js"></script>
+	<!-- <script src="jquery-ui.min.js"></script> -->
+	<script type="text/javascript" src="mind_reading.js"></script>
 </head>
 
-<body class="body-center">
+<body>
 <!--Nav Bar-->
 
     <nav class="navbar navbar-default">
@@ -54,42 +54,21 @@
 <!--Header-->
 <div class="container">
   <div class="page-header">
-    <h1 id="name">Quánh Tù Xì</h1>
+    <h1 id="name">Mind Reading</h1>
   </div>
 </div>
 <!--End header-->
 
 <!--Game-->
-<div class="container">
-		<div>
-			<button type="button" class="btn btn-danger btn-lg">Play Again</button>
-		</div>
-		
-		<div class="em">
-		<h1>EM</h1>
-			<div id="bao"> 
-				<img class="img-responsive" src="bao.png"/>
-			</div>
-			<div id="bua">
-				<img class="img-responsive" src="bua.png"/>
-			</div>
-			<div id="keo"> 
-				<img class="img-responsive" src="keo.png"/>
-			</div>
-		</div>
-		
-		<div class="result">
-		<h3>'QUÁNH TÙ XÌ RA CÁI GÌ RA CÁI NÀY. EM RA CÁI GÌ?'</h3>
-		</div>
-		
-		<div class="anh">
-		<h1>ANH</h1>
-		<img class="img-responsive" src="question-mark.jpg"/>
-		</div>
+<div class="container" id="cards">
+	<h3>Choose a card and memorize it!!!</h3>
+	<br>
+	<img class="img-responsive" src="set1.jpg"/><br>
+	<h3>Ready? Click on the Magician</h3>
+	<img id="magician" class="img-responsive" src="magician.jpg"/>
+	
 </div>
-<audio autoplay>
-	<source src="music.ogg" type="audio/ogg">
-</audio>
+
 
 
 
