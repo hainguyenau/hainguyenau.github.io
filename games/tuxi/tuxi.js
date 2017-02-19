@@ -31,23 +31,28 @@
 		alert('EM CHỌN BAO');
 		$('.em img').remove();
 		$('.anh img').remove();
-		$('.em').css('height','200px');
+		// $('.em').css('height','200px');
 		$('.em').append('<img class="img-responsive" src="bao.png"/>');
 	
 		if (anh=='bao') {
 			alert('HUỀ, ANH CŨNG RA BAO LUÔN');
 			$('.anh').append('<img class="img-responsive" src="bao.png"/>');
-			$('.result').append('HUỀ!!!');
+			$('.result').append('<h3>HUỀ!!!</h3>');
+			$('.result').append("<img class='img-responsive' src='hue.jpg'/>");
 		}
 		if (anh=='bua') {
 			alert('EM THẮNG RỒI, ANH RA BÚA');
 			$('.anh').append('<img class="img-responsive" src="bua.png"/>');
-			$('.result').append('EM THẮNG!!!');
+			$('.result').append('<h3>EM THẮNG!!!</h3>');
+			$('.result').append("<img class='img-responsive'src='thua.jpg'/>");
+			
 			}
 		if (anh=='keo') {
 		alert('EM THUA RỒI. ANH RA KÉO');
 			$('.anh').append('<img class="img-responsive" src="keo.png"/>');
-			$('.result').append('EM THUA!!!');
+			$('.result').append('<h3>EM THUA!!!</h3>');
+			$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
+
 		}
 
 	});
@@ -61,17 +66,21 @@
 		if (anh=='bua') {
 			alert('HUỀ. ANH RA BÚA');
 			$('.anh').append('<img class="img-responsive" src="bua.png"/>');
-			$('.result').append('HUỀ!!!');
+			$('.result').append('<h3>HUỀ!!!</h3>');
+			$('.result').append("<img class='img-responsive' src='hue.jpg'/>");
 			}
 		if (anh=='keo') {
 			alert('EM THẮNG. ANH RA KÉO');
 			$('.anh').append('<img class="img-responsive" src="keo.png"/>');
-			$('.result').append('EM THẮNG!!!');
+			$('.result').append('<h3>EM THẮNG!!!</h3>');
+			$('.result').append("<img class='img-responsive' src='thua.jpg'/>");
 			}
 		if (anh=='bao') {
 			alert('EM THUA. ANH RA BAO');
 			$('.anh').append('<img class="img-responsive" src="bao.png"/>');
-			$('.result').append('EM THUA!!!');
+			$('.result').append('<h3>EM THUA!!!</h3>');
+			$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
+
 			}
 	});
 	$('#keo').click(function() {
@@ -83,17 +92,21 @@
 		if (anh=='keo') {
 			alert('HUỀ. ANH RA KÉO LUÔN');
 			$('.anh').append('<img class="img-responsive" src="keo.png"/>');
-			$('.result').append('HUỀ!!!');
+			$('.result').append('<h3>HUỀ!!!</h3>');
+			$('.result').append("<img class='img-responsive' src='hue.jpg'/>");
 			}
 		if (anh=='bao') {
 			alert('EM THẮNG. ANH RA BAO.');
 			$('.anh').append('<img class="img-responsive" src="bao.png"/>');
-			$('.result').append('EM THẮNG!!!');
+			$('.result').append('<h3>EM THẮNG!!!</h3>');
+			$('.result').append("<img class='img-responsive' src='thua.jpg'/>");
 			}
 		if (anh=='bua') {
 			alert('EM THUA. ANH RA BÚA');;
 			$('.anh').append('<img class="img-responsive" src="bua.png"/>');
-			$('.result').append('EM THUA!!!');
+			$('.result').append('<h3>EM THUA!!!</h3>');
+			$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
+
 			}
 	});
 

@@ -25,9 +25,10 @@ div {
 	border: 2px solid red;
 	padding-top:0px;
 	color: blue;
-	width: 20%;
-	float: left;
+	width: 30%;
+	float: right;
 	margin: 10px auto;
+
 }
 .result {
 	width: 30%;
