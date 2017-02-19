@@ -1,8 +1,15 @@
 #magician {
-	max-width: 300px;
-	border: solid 5px blue;
+	max-height: 300px;
 	}
 	
 body {
 	background-color: #b79dc6;
+}
+#body-center {
+  text-align: center;
+}
+
+h3 { 
+	color: #931d1d;
+	font-family: "Verdana, sans-serif";
 }
