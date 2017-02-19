@@ -30,7 +30,7 @@
 
 	
 	$('#bao').click(function() {
-		$('#bao').effect('explode');
+		
 		// alert('EM CHỌN BAO');
 		$('.em img').remove();
 		$('.anh img').remove();
