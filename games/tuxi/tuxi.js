@@ -43,6 +43,7 @@
 			$('.result').append("<img class='img-responsive' src='hue.jpg'/>");
 			$('.result').effect('bounce',{times:3},1000);
 		}
+		
 		if (anh=='bua') {
 			// alert('EM THẮNG RỒI, ANH RA BÚA');
 			$('.anh').append('<img class="img-responsive" src="bua.png"/>');
@@ -58,7 +59,7 @@
 			$('.result').effect('bounce',{times:3},1000);
 
 		}
-
+	
 	});
 	
 	$('#bua').click(function() {
@@ -120,6 +121,10 @@
 			}
 	});
 
+	// click result to explode
+	$('.result').click(function(){
+		$('.result').effect('explode')
+		});
 
 	});
 
