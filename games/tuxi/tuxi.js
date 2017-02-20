@@ -30,6 +30,7 @@
 	$('#bao').click(function() {
 		$('#click')[0].play();
 		$(this).fadeOut('slow', function(){
+			$('#harp')[0].play();
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
@@ -44,10 +45,11 @@
 			}
 			
 			if (anh=='bua') {
-
+			
 				$('.anh').append('<img class="img-responsive" src="bua.png"/>');
 				$('.result').append('<h3>YOU WIN<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive'src='thua.jpg'/>");
+				$('#cry')[0].play();
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='keo') {
@@ -55,6 +57,7 @@
 				$('.anh').append('<img class="img-responsive" src="keo.png"/>');
 				$('.result').append('<h3>YOU LOSE<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
+				$('#laugh')[0].play();
 				$('.result').effect('bounce',{times:3},1000);
 
 			}
@@ -64,6 +67,7 @@
 	$('#bua').click(function() {
 		$('#click')[0].play();
 		$(this).fadeOut('slow', function(){
+			$('#harp')[0].play();
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
@@ -78,12 +82,14 @@
 				$('.anh').append('<img class="img-responsive" src="keo.png"/>');
 				$('.result').append('<h3>YOU WIN<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thua.jpg'/>");
+				$('#cry')[0].play();
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='bao') {
 				$('.anh').append('<img class="img-responsive" src="bao.png"/>');
 				$('.result').append('<h3>YOU LOSE<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
+				$('#laugh')[0].play();
 				$('.result').effect('bounce',{times:3},1000);
 			}
 		})
@@ -92,6 +98,7 @@
 	$('#keo').click(function() {
 		$('#click')[0].play();
 		$(this).fadeOut('slow', function(){
+			$('#harp')[0].play();
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
@@ -103,15 +110,19 @@
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='bao') {
+				
 				$('.anh').append('<img class="img-responsive" src="bao.png"/>');
 				$('.result').append('<h3>YOU WIN<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thua.jpg'/>");
+				$('#cry')[0].play();
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='bua') {
+				$
 				$('.anh').append('<img class="img-responsive" src="bua.png"/>');
 				$('.result').append('<h3>YOU LOSE<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
+				$('#laugh')[0].play();
 				$('.result').effect('bounce',{times:3},1000);
 			}
 		})
