@@ -43,8 +43,7 @@ div {
 }
 
 .result img {
-	max-width: 150px;
-	
+	width: 150px;
 }
 /* .em img{ */
 	/* position: relative; */
