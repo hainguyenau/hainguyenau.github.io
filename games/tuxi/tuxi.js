@@ -30,7 +30,7 @@
 	$('#bao').click(function() {
 		$('#click')[0].play();
 		$(this).fadeOut('slow', function(){
-			$('#harp')[0].play();
+			// $('#harp')[0].play();
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
@@ -67,7 +67,7 @@
 	$('#bua').click(function() {
 		$('#click')[0].play();
 		$(this).fadeOut('slow', function(){
-			$('#harp')[0].play();
+			// $('#harp')[0].play();
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
@@ -98,7 +98,7 @@
 	$('#keo').click(function() {
 		$('#click')[0].play();
 		$(this).fadeOut('slow', function(){
-			$('#harp')[0].play();
+			// $('#harp')[0].play();
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
