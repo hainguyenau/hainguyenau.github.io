@@ -119,5 +119,4 @@
 
 });
 
-// Choose bua & keo don't give result!!!
 
