@@ -6,7 +6,6 @@
 }
 	var x = Math.floor(Math.random()*3)+1;
 	var anh = d[x];
-	var click_sound = $('#click')
 	
 	console.log(anh);//check my random variable
 	
@@ -29,7 +28,7 @@
 
 	
 	$('#bao').click(function() {
-		click_sound.play();
+
 		$(this).fadeOut('slow', function(){
 			$('.result').empty();
 			$('.em img').remove();
