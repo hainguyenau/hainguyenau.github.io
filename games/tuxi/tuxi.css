@@ -21,6 +21,7 @@ div {
 	float: left;
 	margin: 10px auto;
 	position: relative;
+	text-decoration: underline;
 
 }
 .anh {
@@ -32,7 +33,7 @@ div {
 	float: right;
 	margin: 10px auto;
 	position: relative;
-
+	text-decoration: underline;
 }
 .result {
 	width: 40%;
@@ -41,6 +42,10 @@ div {
 
 }
 
+.result img {
+	max-width: 150px;
+	
+}
 /* .em img{ */
 	/* position: relative; */
 /* } */
