@@ -1,6 +1,7 @@
 
 img {
 	height: 200px;
+	margin: auto;
 	/* float: left; */
 
 }
@@ -19,6 +20,8 @@ div {
 	width: 30%;
 	float: left;
 	margin: 10px auto;
+	position: relative;
+
 }
 .anh {
 
@@ -26,33 +29,30 @@ div {
 	padding-top:0px;
 	color: blue;
 	width: 30%;
-	float: left;
+	float: right;
 	margin: 10px auto;
+	position: relative;
 
 }
 .result {
 	width: 40%;
 	float: left;
-
-}
-
-.em img{
 	position: relative;
+
 }
-canvas {
-	display: inline;
-}
+
+/* .em img{ */
+	/* position: relative; */
+/* } */
+
 h1, h2 {
 	text-shadow: 1px 1px 0px #cccccc;
 }
 
-.container {
+body {
 	background-color: #fffb87;
 }
 
-button {
-	clear: both;
-}
 
 .body-center {
 	text-align: center;
