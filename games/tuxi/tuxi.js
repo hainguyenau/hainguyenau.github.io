@@ -28,7 +28,7 @@
 
 	
 	$('#bao').click(function() {
-		$(this).fadeTo('slow', 1000, function(){
+		$(this).fadeOut('slow', function(){
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
@@ -61,7 +61,7 @@
 	});
 	
 	$('#bua').click(function() {
-		$(this).fadeTo('slow', 1000, function(){
+		$(this).fadeOut('slow', function(){
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
@@ -88,7 +88,7 @@
 	});
 	
 	$('#keo').click(function() {
-		$(this).fadeTo('slow', 1000, function(){
+		$(this).fadeOut('slow', function(){
 			$('.result').empty();
 			$('.em img').remove();
 			$('.anh img').remove();
