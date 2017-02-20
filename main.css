@@ -24,8 +24,7 @@ body {
 }
 
 iframe {
-  max-width: 640px;
-  max-height: 480px;
+	padding: 20px;
 }
 
 #profile_pix{
