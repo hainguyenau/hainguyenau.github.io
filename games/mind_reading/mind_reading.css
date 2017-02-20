@@ -3,15 +3,16 @@
 	}
 	
 body {
-	background-color: #b79dc6;
+	background-color: #7868ff;
 }
 #body-center {
   text-align: center;
 }
 
 h3 { 
-	color: #931d1d;
+	color: white;
 	font-family: "Verdana, sans-serif";
+	text-shadow: 2px 2px 2px grey;
 }
 
 img {

@@ -6,6 +6,7 @@
 }
 	var x = Math.floor(Math.random()*3)+1;
 	var anh = d[x];
+	var click_sound = $('#click')
 	
 	console.log(anh);//check my random variable
 	
@@ -28,6 +29,7 @@
 
 	
 	$('#bao').click(function() {
+		click_sound.play();
 		$(this).fadeOut('slow', function(){
 			$('.result').empty();
 			$('.em img').remove();
@@ -37,7 +39,7 @@
 			if (anh=='bao') {
 
 				$('.anh').append('<img class="img-responsive" src="bao.png"/>');
-				$('.result').append('<h3>DRAW!!!!!!</h3>');
+				$('.result').append('<h3>DRAW<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='hue.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 			}
@@ -45,14 +47,14 @@
 			if (anh=='bua') {
 
 				$('.anh').append('<img class="img-responsive" src="bua.png"/>');
-				$('.result').append('<h3>YOU WIN!!!!!!</h3>');
+				$('.result').append('<h3>YOU WIN<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive'src='thua.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='keo') {
 
 				$('.anh').append('<img class="img-responsive" src="keo.png"/>');
-				$('.result').append('<h3>YOU LOSE!!!</h3>');
+				$('.result').append('<h3>YOU LOSE<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 
@@ -68,19 +70,19 @@
 			$('.em').append('<img class="img-responsive" src="bua.png"/>');
 			if (anh=='bua') {
 				$('.anh').append('<img class="img-responsive" src="bua.png"/>');
-				$('.result').append('<h3>DRAW!!!!!!</h3>');
+				$('.result').append('<h3>DRAW<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='hue.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='keo') {
 				$('.anh').append('<img class="img-responsive" src="keo.png"/>');
-				$('.result').append('<h3>YOU WIN!!!!!!</h3>');
+				$('.result').append('<h3>YOU WIN<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thua.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='bao') {
 				$('.anh').append('<img class="img-responsive" src="bao.png"/>');
-				$('.result').append('<h3>YOU LOSE!!!</h3>');
+				$('.result').append('<h3>YOU LOSE<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 			}
@@ -95,19 +97,19 @@
 			$('.em').append('<img class="img-responsive" src="keo.png"/>');
 			if (anh=='keo') {
 				$('.anh').append('<img class="img-responsive" src="keo.png"/>');
-				$('.result').append('<h3>DRAW!!!!!!</h3>');
+				$('.result').append('<h3>DRAW<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='hue.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='bao') {
 				$('.anh').append('<img class="img-responsive" src="bao.png"/>');
-				$('.result').append('<h3>YOU WIN!!!!!!</h3>');
+				$('.result').append('<h3>YOU WIN<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thua.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='bua') {
 				$('.anh').append('<img class="img-responsive" src="bua.png"/>');
-				$('.result').append('<h3>YOU LOSE!!!</h3>');
+				$('.result').append('<h3>YOU LOSE<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
 				$('.result').effect('bounce',{times:3},1000);
 			}

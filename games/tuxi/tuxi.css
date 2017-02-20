@@ -45,7 +45,8 @@ div {
 	/* position: relative; */
 /* } */
 
-h1, h2 {
+h1, h2 , h3{
+	text-decoration: bold;
 	text-shadow: 1px 1px 0px #cccccc;
 }
 
