@@ -7,6 +7,7 @@ $(document).ready(function(){
 	});
 
 	$('#magician').click(function(){
+		$('#mysterious')[0].play();
 		$(this).fadeOut('slow', function(){
 			$(this).fadeIn('slow', function(){
 				$('#cards').empty();
