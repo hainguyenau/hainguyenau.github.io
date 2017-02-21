@@ -1,5 +1,6 @@
 #magician {
 	max-height: 300px;
+	border: 5px outset #a3ffb8;
 	}
 	
 body {
@@ -21,4 +22,8 @@ img {
 
 button {
 	clear: both;
+}
+
+.sets {
+	width: 800px;
 }

@@ -36,6 +36,7 @@ img {
 	float: left;
 	display: inline-block;
 	padding: 10px;
+	
 }
 
 .result img {
@@ -64,3 +65,4 @@ body {
 .body-center {
 	text-align: center;
 }
+
