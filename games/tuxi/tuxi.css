@@ -22,6 +22,7 @@ div {
 	position: relative;
 	text-decoration: underline;
 	background-color: white;
+	display: inline-block;
 
 }
 .anh {
@@ -34,26 +35,31 @@ div {
 	position: relative;
 	text-decoration: underline;
 	background-color: white;
+	display: inline-block;
 }
 .result {
 	width: 40%;
 	float: left;
-	position: relative;
-
+	display: inline-block;
 }
 
 .result img {
 	width: 150px;
 }
-/* .em img{ */
-	/* position: relative; */
-/* } */
 
 h1, h2 , h3{
 	text-decoration: bold;
 	text-shadow: 1px 1px 0px #cccccc;
 }
 
+h3 {
+	border-radius: 100px;
+	border: dotted 3px brown;
+	padding: 15px;
+	background-color: white;
+	color: blue;
+	position: relative;
+}
 body {
 	background-color: #fffb87;
 }

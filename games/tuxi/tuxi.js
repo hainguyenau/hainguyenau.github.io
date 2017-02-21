@@ -7,8 +7,6 @@
 	var x = Math.floor(Math.random()*3)+1;
 	var anh = d[x];
 	
-	// Load audio files
-	$('#harp').trigger('load');
 	console.log(anh);//check my random variable
 	
 	//Make images fade when hover
@@ -51,7 +49,7 @@
 				$('.anh').append('<img class="img-responsive" src="bua.png"/>');
 				$('.result').append('<h3>YOU WIN<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive'src='thua.jpg'/>");
-				// $('#cry')[0].play();
+				$('#cry')[0].play();
 				$('.result').effect('bounce',{times:3},1000);
 				}
 			if (anh=='keo') {
@@ -59,7 +57,7 @@
 				$('.anh').append('<img class="img-responsive" src="keo.png"/>');
 				$('.result').append('<h3>YOU LOSE<br>!!!</h3>');
 				$('.result').append("<img class='img-responsive' src='thang.jpg'/>");
-				// $('#laugh')[0].play();
+				$('#laugh')[0].play();
 				$('.result').effect('bounce',{times:3},1000);
 
 			}
