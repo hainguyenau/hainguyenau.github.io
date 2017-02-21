@@ -53,6 +53,7 @@ h1, h2 , h3{
 }
 
 h3 {
+	font-size: 3.5vw; /*view width, responsive text */
 	border-radius: 100px;
 	border: dotted 3px brown;
 	padding: 15px;
