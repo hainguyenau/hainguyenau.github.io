@@ -2,17 +2,11 @@
 img {
 	height: 200px;
 	margin: auto;
-	/* float: left; */
 
 }
-div {
-	padding: 10px;
-	text-align: center;
-
-}
-
 
 .em {
+
 	border-radius: 25px;
 	border: 4px solid red;
 	color: purple;
@@ -41,6 +35,7 @@ div {
 	width: 40%;
 	float: left;
 	display: inline-block;
+	padding: 10px;
 }
 
 .result img {
