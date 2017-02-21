@@ -7,6 +7,8 @@
 	var x = Math.floor(Math.random()*3)+1;
 	var anh = d[x];
 	
+	// Load audio files
+	$('#harp').trigger('load');
 	console.log(anh);//check my random variable
 	
 	//Make images fade when hover
