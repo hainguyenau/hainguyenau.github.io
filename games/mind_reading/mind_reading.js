@@ -11,7 +11,7 @@ $(document).ready(function(){
 		$(this).fadeOut('slow', function(){
 			$(this).fadeIn('slow', function(){
 				$('#cards').empty();
-				$('#cards').append("<h3>Your card has vanished!!!<br>Don't believe me? Try to find it!!!</h3><br><img class='img-responsive' src='set2.jpg'/><br><img id='magician' class='img-responsive' src='magician.jpg'/><br><div><a href='../../games.html'><button type='button' class='btn-lg btn-info'>Quit</button></a></div><br>");
+				$('#cards').append("<h3>Your card has vanished!!!<br>Don't believe me? Try to find it!!!</h3><br><img class='img-responsive' src='set2.jpg'/><br><img id='magician' class='img-responsive' src='magician.jpg'/><br><div><a href='../../games.html'>");
 			})
 		});
 	});

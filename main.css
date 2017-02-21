@@ -72,3 +72,7 @@ th, td {
 .tuxi-canvas {
 	display: inline;
 }
+
+#back-button {
+	clear: both;
+}
