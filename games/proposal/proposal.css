@@ -1,0 +1,32 @@
+#body-center {
+	text-align: center;
+}
+
+#myCanvas {
+	background-image: url('background.jpg');
+	margin: auto;
+	width: 455px;
+	height: 770px;
+}
+
+#title {
+	color: green;
+	border: dashed 4px red;
+	margin: auto;
+}
+
+button {
+	margin-top: 20px;
+}
+
+#no {
+	top: 10px;
+	left: 10px;
+	position: relative;
+}
+
+#yes {
+	top: 10px;
+	left: 10px;
+	position: relative;
+}
