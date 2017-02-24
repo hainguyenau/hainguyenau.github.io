@@ -5,13 +5,17 @@
 #myCanvas {
 	background-image: url('background.jpg');
 	margin: auto;
-	width: 455px;
-	height: 770px;
+	width: 1080px;
+	height: 720px;
+	/* background-attachment:fixed; */
+	background-position:center;
+	background-size: cover;
+	border: 5px solid red;
+	text-align: center;
 }
 
 #title {
 	color: green;
-	border: dashed 4px red;
 	margin: auto;
 }
 
@@ -29,4 +33,9 @@ button {
 	top: 10px;
 	left: 10px;
 	position: relative;
+
+}
+
+body {
+	text-align: center;
 }
