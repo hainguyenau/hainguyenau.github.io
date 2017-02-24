@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 	
 	$('#no').click(function(){
+		$('#whoosh')[0].play();
 		var x = (Math.random()-0.5)*(0.8*w);
 		var y = Math.random()*(0.8*h);
 		
@@ -19,10 +20,12 @@ $(document).ready(function(){
 	});
 	
 	$('#yes').click(function() {
+		$('#bell')[0].play();
 		$('#myCanvas').empty();
 		$('#myCanvas').fadeOut('slow');
 		$('#myCanvas').fadeIn('slow',function(){
-			$('#myCanvas').append("<h2>YOU HAVE MADE A RIGHT CHOICE!!! CONGRATULATIONS!!!</h2>");
+			$('#applause')[0].play();
+			$('#myCanvas').append("<img class='img-responsive' src='heart.png'/>");
 			
 		});
 		
