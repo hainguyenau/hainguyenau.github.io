@@ -26,3 +26,9 @@ body {
 	top:10%;
 	margin: auto;
 	}
+	
+h1 { 
+	color: white;
+	font-family: "Verdana, sans-serif";
+	text-shadow: 2px 2px 2px grey;
+}
