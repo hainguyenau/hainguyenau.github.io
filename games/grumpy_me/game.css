@@ -1,11 +1,11 @@
 .angry {
-	width: 400px;
-	height: 404px;
-	background: url('sprite.png');
-	animation: run 1s steps(2) infinite;
-	
+	width: 370px;
+	height: 705px;
+	background: url('angry.png');
+	animation: run 1s steps(2) 3;
+
 }
 
 @keyframes run {
-	100% {background-position: -800px;}
+	100% {background-position: -762px;}
 }
