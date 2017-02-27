@@ -1,18 +1,9 @@
 body {
-  /* fallback */
   background-color: #d2d7dd;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   margin: auto;
-}
-
-.jumbotron {
-  background-image: url("img/jumbotron.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 1000 px;
 }
 
 #name {
@@ -69,10 +60,12 @@ th, td {
   text-align: left;
 }
 
-.tuxi-canvas {
-	display: inline;
-}
+/* .tuxi-canvas { */
+	/* display: inline; */
+/* } */
 
 #back-button {
 	clear: both;
 }
+
+

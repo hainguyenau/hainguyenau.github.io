@@ -14,7 +14,7 @@ $(document).ready(function(){
 		var next_left = x.toString()+ 'px';
 		
 
-		// console.log(next_left, next_top);
+		// Animate only works when you specify top, left in css
 		$(this).animate({left: next_left, top: next_top});
 	});
 	
