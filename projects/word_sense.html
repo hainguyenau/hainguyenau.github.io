@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Project: Word Sense Disambiguation</title>
+  <title>Word Sense Disambiguation</title>
   <!-- metas -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
@@ -31,10 +31,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="data science.html">Data Science</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="music.html">Music</a></li>
+        <li><a href="../profile.html">Profile</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../games.html">Games</a></li>
+        <li><a href="../music.html">Music</a></li>
 
           </ul>
         </li>
@@ -56,6 +56,10 @@
 <!--Begin presentation-->
 <div class="container">
   <img src="img/galvanize.png" height="50px"/>
+  <h2>Information</h2>
+<p>
+	This is my capstone project at Galvanize Data Science Immersrive - San Francisco (2016).
+</p>
   <h2>Introduction</h2>
   <p>Homograph words are words with the same spelling, but can have different meanings. The list of homograph words in English can be found in homograps.md. For example, as an old joke says:
   <blockquote>
@@ -63,11 +67,11 @@
     <b>A</b>: Because they have lots of fans.
 
   </blockquote>
-  The twist here is that the words "cool" and "fans" have two different meanings. It is fairly simple for human to decide which meaning of a homograph word is used given the context where the word is in. But to train the computer to do the same is not a simple tasks. In Natural Language Processing, this challenge is call "word-sense disambiguation". Several algorithms have been developed, some are simple and some are very sophisticated. In this project, I attempted to explore the word sense disambiguation challenge with different type of models.<br>
-  This is my capstone project at Galvanize Data Science Immersrive - San Francisco (2016).</p>
+  The twist here is that the words "cool" and "fans" have two different meanings. It is fairly simple for human to decide which meaning of a homograph word is used given the context where the word is in. But to train the computer to do the same is not a simple tasks. In Natural Language Processing, this challenge is call "word-sense disambiguation". Several algorithms have been developed, some are simple and some are very sophisticated. In this project, I attempted to explore the word sense disambiguation challenge with different type of models.
+  </p>
 
 
-  <h2>Data</h2>
+  <h2>The Data</h2>
   <p>The dataset I used for this project is obtainedfrom from the Senseval corpus where the meanings of the homographs are labeled in each example.</p>
 
   <h2>Methods and Results</h2>
@@ -80,7 +84,7 @@
     <ul>
       <li><b>Kmeans</b>: As the simplest clustering method, Kmeans can takes in the raw dataset and attempts to make a pre-defined number of clusters. In here the number of clusters are set to be the number of different meanings of the word. Unfortunately, the model does not give very meaningful predictions. The figure below shows the result for Kmeans clutering for the dataset of the word "Hard" when projected to two-dimension. We can see right away that the "Curse of Dimensionality" prevents our clusters to separate well.</li><br>
 
-      <img class="img-responsive" src="img/kmeans figure.png" alt="k-means"/><br>
+      <img class="img-responsive" src="img/word_sense/kmeans figure.png" alt="k-means"/><br>
 
       <li><b>Agglomerative Clustering</b>: Since Kmeans can only use Euclidean distances as its affinity, the next logical thing to remedy this problem is to use Hierachical Clustering where cosine similarity or Jaccard similarity can be used. However, this algorithm is very memory-intensive, takes very long to run and does not yield good cross-validation accuracy, precision and recall results for the hyper-parameters I used. Due to the time constraint of this project, I decided to try another model.</li>
 

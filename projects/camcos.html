@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Project: The Geometry and Topology of the Cosmic Web</title>
+  <title>The Geometry and Topology of the Cosmic Web</title>
   <!-- metas -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE-edge">
@@ -34,10 +34,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="data science.html">Data Science</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="music.html">Music</a></li>
+        <li><a href="../profile.html">Profile</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../games.html">Games</a></li>
+        <li><a href="../music.html">Music</a></li>
 
           </ul>
         </li>
@@ -71,8 +71,8 @@
     <li>Jian-Long Liu</li>
     <li>Matthew Litrus</li>
     <li>Brandon Morrison</li>
-    <li><a href="https://www.nasa.gov/centers/ames/research/2007/scargle.html" target="_blank">Jeffrey Scargle</a> (NASA's astrophysicist/Supervisor)</li>
-    <li><a href="http://www.math.sjsu.edu/~simic/">Slobodan Simic</a> (Professor/Supervisor)</li>
+    <li><a href="https://www.nasa.gov/centers/ames/research/2007/scargle.html" target="_blank">Jeffrey Scargle</a> (Astrophysicist/Supervisor)</li>
+    <li><a href="http://www.sjsu.edu/math/people/faculty/kubelka/">Slobodan Simic</a> (Professor/Supervisor)</li>
   </ul>
   </p>
 
@@ -91,7 +91,7 @@
   </p>
   <h2>Goals</h2>
   <p>
-    There appear to be over-dense and under-dense regions.  Our goal is to characterize the geometry and topology of this data set – to identify structures.
+    There appear to be over-dense and under-dense regions.  Our goal is to characterize the geometry and topology of this data set is to identify structures.
   <ol>
     <li>Partition of the space</li>
     <li>Grouping</li>
@@ -107,8 +107,8 @@
 
 <h2>Partition the Space</h2>
 <p>
-  In order to group points together, we need to identify neighboring points. Our first task is partitioning the data space.  To do so, we surround the points with cells. In order to define the density of a point in a point cloud, we first tessellate our data using a Voronoi tessellation. Notice that in regions of high point density, the Voronoi cells have small area.  In the Delaunay triangulation, each vertex is a galaxy.  A Delaunay triangulation puts edges connecting the neighboring galaxies. In graph theory, the Voronoi tessellation is the dual graph of the Delaunay tessellation.  (CLICK) When two Voronoi cells border each other, there is an (CLICK) edge between them in the Delaunay tessellation.  In the Voronoi diagram, every galaxy is surrounded by a polygonal cell.  In the Delaunay triangulation, every galaxy is the vertex of a triangle.<br>
-  <img src="img/camcos/voronoid.JPG" class="img-responsive img-center"/>
+  In order to group points together, we need to identify neighboring points. Our first task is partitioning the data space.  To do so, we surround the points with cells. In order to define the density of a point in a point cloud, we first tessellate our data using a Voronoi tessellation. Notice that in regions of high point density, the Voronoi cells have small area.  In the Delaunay triangulation, each vertex is a galaxy.  A Delaunay triangulation puts edges connecting the neighboring galaxies. In graph theory, the Voronoi tessellation is the dual graph of the Delaunay tessellation. When two Voronoi cells border each other, there is an edge between them in the Delaunay tessellation.  In the Voronoi diagram, every galaxy is surrounded by a polygonal cell.  In the Delaunay triangulation, every galaxy is the vertex of a triangle.<br>
+  <img src="img/camcos/voronoid.JPG" class="img-responsive img-center" width="600px"/>
 </p>
 <p>
   In order to identify areas of high and low density in the data set, we need to define a density function.  In physics, density is the ratio of mass to volume.  Since we assume the galaxy masses are all equal, we assign them a mass of 1 and divide by the volume of the Voronoi cell surrounding the galaxy.
@@ -128,7 +128,7 @@
     </ul>
     The <em>gradient paths</em> arrows from higher density to lower density. Each simplex has at most one arrow, and the gradient paths sequences of simplices along which density is decreasing.
     <img src="img/camcos/DMT.JPG" class="img-responsive" width="500px"/>
-    When we apply Discrete Morse Theory on the Sloan Digital Sky Survey Data, we find the points of maximum density, pictured here as red points.  The saddles are yellow and light blue. The minima are dark blue points.  The algorithm partitions the data set into ascending and descending manifolds.  In the example of the donut, we only had two pairs of critical points to cancel.  As you can imagine, the process of cancelling critical points given the complexity of our data in 3d is non-trivial.
+    When we apply Discrete Morse Theory on the Sloan Digital Sky Survey Data, we find the points of maximum density, pictured here as red points.  The saddles are yellow and light blue. The minima are dark blue points.  The algorithm partitions the data set into ascending and descending manifolds.  In the example of the donut, we only had two pairs of critical points to cancel.  As you can imagine, the process of cancelling critical points given the complexity of our data in 3D is non-trivial.
     <img src="img/camcos/DMT_result.JPG" class="img-responsive" width="300px"/>
 
   </p>
