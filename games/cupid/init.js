@@ -52,7 +52,7 @@ window.onload = function()
         {id: 'gameOverSound', src: 'assets/gameOver.mp3'},
         {id: 'tick', src: 'assets/tick.mp3'},
         // {id: 'hitSound', src: 'assets/yell.mp3'},
-        {id: 'CupidSpritesheet', src: 'assets/CupidSpritesheet.png'},
+        {id: 'CupidSpriteSheet', src: 'assets/CupidSpriteSheet.png'},
         // {id: 'batDeath', src: 'assets/batDeath.png'},
     ]);
     queue.load();
@@ -88,7 +88,7 @@ function queueLoaded(event)
 
     // Create bat spritesheet
     spriteSheet = new createjs.SpriteSheet({
-        "images": [queue.getResult('CupidSpritesheet')],
+        "images": [queue.getResult('CupidSpriteSheet')],
         "frames": {"width": 300, "height": 230},
         "animations": { "flap": [0,1] }
     });
