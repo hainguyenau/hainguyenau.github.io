@@ -11,8 +11,8 @@ var deathAnimation;
 var spriteSheet;
 var enemyXPos=100;
 var enemyYPos=100;
-var enemyXSpeed = 1.5;
-var enemyYSpeed = 1.75;
+var enemyXSpeed = 10;
+var enemyYSpeed = 5;
 var score = 0;
 var scoreText;
 var gameTimer;
@@ -38,7 +38,7 @@ window.onload = function()
     queue = new createjs.LoadQueue(false);
     queue.installPlugin(createjs.Sound);
     queue.on("complete", queueLoaded, this);
-    createjs.Sound.alternateExtensions = ["ogg"];
+    // createjs.Sound.alternateExtensions = ["ogg"];
 
     /*
      *      Create a load manifest for all assets
@@ -46,14 +46,14 @@ window.onload = function()
      */
     queue.loadManifest([
         {id: 'backgroundImage', src: 'assets/background.png'},
-        {id: 'crossHair', src: 'assets/crosshair.png'},
-        {id: 'shot', src: 'assets/shot.mp3'},
-        {id: 'background', src: 'assets/countryside.mp3'},
-        {id: 'gameOverSound', src: 'assets/gameOver.mp3'},
-        {id: 'tick', src: 'assets/tick.mp3'},
-        {id: 'deathSound', src: 'assets/die.mp3'},
-        {id: 'batSpritesheet', src: 'assets/batSpritesheet.png'},
-        {id: 'batDeath', src: 'assets/batDeath.png'},
+        // {id: 'crossHair', src: 'assets/crosshair.png'},
+        // {id: 'shot', src: 'assets/shot.mp3'},
+        {id: 'background', src: 'assets/music.mp3'},
+        // {id: 'gameOverSound', src: 'assets/gameOver.mp3'},
+        // {id: 'tick', src: 'assets/tick.mp3'},
+        // {id: 'deathSound', src: 'assets/die.mp3'},
+        {id: 'CupidSpritesheet', src: 'assets/CupidSpritesheet.png'},
+        // {id: 'batDeath', src: 'assets/batDeath.png'},
     ]);
     queue.load();
 
@@ -72,33 +72,33 @@ function queueLoaded(event)
     stage.addChild(backgroundImage);
 
     //Add Score
-    scoreText = new createjs.Text("1UP: " + score.toString(), "36px Arial", "#FFF");
-    scoreText.x = 10;
-    scoreText.y = 10;
-    stage.addChild(scoreText);
+    // scoreText = new createjs.Text("1UP: " + score.toString(), "36px Arial", "#FFF");
+    // scoreText.x = 10;
+    // scoreText.y = 10;
+    // stage.addChild(scoreText);
 
     //Ad Timer
-    timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "#FFF");
-    timerText.x = 800;
-    timerText.y = 10;
-    stage.addChild(timerText);
+    // timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "#FFF");
+    // timerText.x = 800;
+    // timerText.y = 10;
+    // stage.addChild(timerText);
 
     // Play background sound
     createjs.Sound.play("background", {loop: -1});
 
     // Create bat spritesheet
     spriteSheet = new createjs.SpriteSheet({
-        "images": [queue.getResult('batSpritesheet')],
-        "frames": {"width": 198, "height": 117},
-        "animations": { "flap": [0,4] }
+        "images": [queue.getResult('CupidSpritesheet')],
+        "frames": {"width": 300, "height": 230},
+        "animations": { "flap": [0,1] }
     });
 
     // Create bat death spritesheet
-    batDeathSpriteSheet = new createjs.SpriteSheet({
-    	"images": [queue.getResult('batDeath')],
-    	"frames": {"width": 198, "height" : 148},
-    	"animations": {"die": [0,7, false,1 ] }
-    });
+    // batDeathSpriteSheet = new createjs.SpriteSheet({
+    	// "images": [queue.getResult('batDeath')],
+    	// "frames": {"width": 198, "height" : 148},
+    	// "animations": {"die": [0,7, false,1 ] }
+    // });
 
     // Create bat sprite
     createEnemy();
@@ -118,7 +118,7 @@ function queueLoaded(event)
 
     // Set up events AFTER the game is loaded
    // window.onmousemove = handleMouseMove;
-    window.onmousedown = handleMouseDown;
+    // window.onmousedown = handleMouseDown;
 }
 
 function createEnemy()
@@ -132,16 +132,16 @@ function createEnemy()
     stage.addChildAt(animation,1);
 }
 
-function batDeath()
-{
-  deathAnimation = new createjs.Sprite(batDeathSpriteSheet, "die");
-  deathAnimation.regX = 99;
-  deathAnimation.regY = 58;
-  deathAnimation.x = enemyXPos;
-  deathAnimation.y = enemyYPos;
-  deathAnimation.gotoAndPlay("die");
-  stage.addChild(deathAnimation);
-}
+// function batDeath()
+// {
+  // deathAnimation = new createjs.Sprite(batDeathSpriteSheet, "die");
+  // deathAnimation.regX = 99;
+  // deathAnimation.regY = 58;
+  // deathAnimation.x = enemyXPos;
+  // deathAnimation.y = enemyYPos;
+  // deathAnimation.gotoAndPlay("die");
+  // stage.addChild(deathAnimation);
+// }
 
 function tickEvent()
 {
@@ -169,85 +169,85 @@ function tickEvent()
 	
 }
 
-/*
-function handleMouseMove(event)
-{
-    //Offset the position by 45 pixels so mouse is in center of crosshair
-    crossHair.x = event.clientX-45;
-    crossHair.y = event.clientY-45;
-}
-*/
 
-function handleMouseDown(event)
-{
+// function handleMouseMove(event)
+// {
+    // Offset the position by 45 pixels so mouse is in center of crosshair
+    // crossHair.x = event.clientX-45;
+    // crossHair.y = event.clientY-45;
+// }
+
+
+// function handleMouseDown(event)
+// {
     
-    //Display CrossHair
-    crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
-    crossHair.x = event.clientX-45;
-    crossHair.y = event.clientY-45;
-    stage.addChild(crossHair);
-    createjs.Tween.get(crossHair).to({alpha: 0},1000);
+    // Display CrossHair
+    // crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
+    // crossHair.x = event.clientX-45;
+    // crossHair.y = event.clientY-45;
+    // stage.addChild(crossHair);
+    // createjs.Tween.get(crossHair).to({alpha: 0},1000);
     
-    //Play Gunshot sound
-    createjs.Sound.play("shot");
+    // Play Gunshot sound
+    // createjs.Sound.play("shot");
 
-    //Increase speed of enemy slightly
-    enemyXSpeed *= 1.05;
-    enemyYSpeed *= 1.06;
+    // Increase speed of enemy slightly
+    // enemyXSpeed *= 1.05;
+    // enemyYSpeed *= 1.06;
 
-    //Obtain Shot position
-    var shotX = Math.round(event.clientX);
-    var shotY = Math.round(event.clientY);
-    var spriteX = Math.round(animation.x);
-    var spriteY = Math.round(animation.y);
+    // Obtain Shot position
+    // var shotX = Math.round(event.clientX);
+    // var shotY = Math.round(event.clientY);
+    // var spriteX = Math.round(animation.x);
+    // var spriteY = Math.round(animation.y);
 
     // Compute the X and Y distance using absolte value
-    var distX = Math.abs(shotX - spriteX);
-    var distY = Math.abs(shotY - spriteY);
+    // var distX = Math.abs(shotX - spriteX);
+    // var distY = Math.abs(shotY - spriteY);
 
     // Anywhere in the body or head is a hit - but not the wings
-    if(distX < 30 && distY < 59 )
-    {
-    	//Hit
-    	stage.removeChild(animation);
-    	batDeath();
-    	score += 100;
-    	scoreText.text = "1UP: " + score.toString();
-    	createjs.Sound.play("deathSound");
+    // if(distX < 30 && distY < 59 )
+    // {
+    	// Hit
+    	// stage.removeChild(animation);
+    	// batDeath();
+    	// score += 100;
+    	// scoreText.text = "1UP: " + score.toString();
+    	// createjs.Sound.play("deathSound");
     	
-        //Make it harder next time
-    	enemyYSpeed *= 1.25;
-    	enemyXSpeed *= 1.3;
+        // Make it harder next time
+    	// enemyYSpeed *= 1.25;
+    	// enemyXSpeed *= 1.3;
 
-    	//Create new enemy
-    	var timeToCreate = Math.floor((Math.random()*3500)+1);
-	    setTimeout(createEnemy,timeToCreate);
+    	// Create new enemy
+    	// var timeToCreate = Math.floor((Math.random()*3500)+1);
+	    // setTimeout(createEnemy,timeToCreate);
 
-    } else
-    {
-    	//Miss
-    	score -= 10;
-    	scoreText.text = "1UP: " + score.toString();
+    // } else
+    // {
+    	// Miss
+    	// score -= 10;
+    	// scoreText.text = "1UP: " + score.toString();
 
-    }
-}
+    // }
+// }
 
-function updateTime()
-{
-	gameTime += 1;
-	if(gameTime > 60)
-	{
-		//End Game and Clean up
-		timerText.text = "GAME OVER";
-		stage.removeChild(animation);
-		stage.removeChild(crossHair);
-        createjs.Sound.removeSound("background");
-        var si =createjs.Sound.play("gameOverSound");
-		clearInterval(gameTimer);
-	}
-	else
-	{
-		timerText.text = "Time: " + gameTime
-    createjs.Sound.play("tick");
-	}
-}
+// function updateTime()
+// {
+	// gameTime += 1;
+	// if(gameTime > 60)
+	// {
+		// End Game and Clean up
+		// timerText.text = "GAME OVER";
+		// stage.removeChild(animation);
+		// stage.removeChild(crossHair);
+        // createjs.Sound.removeSound("background");
+        // var si =createjs.Sound.play("gameOverSound");
+		// clearInterval(gameTimer);
+	// }
+	// else
+	// {
+		// timerText.text = "Time: " + gameTime
+    // createjs.Sound.play("tick");
+	// }
+// }
