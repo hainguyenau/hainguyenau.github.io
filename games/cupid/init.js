@@ -46,7 +46,7 @@ window.onload = function()
      */
     queue.loadManifest([
         {id: 'backgroundImage', src: 'assets/background.png'},
-        // {id: 'crossHair', src: 'assets/crosshair.png'},
+        {id: 'crossHair', src: 'assets/crosshair.png'},
         // {id: 'shot', src: 'assets/shot.mp3'},
         {id: 'background', src: 'assets/music.mp3'},
         // {id: 'gameOverSound', src: 'assets/gameOver.mp3'},
@@ -71,17 +71,17 @@ function queueLoaded(event)
     var backgroundImage = new createjs.Bitmap(queue.getResult("backgroundImage"))
     stage.addChild(backgroundImage);
 
-    //Add Score
-    // scoreText = new createjs.Text("1UP: " + score.toString(), "36px Arial", "#FFF");
-    // scoreText.x = 10;
-    // scoreText.y = 10;
-    // stage.addChild(scoreText);
+    // Add Score
+    scoreText = new createjs.Text("1UP: " + score.toString(), "36px Arial", "#FFF");
+    scoreText.x = 10;
+    scoreText.y = 10;
+    stage.addChild(scoreText);
 
-    //Ad Timer
-    // timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "#FFF");
-    // timerText.x = 800;
-    // timerText.y = 10;
-    // stage.addChild(timerText);
+    // Ad Timer
+    timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "#FFF");
+    timerText.x = 800;
+    timerText.y = 10;
+    stage.addChild(timerText);
 
     // Play background sound
     createjs.Sound.play("background", {loop: -1});
@@ -103,13 +103,13 @@ function queueLoaded(event)
     // Create bat sprite
     createEnemy();
 
-   /*
+   
     // Create crosshair
     crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
     crossHair.x = WIDTH/2;
     crossHair.y = HEIGHT/2;
     stage.addChild(crossHair);
-    */
+    
 
     // Add ticker
     createjs.Ticker.setFPS(15);
@@ -117,8 +117,8 @@ function queueLoaded(event)
     createjs.Ticker.addEventListener('tick', tickEvent);
 
     // Set up events AFTER the game is loaded
-   // window.onmousemove = handleMouseMove;
-    // window.onmousedown = handleMouseDown;
+	window.onmousemove = handleMouseMove;
+    window.onmousedown = handleMouseDown;
 }
 
 function createEnemy()
@@ -170,23 +170,23 @@ function tickEvent()
 }
 
 
-// function handleMouseMove(event)
-// {
+function handleMouseMove(event)
+{
     // Offset the position by 45 pixels so mouse is in center of crosshair
-    // crossHair.x = event.clientX-45;
-    // crossHair.y = event.clientY-45;
-// }
+    crossHair.x = event.clientX-45;
+    crossHair.y = event.clientY-45;
+}
 
 
-// function handleMouseDown(event)
-// {
+function handleMouseDown(event)
+{
     
     // Display CrossHair
-    // crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
-    // crossHair.x = event.clientX-45;
-    // crossHair.y = event.clientY-45;
-    // stage.addChild(crossHair);
-    // createjs.Tween.get(crossHair).to({alpha: 0},1000);
+    crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
+    crossHair.x = event.clientX-45;
+    crossHair.y = event.clientY-45;
+    stage.addChild(crossHair);
+    createjs.Tween.get(crossHair).to({alpha: 0},1000);
     
     // Play Gunshot sound
     // createjs.Sound.play("shot");
@@ -196,58 +196,58 @@ function tickEvent()
     // enemyYSpeed *= 1.06;
 
     // Obtain Shot position
-    // var shotX = Math.round(event.clientX);
-    // var shotY = Math.round(event.clientY);
-    // var spriteX = Math.round(animation.x);
-    // var spriteY = Math.round(animation.y);
+    var shotX = Math.round(event.clientX);
+    var shotY = Math.round(event.clientY);
+    var spriteX = Math.round(animation.x);
+    var spriteY = Math.round(animation.y);
 
     // Compute the X and Y distance using absolte value
-    // var distX = Math.abs(shotX - spriteX);
-    // var distY = Math.abs(shotY - spriteY);
+    var distX = Math.abs(shotX - spriteX);
+    var distY = Math.abs(shotY - spriteY);
 
     // Anywhere in the body or head is a hit - but not the wings
-    // if(distX < 30 && distY < 59 )
-    // {
+    if(distX < 30 && distY < 59 )
+    {
     	// Hit
-    	// stage.removeChild(animation);
+    	stage.removeChild(animation);
     	// batDeath();
-    	// score += 100;
-    	// scoreText.text = "1UP: " + score.toString();
-    	// createjs.Sound.play("deathSound");
+    	score += 100;
+    	scoreText.text = "1UP: " + score.toString();
+    	createjs.Sound.play("deathSound");
     	
         // Make it harder next time
-    	// enemyYSpeed *= 1.25;
-    	// enemyXSpeed *= 1.3;
+    	enemyYSpeed *= 1.25;
+    	enemyXSpeed *= 1.3;
 
     	// Create new enemy
-    	// var timeToCreate = Math.floor((Math.random()*3500)+1);
-	    // setTimeout(createEnemy,timeToCreate);
+    	var timeToCreate = Math.floor((Math.random()*3500)+1);
+	    setTimeout(createEnemy,timeToCreate);
 
-    // } else
-    // {
-    	// Miss
-    	// score -= 10;
-    	// scoreText.text = "1UP: " + score.toString();
+    } else
+    {
+    	Miss
+    	score -= 10;
+    	scoreText.text = "1UP: " + score.toString();
 
-    // }
-// }
+    }
+}
 
-// function updateTime()
-// {
-	// gameTime += 1;
-	// if(gameTime > 60)
-	// {
+function updateTime()
+{
+	gameTime += 1;
+	if(gameTime > 60)
+	{
 		// End Game and Clean up
-		// timerText.text = "GAME OVER";
-		// stage.removeChild(animation);
-		// stage.removeChild(crossHair);
-        // createjs.Sound.removeSound("background");
-        // var si =createjs.Sound.play("gameOverSound");
-		// clearInterval(gameTimer);
-	// }
-	// else
-	// {
-		// timerText.text = "Time: " + gameTime
-    // createjs.Sound.play("tick");
-	// }
-// }
+		timerText.text = "GAME OVER";
+		stage.removeChild(animation);
+		stage.removeChild(crossHair);
+        createjs.Sound.removeSound("background");
+        var si =createjs.Sound.play("gameOverSound");
+		clearInterval(gameTimer);
+	}
+	else
+	{
+		timerText.text = "Time: " + gameTime
+		createjs.Sound.play("tick");
+	}
+}
