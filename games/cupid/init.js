@@ -117,7 +117,7 @@ function queueLoaded(event)
     createjs.Ticker.addEventListener('tick', tickEvent);
 
     // Set up events AFTER the game is loaded
-	// window.onmousemove = handleMouseMove;
+	window.onmousemove = handleMouseMove;
     window.onmousedown = handleMouseDown;
 }
 
@@ -170,12 +170,12 @@ function tickEvent()
 }
 
 
-// function handleMouseMove(event)
-// {
+function handleMouseMove(event)
+{
     // Offset the position by 100 pixels so mouse is in center of crosshair
-    // crossHair.x = event.clientX;
-    // crossHair.y = event.clientY;
-// }
+    crossHair.x = event.clientX - 45;
+    crossHair.y = event.clientY - 200;
+}
 
 
 function handleMouseDown(event)
