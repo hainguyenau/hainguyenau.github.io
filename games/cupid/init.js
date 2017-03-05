@@ -16,7 +16,7 @@ var enemyYSpeed = 5;
 var score = 0;
 var scoreText;
 var gameTimer;
-var gameTime = 0;
+var gameTime = 60;
 var timerText;
 
 window.onload = function()
@@ -53,7 +53,7 @@ window.onload = function()
         {id: 'tick', src: 'assets/tick.mp3'},
         {id: 'hitSound', src: 'assets/yell.mp3'},
         {id: 'CupidSpriteSheet', src: 'assets/CupidSpriteSheet.png'},
-        {id: 'boom', src: 'assets/boom.png'},
+        {id: 'hit', src: 'assets/HitSpriteSheet.png'},
     ]);
     queue.load();
 
@@ -95,10 +95,13 @@ function queueLoaded(event)
 
     // Create hit spritesheet
     hitSpriteSheet = new createjs.SpriteSheet({
-    	"images": [queue.getResult('boom')],
+    	"images": [queue.getResult('hit')],
     	"frames": {"width": 300, "height" : 207},
-    	"animations": {"die": [0, false,1 ] }
+    	"animations": {"hit": [0, 1, false, 1 ] }
     });
+	
+
+
 
     // Create bat sprite
     createEnemy();
@@ -117,7 +120,7 @@ function queueLoaded(event)
     createjs.Ticker.addEventListener('tick', tickEvent);
 
     // Set up events AFTER the game is loaded
-	window.onmousemove = handleMouseMove;
+	// window.onmousemove = handleMouseMove;
     window.onmousedown = handleMouseDown;
 }
 
@@ -134,12 +137,12 @@ function createEnemy()
 
 function hit()
 {
-  hitSpriteSheetAnimation = new createjs.Sprite(hitSpriteSheet, "die");
+  hitSpriteSheetAnimation = new createjs.Sprite(hitSpriteSheet, "hit");
   hitAnimation.regX = 99;
   hitAnimation.regY = 58;
   hitAnimation.x = enemyXPos;
   hitAnimation.y = enemyYPos;
-  hitAnimation.gotoAndPlay("die");
+  hitAnimation.gotoAndPlay("hit");
   stage.addChild(hitAnimation);
 }
 
@@ -162,20 +165,19 @@ function tickEvent()
 		enemyYSpeed = enemyYSpeed * (-1);
 		enemyYPos += enemyYSpeed;
 	}
-
 	animation.x = enemyXPos;
 	animation.y = enemyYPos;
-
+	
 
 }
 
 
-function handleMouseMove(event)
-{
+// function handleMouseMove(event)
+// {
     // Offset the position by 100 pixels so mouse is in center of crosshair
-    crossHair.x = event.clientX - 45;
-    crossHair.y = event.clientY - 200;
-}
+    // crossHair.x = event.clientX;
+    // crossHair.y = event.clientY - 300;
+// }
 
 
 function handleMouseDown(event)
@@ -210,7 +212,7 @@ function handleMouseDown(event)
     {
     	// Hit
     	stage.removeChild(animation);
-    	// hit();
+    	hit();
     	score += 100;
     	scoreText.text = "Score: " + score.toString();
     	createjs.Sound.play("hitSound");
@@ -232,10 +234,17 @@ function handleMouseDown(event)
     }
 }
 
+function hit() {
+	//Create hit image
+	var hitImage = new createjs.Bitmap(queue.getResult("boom"))
+	stage.addChild(hitImage);
+	setTimeout(stage.removeChild(hitImage),1000);
+}
+
 function updateTime()
 {
-	gameTime += 1;
-	if(gameTime > 60)
+	gameTime -= 1;
+	if(gameTime == 0)
 	{
 		// End Game and Clean up
 		timerText.text = "GAME OVER";
