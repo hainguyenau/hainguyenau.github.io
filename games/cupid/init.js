@@ -1,13 +1,13 @@
 var context;
 var queue;
-var WIDTH = 720;
-var HEIGHT = 1280;
+var WIDTH = 1000;
+var HEIGHT = 572;
 var mouseXPosition;
 var mouseYPosition;
 var batImage;
 var stage;
 var animation;
-var deathAnimation;
+var hitAnimation;
 var spriteSheet;
 var enemyXPos=100;
 var enemyYPos=100;
@@ -45,7 +45,7 @@ window.onload = function()
      *
      */
     queue.loadManifest([
-        {id: 'backgroundImage', src: 'assets/background.png'},
+        {id: 'backgroundImage', src: 'assets/background.jpg'},
         {id: 'crossHair', src: 'assets/crosshair.png'},
         {id: 'shot', src: 'assets/shot.mp3'},
         {id: 'background', src: 'assets/music.mp3'},
@@ -53,7 +53,7 @@ window.onload = function()
         {id: 'tick', src: 'assets/tick.mp3'},
         {id: 'hitSound', src: 'assets/yell.mp3'},
         {id: 'CupidSpriteSheet', src: 'assets/CupidSpriteSheet.png'},
-        // {id: 'batDeath', src: 'assets/batDeath.png'},
+        {id: 'boom', src: 'assets/boom.png'},
     ]);
     queue.load();
 
@@ -72,13 +72,13 @@ function queueLoaded(event)
     stage.addChild(backgroundImage);
 
     // Add Score
-    scoreText = new createjs.Text("1UP: " + score.toString(), "36px Arial", "#FFF");
+    scoreText = new createjs.Text("Score: " + score.toString(), "36px Arial", "#FFF");
     scoreText.x = 10;
     scoreText.y = 10;
     stage.addChild(scoreText);
 
     // Ad Timer
-    timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "#FFF");
+    timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "");
     timerText.x = 800;
     timerText.y = 10;
     stage.addChild(timerText);
@@ -90,15 +90,15 @@ function queueLoaded(event)
     spriteSheet = new createjs.SpriteSheet({
         "images": [queue.getResult('CupidSpriteSheet')],
         "frames": {"width": 300, "height": 230},
-        "animations": { "flap": [0,1], speed: 0.5 }
+        "animations": { "flap": [0,1] }
     });
 
-    // Create bat death spritesheet
-    // batDeathSpriteSheet = new createjs.SpriteSheet({
-    	// "images": [queue.getResult('batDeath')],
-    	// "frames": {"width": 198, "height" : 148},
-    	// "animations": {"die": [0,7, false,1 ] }
-    // });
+    // Create hit spritesheet
+    hitSpriteSheet = new createjs.SpriteSheet({
+    	"images": [queue.getResult('boom')],
+    	"frames": {"width": 300, "height" : 207},
+    	"animations": {"die": [0, false,1 ] }
+    });
 
     // Create bat sprite
     createEnemy();
@@ -132,16 +132,16 @@ function createEnemy()
     stage.addChildAt(animation,1);
 }
 
-// function hit()
-// {
-//   deathAnimation = new createjs.Sprite(batDeathSpriteSheet, "die");
-//   deathAnimation.regX = 99;
-//   deathAnimation.regY = 58;
-//   deathAnimation.x = enemyXPos;
-//   deathAnimation.y = enemyYPos;
-//   deathAnimation.gotoAndPlay("die");
-//   stage.addChild(deathAnimation);
-// }
+function hit()
+{
+  hitSpriteSheetAnimation = new createjs.Sprite(hitSpriteSheet, "die");
+  hitAnimation.regX = 99;
+  hitAnimation.regY = 58;
+  hitAnimation.x = enemyXPos;
+  hitAnimation.y = enemyYPos;
+  hitAnimation.gotoAndPlay("die");
+  stage.addChild(hitAnimation);
+}
 
 function tickEvent()
 {
@@ -192,8 +192,8 @@ function handleMouseDown(event)
     createjs.Sound.play("shot");
 
     // Increase speed of enemy slightly
-    // enemyXSpeed *= 1.05;
-    // enemyYSpeed *= 1.06;
+    enemyXSpeed *= 1.05;
+    enemyYSpeed *= 1.02;
 
     // Obtain Shot position
     var shotX = Math.round(event.clientX);
@@ -212,12 +212,12 @@ function handleMouseDown(event)
     	stage.removeChild(animation);
     	// hit();
     	score += 100;
-    	scoreText.text = "1UP: " + score.toString();
-    	// createjs.Sound.play("hitSound");
+    	scoreText.text = "Score: " + score.toString();
+    	createjs.Sound.play("hitSound");
 
         // Make it harder next time
-    	// enemyYSpeed *= 1.25;
-    	// enemyXSpeed *= 1.3;
+    	enemyYSpeed *= 1.25;
+    	enemyXSpeed *= 1.3;
 
     	// Create new enemy
     	var timeToCreate = Math.floor((Math.random()*3500)+1);
@@ -227,7 +227,7 @@ function handleMouseDown(event)
     {
     	// Miss
     	score -= 10;
-    	scoreText.text = "1UP: " + score.toString();
+    	scoreText.text = "Score: " + score.toString();
 
     }
 }
