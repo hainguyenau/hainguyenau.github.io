@@ -51,7 +51,7 @@ window.onload = function()
         {id: 'background', src: 'assets/music.mp3'},
         {id: 'gameOverSound', src: 'assets/gameOver.mp3'},
         {id: 'tick', src: 'assets/tick.mp3'},
-        // {id: 'hitSound', src: 'assets/yell.mp3'},
+        {id: 'hitSound', src: 'assets/yell.mp3'},
         {id: 'CupidSpriteSheet', src: 'assets/CupidSpriteSheet.png'},
         // {id: 'batDeath', src: 'assets/batDeath.png'},
     ]);
@@ -90,7 +90,7 @@ function queueLoaded(event)
     spriteSheet = new createjs.SpriteSheet({
         "images": [queue.getResult('CupidSpriteSheet')],
         "frames": {"width": 300, "height": 230},
-        "animations": { "flap": [0,1] }
+        "animations": { "flap": [0,1], speed: 0.5 }
     });
 
     // Create bat death spritesheet
@@ -103,13 +103,13 @@ function queueLoaded(event)
     // Create bat sprite
     createEnemy();
 
-   
+
     // Create crosshair
     crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
     crossHair.x = WIDTH/2;
     crossHair.y = HEIGHT/2;
     // stage.addChild(crossHair);
-    
+
 
     // Add ticker
     createjs.Ticker.setFPS(15);
@@ -134,13 +134,13 @@ function createEnemy()
 
 // function hit()
 // {
-  // deathAnimation = new createjs.Sprite(batDeathSpriteSheet, "die");
-  // deathAnimation.regX = 99;
-  // deathAnimation.regY = 58;
-  // deathAnimation.x = enemyXPos;
-  // deathAnimation.y = enemyYPos;
-  // deathAnimation.gotoAndPlay("die");
-  // stage.addChild(deathAnimation);
+//   deathAnimation = new createjs.Sprite(batDeathSpriteSheet, "die");
+//   deathAnimation.regX = 99;
+//   deathAnimation.regY = 58;
+//   deathAnimation.x = enemyXPos;
+//   deathAnimation.y = enemyYPos;
+//   deathAnimation.gotoAndPlay("die");
+//   stage.addChild(deathAnimation);
 // }
 
 function tickEvent()
@@ -149,7 +149,7 @@ function tickEvent()
 	if(enemyXPos < WIDTH && enemyXPos > 0)
 	{
 		enemyXPos += enemyXSpeed;
-	} else 
+	} else
 	{
 		enemyXSpeed = enemyXSpeed * (-1);
 		enemyXPos += enemyXSpeed;
@@ -166,7 +166,7 @@ function tickEvent()
 	animation.x = enemyXPos;
 	animation.y = enemyYPos;
 
-	
+
 }
 
 
@@ -180,14 +180,14 @@ function tickEvent()
 
 function handleMouseDown(event)
 {
-    
+
     // Display CrossHair
     crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
     crossHair.x = event.clientX-45;
     crossHair.y = event.clientY-45;
     stage.addChild(crossHair);
     createjs.Tween.get(crossHair).to({alpha: 0},1000);
-    
+
     // Play Gunshot sound
     createjs.Sound.play("shot");
 
@@ -214,7 +214,7 @@ function handleMouseDown(event)
     	score += 100;
     	scoreText.text = "1UP: " + score.toString();
     	// createjs.Sound.play("hitSound");
-    	
+
         // Make it harder next time
     	// enemyYSpeed *= 1.25;
     	// enemyXSpeed *= 1.3;
