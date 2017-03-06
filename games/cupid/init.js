@@ -9,10 +9,10 @@ var stage;
 var animation;
 var hitAnimation;
 var spriteSheet;
-var enemyXPos=100;
-var enemyYPos=100;
-var enemyXSpeed = 10;
-var enemyYSpeed = 5;
+var enemyXPos=50;
+var enemyYPos=50;
+var enemyXSpeed = 5;
+var enemyYSpeed = 2;
 var score = 0;
 var scoreText;
 var gameTimer;
@@ -79,7 +79,7 @@ function queueLoaded(event)
 
     // Ad Timer
     timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "");
-    timerText.x = 800;
+    timerText.x = 750;
     timerText.y = 10;
     stage.addChild(timerText);
 
@@ -128,7 +128,7 @@ function createEnemy()
 {
 	animation = new createjs.Sprite(spriteSheet, "flap");
     animation.regX = 99;
-    animation.regY = 58;
+    animation.regY = 200;
     animation.x = enemyXPos;
     animation.y = enemyYPos;
     animation.gotoAndPlay("flap");
@@ -139,7 +139,7 @@ function hit()
 {
   hitSpriteSheetAnimation = new createjs.Sprite(hitSpriteSheet, "hit");
   hitAnimation.regX = 99;
-  hitAnimation.regY = 58;
+  hitAnimation.regY = 150;
   hitAnimation.x = enemyXPos;
   hitAnimation.y = enemyYPos;
   hitAnimation.gotoAndPlay("hit");
@@ -185,8 +185,8 @@ function handleMouseDown(event)
 
     // Display CrossHair
     crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
-    crossHair.x = event.clientX-45;
-    crossHair.y = event.clientY-45;
+    crossHair.x = event.clientX-50;
+    crossHair.y = event.clientY-235;
     stage.addChild(crossHair);
     createjs.Tween.get(crossHair).to({alpha: 0},1000);
 
@@ -194,8 +194,8 @@ function handleMouseDown(event)
     createjs.Sound.play("shot");
 
     // Increase speed of enemy slightly
-    enemyXSpeed *= 1.05;
-    enemyYSpeed *= 1.02;
+    // enemyXSpeed *= 1.02;
+    // enemyYSpeed *= 1.01;
 
     // Obtain Shot position
     var shotX = Math.round(event.clientX);
@@ -218,8 +218,8 @@ function handleMouseDown(event)
     	createjs.Sound.play("hitSound");
 
         // Make it harder next time
-    	enemyYSpeed *= 1.25;
-    	enemyXSpeed *= 1.3;
+    	// enemyYSpeed *= 1.25;
+    	// enemyXSpeed *= 1.3;
 
     	// Create new enemy
     	var timeToCreate = Math.floor((Math.random()*3500)+1);
