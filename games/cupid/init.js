@@ -7,7 +7,7 @@ var mouseYPosition;
 var batImage;
 var stage;
 var animation;
-var hitAnimation;
+var deathAnimation;
 var spriteSheet;
 var enemyXPos=50;
 var enemyYPos=50;
@@ -53,7 +53,7 @@ window.onload = function()
         {id: 'tick', src: 'assets/tick.mp3'},
         {id: 'hitSound', src: 'assets/yell.mp3'},
         {id: 'CupidSpriteSheet', src: 'assets/CupidSpriteSheet.png'},
-        {id: 'hit', src: 'assets/HitSpriteSheet.png'},
+        {id: 'batDeath', src: 'assets/batDeath.png'},
     ]);
     queue.load();
 
@@ -86,18 +86,18 @@ function queueLoaded(event)
     // Play background sound
     createjs.Sound.play("background", {loop: -1});
 
-    // Create bat spritesheet
+    // Create cupid spritesheet
     spriteSheet = new createjs.SpriteSheet({
         "images": [queue.getResult('CupidSpriteSheet')],
-        "frames": {"width": 300, "height": 230},
+        "frames": {"width": 300, "height": 207},
         "animations": { "flap": [0,1] }
     });
 
     // Create hit spritesheet
-    hitSpriteSheet = new createjs.SpriteSheet({
-    	"images": [queue.getResult('hit')],
+    batDeathSpriteSheet = new createjs.SpriteSheet({
+    	"images": [queue.getResult('batDeath')],
     	"frames": {"width": 300, "height" : 207},
-    	"animations": {"hit": [0, 1, false, 1 ] }
+    	"animations": {"die": [0, 3, false, 1 ] }
     });
 	
 
@@ -135,16 +135,17 @@ function createEnemy()
     stage.addChildAt(animation,1);
 }
 
-function hit()
+function batDeath()
 {
-  hitSpriteSheetAnimation = new createjs.Sprite(hitSpriteSheet, "hit");
-  hitAnimation.regX = 99;
-  hitAnimation.regY = 150;
-  hitAnimation.x = enemyXPos;
-  hitAnimation.y = enemyYPos;
-  hitAnimation.gotoAndPlay("hit");
-  stage.addChild(hitAnimation);
+  deathAnimation = new createjs.Sprite(batDeathSpriteSheet, "die");
+  deathAnimation.regX = 99;
+  deathAnimation.regY = 200;
+  deathAnimation.x = enemyXPos;
+  deathAnimation.y = enemyYPos;
+  deathAnimation.gotoAndPlay("die");
+  stage.addChild(deathAnimation);
 }
+
 
 function tickEvent()
 {
@@ -212,7 +213,7 @@ function handleMouseDown(event)
     {
     	// Hit
     	stage.removeChild(animation);
-    	hit();
+    	batDeath();
     	score += 100;
     	scoreText.text = "Score: " + score.toString();
     	createjs.Sound.play("hitSound");
