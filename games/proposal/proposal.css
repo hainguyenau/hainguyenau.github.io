@@ -1,6 +1,6 @@
 .button1 {
 	position:absolute;bottom:0;right:0;
-	
+
 }
 
 body {
@@ -26,9 +26,9 @@ body {
 	top:10%;
 	margin: auto;
 	}
-	
-h1 { 
-	color: white;
+
+h1 {
+	color:black;
 	font-family: "Verdana, sans-serif";
 	text-shadow: 2px 2px 2px grey;
 }
