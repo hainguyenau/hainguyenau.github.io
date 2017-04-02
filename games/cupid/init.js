@@ -223,7 +223,7 @@ function handleMouseDown(event)
     	// enemyXSpeed *= 1.3;
 
     	// Create new enemy
-    	var timeToCreate = Math.floor((Math.random()*3500)+1);
+    	var timeToCreate = 3000;
 	    setTimeout(createEnemy,timeToCreate);
 
     } else
