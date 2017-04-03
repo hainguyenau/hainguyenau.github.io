@@ -128,8 +128,8 @@
       <li>3-dimensioanl: a tetrahedron</li>
     </ul>
     The <em>gradient paths</em> arrows from higher density to lower density. Each simplex has at most one arrow, and the gradient paths sequences of simplices along which density is decreasing.
-    <img src="img/camcos/DMT.JPG" class="img-responsive" width="500px"/>
-    When we apply Discrete Morse Theory on the Sloan Digital Sky Survey Data, we find the points of maximum density, pictured here as red points.  The saddles are yellow and light blue. The minima are dark blue points.  The algorithm partitions the data set into ascending and descending manifolds.  In the example of the donut, we only had two pairs of critical points to cancel.  As you can imagine, the process of cancelling critical points given the complexity of our data in 3D is non-trivial.
+    <img src="img/camcos/DMT.JPG" class="img-responsive" width="500px"/><br>
+    When we apply Discrete Morse Theory on the Sloan Digital Sky Survey Data, we find the points of maximum density, pictured here as red points.  The saddles are yellow and light blue. The minima are dark blue points.  The algorithm partitions the data set into ascending and descending manifolds.  In the example of the donut, we only had two pairs of critical points to cancel.  As you can imagine, the process of cancelling critical points given the complexity of our data in 3D is non-trivial.<br><br>
     <img src="img/camcos/DMT_result.JPG" class="img-responsive" width="300px"/>
 
   </p>
@@ -143,17 +143,17 @@
       <li>Boundary points: points on the edge of a max class</li>
       <li>Bond Edges: edges between 2 points on different boundaries (i.e. in 2 different max classes)</li>
     </ul>
-      <img src="img/camcos/HOP.JPG" class="img-responsive" width="300px"/>
+      <img src="img/camcos/HOP.JPG" class="img-responsive" width="300px"/><br>
     HOP is a very simple parameter-free algorithm with several other benefits. It is easy to compute, can allow room for pre-/ post-processing. The algorith provides guaranteed and unique convergence. The paths can be reversed and generalized to any dimension.
 
 
   </p>
 <h3>&alpha;-shapes</h3>
   <p>
-    To create an &alpha;-shape, we start with a Voronoi cell (blue area) and the representative data point (red dot). Then we create a disk of radius &alpha;, centerd at the data point in the Voronoi cell (yellow disk). The intersection of the Voronoi cell and the disk of radius &alpha; is the <b>&alpha;-shape</b>.
-    <img src="img/camcos/alpha.jpg" class="img-responsive" width="600px"/>
-    When the radius &alpha; is large enough, neighboring &alpha;-shapes have intersecting boundaries. When two neighboring &alpha;-shape intersect, we connect the data points with an edge. When three &alpha;-shapes share a point on their boundary, we can fill in the triangle as shown below
-    <img src="img/camcos/alpha2.JPG" class="img-responsive" width="300px"/>
+    To create an &alpha;-shape, we start with a Voronoi cell (blue area) and the representative data point (red dot). Then we create a disk of radius &alpha;, centerd at the data point in the Voronoi cell (yellow disk). The intersection of the Voronoi cell and the disk of radius &alpha; is the <b>&alpha;-shape</b>.<br><br>
+    <img src="img/camcos/alpha.jpg" class="img-responsive" width="600px"/><br>
+    When the radius &alpha; is large enough, neighboring &alpha;-shapes have intersecting boundaries. When two neighboring &alpha;-shape intersect, we connect the data points with an edge. When three &alpha;-shapes share a point on their boundary, we can fill in the triangle as shown below<br><br>
+    <img src="img/camcos/alpha2.JPG" class="img-responsive" width="300px"/><br>
     As &alpha; increases, more and more connections over large distances are made. As &alpha; approaches infinity, we recover the full Delaunay triangulation.
 
     <div class="alpha-shape img"></div>
