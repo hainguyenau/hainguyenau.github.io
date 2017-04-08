@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Titanic: Machine Learning from Disaster</title>
+  <!-- metas -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+
+  <!-- link to bootstrap and my css -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css" />
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+</head>
+
+<body>
+<!--Nav Bar-->
+
+    <nav class="navbar navbar-default" id="body-center">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html"><b>Hai Nguyen Au</b></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="../index.html">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="../profile.html">Profile</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../games.html">Games</a></li>
+        <li><a href="../music.html">Music</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--End navbar>
+
+<!--Header-->
+<div class="container">
+  <div class="page-header">
+    <h1 id="name"><em>Titanic: Machine Learning from Disaster</em></h1>
+    <a href="https://github.com/hainguyenau/Kaggle-Titanic/" target="_blank"><button type="button" class="btn btn-info">Github Repository</button></a>
+  </div>
+</div>
+<!--End header-->
+
+<!--Begin presentation-->
+<div class="container">
+  <img src="img/Kaggle.png" height="50px"/>
+  <h2>Information</h2>
+  <p>This is my first Kaggle machine learning "competition". My goal is to play with classic data to improve my analytic skills and learn from what others are doing with the same data. Getting experience in the data world nowadays is simple since public data are widely available. Starting from the data from 1912 means I am a little behind compared to other data scientists. But it is still the first step.</p>
+  
+	<h2>Introduction</h2>
+	<p>Titanic is the infamous disaster that everyone has heard about. The blockbuster movie in 1997 attempted to depict the event and became a huge success. But there are still many mysteries around this tragedy that were left unanswered. This project is not about trying to find new information that has been avading scientists for more than a century, but is an attempt to give me a better picture about the demographics of those whose lives were taken by the event, and those lucky ones who survived. There are two major goals of this project:
+		<ol>
+			<li>Use statistics to explorer the features that might effect the chance of survival among the passengers.</li>
+			<li>Use machine learning to construct models that can classify the probabilities of surviving using the important features found above.</li>
+		</ol>
+	
+	<h3>The Data</h3>
+		<table class="tabled-striped" border="1">
+			<tr>
+				<th>Variable</th>
+				<th>Definition</th>
+			</tr>
+			<tr>
+				<td>survival</td>
+				<td>Survival	(0 = No, 1 = Yes)</td>
+			</tr>		
+				<tr>
+				<td>pclass</td>
+				<td>Ticket class	(1 = 1st, 2 = 2nd, 3 = 3rd)</td>
+			</tr>
+					<tr>
+				<td>sex</td>
+				<td>Sex</td>
+			</tr>
+			<tr>
+				<td>Age</td>
+				<td>Age in years</td>
+			</tr>
+			<tr>
+				<td>sibsp	</td>
+				<td>Number of siblings / spouses aboard the Titanic</td>
+			</tr>
+			<tr>
+				<td>parch</td>
+				<td>Number of parents / children aboard the Titanic</td>
+			</tr>
+			<tr>
+				<td>ticket</td>
+				<td>Ticket number</td>
+			</tr>
+			<tr>
+				<td>fare</td>
+				<td>Passenger fare</td>
+			</tr>
+			<tr>
+				<td>cabin</td>
+				<td>Cabin number</td>
+			</tr>
+			<tr>
+				<td>embarked</td>
+				<td>Port of Embarkation (C = Cherbourg, Q = Queenstown, S = Southampton)</td>
+			</tr>
+		</table>
+
+  <h2>Exploratory Data Analysis</h2>
+		<p>
+			First, we look at the scatter plots between all variables to see if there are any apparent relationship among the raw variables.
+			<img class="img-responsive" src="img/titanic/scatter_plot.png" width="500"/>
+			The plots do not show any paraticularly strong relationship between any pair of variables. The diagonal histograms gives us the distributions of each variable of the dataset. We will look more into this.
+		</p>
+	<h3>The Age Effect</h3>
+		<p>Usually when accidents like these happens, we would expect that young children and the elders are the first to be saved and have higher chance of surviving. Below are the histogram of the distribution of the passengers' ages on the ship.
+			<img class="img-responsive" src="img/titanic/age_hist.png" width="500"/>
+		We can see that the majoraty of the passengers are adults from around 17 to 50 years of age. Conseequently, there are more adults died in the accident than children and elders, as shown by the high density in this age group for both the survivors and non-survivors.
+			<img class="img-responsive" src="img/titanic/age_plot.png" width="500"/>
+		To explore in more details, I divided the passengers into four different age groups and calculted the survival rates for each group:
+			
+			<table class="tabled-striped" border="1">
+				<tr>
+					<th>Group</th>
+					<th>Age Range</th>
+					<th>Survival Rate</th>
+					<th>Size</th>
+				</tr>
+				<tr>
+					<td>Children</td>
+					<td>< 18</td>
+					<td>0.53982</td>
+					<td>113</td>
+				<tr>
+					<td>Younger Adults</td>
+					<td>18-30</td>
+					<td>0.35473</td>
+					<td>296</td>
+				</tr>
+				<tr>
+					<td>Older Adults</td>
+					<td>30-50</td>
+					<td>0.423237</td>
+					<td>241</td>
+				</tr>
+				<tr>
+					<td>Elders</td>
+					<td>> 50</td>
+					<td>0.34375</td>
+					<td>64</td>
+				</tr>
+			</table>
+			
+			From this table, there are some differences between the groups. However, we need to take into account the differences in sizes of the groups. To determine if the survival proportions of these groups are from the same popluation, I performed a one-way F-test. The resulting p-value of 0.00061 suggests that these groups don't have the same survivla rates. Children had a higher chanced to be saved. Older adults were also more likely to save themselves. Younger adults had a lower chance to survive, probably because they were likely to sarcrifice themselves to save others. The elders were also had a lower survival rate, which makes sense in situations like this.
+		</p>
+		
+		<h3>The Fare Effect</h3>
+		<p>
+			It is a common belief that passengers who paid more in fare stayed in locations that were easier to escape. The histogram and violin plot below show the distribution of fare among all passengers. The calculated median fare was \$14.45 while the mean fare was $32.20. 
+			<img class="img-responsive" src="img/titanic/fare_all.png" width="500"/>
+			<img class="img-responsive" src="img/titanic/fare_violin.png" width="500"/>
+			
+			By comparing the survivors and non-survivors, we can see that hypothesis could be true. We can see that people who died during the accident (red) paid lower fare than those who survived (green).
+			<img class="img-responsive" src="img/titanic/fare_hist.png" width="500"/>
+			Next, I separated into two groups:
+				<ul>
+					<li>High-fare: those who paid above the 0.75 quantile of fare</li>
+					<li>Low-fare: those who paid below the 0.75 quantile of fare</li>
+				</ul>
+	
+			A hypothesis test with p-value of $1.6392e^{-12}$ also supports the conclusion that the surviving proportions between these two groups are not the same, and the high-fare group has a higher probability of surviving. Another possible important feature was probably the the passengers' classes. However, I decided to drop this feature because it could be redundant to the fare feature. Note that by looking at the histograms below. We can see that class 1 had higher fare (further to the right) and class 3 had low fare (further to the left). A hypothesis test between class 2 and 3 with p-value of $8.3042e^{-11}$ suggests that they are class 2 had higher fare than class 3. 
+			<img class="img-responsive" src="img/titanic/class_hist.png" width="500"/>
+
+ 		</p>
+		
+		<h3>The Gender Effect</h3>
+		<p>
+			Next, we will look at the theory that female passengers are more likely to survive than male passengers. Just like most people, I had a strong belief for this theory. But let us verify it using data. Again, I plotted the histograms for male and female susvivors. It is apparent that the rate of surviving female passengers is significantly higher than that of male. A hypothesis test with p-value of $1.4061e^{-69}$ strongly suggests this.</p>
+			<img class="img-responsive" src="img/titanic/gender.png" width="500"/>
+		</p>
+		
+		<h3>The Embarked Effect</h3>
+		<p>
+			The last feature we will consider is the "Port of Embarkation". According to return return route of the Titanic, it was going from Southampton - to Cherbourg - to Queenstown - to New York. I suspected that order of ports of embarkation can have significant effect to the passengers' fates since it could influence the locations on the ship of the passengers. The histograms  of three groups of embarkations are shown. We can immediately see that the number of passengers decreases by the order of embarkation. Southampton have the most passengers, then Cherbourg, and finally Queenstown. 
+			<img class="img-responsive" src="img/titanic/route.JPG" width="600"/>
+			<img class="img-responsive" src="img/titanic/embarked.png" width="600"/>
+		
+			If we look at the survival rate for each port of embakation, we can see that Cherbourg passengers have a higher chance of surviving than those who were from the other two ports. I performed a one-way F-test on all three groups. The obtained p-value of $1.5143e^{-6}$ confirms that there is a discrepancy between the three groups. Next, I performed another F-test on the first and last two ports: Southampton and Queenstown to find if the two groups have the same survival rates as their histograms imply. The resulting p-value of $0.3582$ suggests that is likely to be true. So, it could be the case that passengers who were "squeezed" in the middle might have a better chance of surviving. I do not have a good explanation for this.
+		</p>
+		
+<!--End presentation-->
+</div>
+
+<!--JQuery and JS links -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
