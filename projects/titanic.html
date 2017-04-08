@@ -134,8 +134,15 @@
 	<h3>The Age Effect</h3>
 		<p>Usually when accidents like these happens, we would expect that young children and the elders are the first to be saved and have higher chance of surviving. Below are the histogram of the distribution of the passengers' ages on the ship.
 			<img class="img-responsive" src="img/titanic/age_hist.png" width="500"/>
+			<b><u>Figure</u></b>:<i>The distribution of age among passengers.</i>
+		</p>
+		
+		<p>
 		We can see that the majoraty of the passengers are adults from around 17 to 50 years of age. Conseequently, there are more adults died in the accident than children and elders, as shown by the high density in this age group for both the survivors and non-survivors.
 			<img class="img-responsive" src="img/titanic/age_plot.png" width="500"/>
+			<b><u>Figure</u></b>:<i>The effect of different age on survival rates.</i>
+			</p>
+		<p>
 		To explore in more details, I divided the passengers into four different age groups and calculted the survival rates for each group:
 			
 			<table class="tabled-striped" border="1">
@@ -178,10 +185,16 @@
 			It is a common belief that passengers who paid more in fare stayed in locations that were easier to escape. The histogram and violin plot below show the distribution of fare among all passengers. The calculated median fare was \$14.45 while the mean fare was $32.20. 
 			<img class="img-responsive" src="img/titanic/fare_all.png" width="500"/>
 			<img class="img-responsive" src="img/titanic/fare_violin.png" width="500"/>
+			<b><u>Figure</u></b>:<i>The distribution of fare among passengers.</i>
+			</p>
 			
+			<p>
 			By comparing the survivors and non-survivors, we can see that hypothesis could be true. We can see that people who died during the accident (red) paid lower fare than those who survived (green).
 			<img class="img-responsive" src="img/titanic/fare_hist.png" width="500"/>
-			Next, I separated into two groups:
+			<b><u>Figure</u></b>:<i>The effect fare on survival rates.</i>
+			</p>
+			<p>
+			Next, I separated the passengers into two groups:
 				<ul>
 					<li>High-fare: those who paid above the 0.75 quantile of fare</li>
 					<li>Low-fare: those who paid below the 0.75 quantile of fare</li>
@@ -189,6 +202,7 @@
 	
 			A hypothesis test with p-value of $1.6392e^{-12}$ also supports the conclusion that the surviving proportions between these two groups are not the same, and the high-fare group has a higher probability of surviving. Another possible important feature was probably the the passengers' classes. However, I decided to drop this feature because it could be redundant to the fare feature. Note that by looking at the histograms below. We can see that class 1 had higher fare (further to the right) and class 3 had low fare (further to the left). A hypothesis test between class 2 and 3 with p-value of $8.3042e^{-11}$ suggests that they are class 2 had higher fare than class 3. 
 			<img class="img-responsive" src="img/titanic/class_hist.png" width="500"/>
+			<b><u>Figure</u></b>:<i>The relationship between classes and fare.</i>
 
  		</p>
 		
@@ -196,6 +210,7 @@
 		<p>
 			Next, we will look at the theory that female passengers are more likely to survive than male passengers. Just like most people, I had a strong belief for this theory. But let us verify it using data. Again, I plotted the histograms for male and female susvivors. It is apparent that the rate of surviving female passengers is significantly higher than that of male. A hypothesis test with p-value of $1.4061e^{-69}$ strongly suggests this.</p>
 			<img class="img-responsive" src="img/titanic/gender.png" width="500"/>
+			<b><u>Figure</u></b>:<i>The effect of different genders on survival rates.</i>
 		</p>
 		
 		<h3>The Embarked Effect</h3>
@@ -203,10 +218,85 @@
 			The last feature we will consider is the "Port of Embarkation". According to return return route of the Titanic, it was going from Southampton - to Cherbourg - to Queenstown - to New York. I suspected that order of ports of embarkation can have significant effect to the passengers' fates since it could influence the locations on the ship of the passengers. The histograms  of three groups of embarkations are shown. We can immediately see that the number of passengers decreases by the order of embarkation. Southampton have the most passengers, then Cherbourg, and finally Queenstown. 
 			<img class="img-responsive" src="img/titanic/route.JPG" width="600"/>
 			<img class="img-responsive" src="img/titanic/embarked.png" width="600"/>
-		
-			If we look at the survival rate for each port of embakation, we can see that Cherbourg passengers have a higher chance of surviving than those who were from the other two ports. I performed a one-way F-test on all three groups. The obtained p-value of $1.5143e^{-6}$ confirms that there is a discrepancy between the three groups. Next, I performed another F-test on the first and last two ports: Southampton and Queenstown to find if the two groups have the same survival rates as their histograms imply. The resulting p-value of $0.3582$ suggests that is likely to be true. So, it could be the case that passengers who were "squeezed" in the middle might have a better chance of surviving. I do not have a good explanation for this.
+			<b><u>Figure</u></b>:<i>The effect of different ports of embarkation on survival rates.</i>
+		</p>
+		<p>
+			If we look at the survival rate for each port of embakation, we can see that Cherbourg passengers have a higher chance of surviving than those who were from the other two ports. I performed a one-way F-test on all three groups. The obtained p-value of $1.5143e^{-6}$ confirms that there is a discrepancy between the three groups. Next, I performed another F-test on the first and last two ports: Southampton and Queenstown to find if the two groups have the same survival rates as their histograms imply. The resulting p-value of $0.3582$ suggests that is likely to be true. So, it could be the case that passengers who were "squeezed" in the middle of the voyage might have a better chance of surviving. I do not have a good explanation for this.
 		</p>
 		
+		<h3>The Models</h3>
+		<p>I constructed two basic models to classify whether a passenger survived using five features:
+			<ul>
+				<li>Age</li>
+				<li>Sex (dummified)</li>
+				<li>Passenger Class</li>
+				<li>Fare</li>
+				<li>Port of Embarkation (dummified)</li>
+			</ul>
+			The dataset was splitted into a training set and test set by the ratio of 3:1. The models' scores were obtained by using 3-fold cross validation 
+		</p>
+		<ol>
+					<li><b>Logistic Regression</b>
+						<div class="well">
+							<i>(C=1.0, class_weight=None, dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1, penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+							verbose=0, warm_start=False)</i><br><br>
+							
+					<table class="striped" border="1">
+					
+						<tr>
+							<th>Accuracy</th>
+							<td>0.78688525</td>
+							<td>0.79661017</td>
+							<td>0.74576271</td>
+						</tr>
+						<tr>
+							<th>Precision</th>
+							<td>0.76190476</td>
+							<td>0.78947368</td>
+							<td>0.78571429</td>
+						</tr>
+						<tr>
+							<th>Recall</th>
+							<td>0.66666667</td>
+							<td>0.65217391</td>
+							<td>0.47826087</td>
+						</tr>			
+					</table>
+						</div>
+					</li>
+					
+					<li><b>Random Forest Classifier</b>
+						<div class="well">
+							<i>(bootstrap=True, class_weight=None, criterion='gini', max_depth=None, max_features='auto', max_leaf_nodes=None, min_samples_leaf=1, min_samples_split=2, min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1, oob_score=False, random_state=None, verbose=0, warm_start=False)</i><br><br>
+							
+							<table class="striped" border="1">
+							
+								<tr>
+									<th>Accuracy</th>
+									<td>0.75409836</td>
+									<td>0.83050847</td>
+									<td>0.72881356</td>
+								</tr>
+								<tr>
+									<th>Precision</th>
+									<td>0.65217391</td>
+									<td>0.68421053</td>
+									<td>0.70588235</td>
+								</tr>
+								<tr>
+									<th>Recall</th>
+									<td>0.5</td>
+									<td>0.69565217</td>
+									<td>0.52173913</td>
+								</tr>			
+							</table>
+						</div>
+			
+					</li>
+		</ol>
+		
+		<h3>Conclusion</h3>
+		<p>Since a majority of the passengers did not survive, high accuracy for the models is expected. Precision and recall are better scoring criteria for our models. The precision-recall curve and hyper-parameters tuning can also be used to improve the models' efficacy. Nevertheless, these models can be used as t he baselines to improve on for our project. 
 <!--End presentation-->
 </div>
 
