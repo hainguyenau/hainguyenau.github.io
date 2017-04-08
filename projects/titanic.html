@@ -233,7 +233,7 @@
 				<li>Fare</li>
 				<li>Port of Embarkation (dummified)</li>
 			</ul>
-			The dataset was splitted into a training set and test set by the ratio of 3:1. The models' average scores for accuracy, precision and recall were obtained by using 3-fold cross validation 
+			The dataset was splitted into a training set and test set by the ratio of 3:1. The models' average scores for accuracy, precision and recall were obtained by using 3-fold cross validation.
 		</p>
 		<ol>
 					<li><b>Logistic Regression</b>
@@ -241,56 +241,65 @@
 							<i>(C=1.0, class_weight=None, dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1, penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
 							verbose=0, warm_start=False)</i><br><br>
 							
-					<table class="table-striped" border="1">
-					
-						<tr>
-							<th>Accuracy</th>
-							<td>72.637%</td>
 
-						</tr>
-						<tr>
-							<th>Precision</th>
-							<td>73.413%</td>
-
-						</tr>
-						<tr>
-							<th>Recall</th>
-							<td>61.231%</td>
-
-						</tr>			
-					</table>
 						</div>
 					</li>
 					
 					<li><b>Random Forest Classifier</b>
 						<div class="well">
 							<i>(bootstrap=True, class_weight=None, criterion='gini', max_depth=None, max_features='auto', max_leaf_nodes=None, min_samples_leaf=1, min_samples_split=2, min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1, oob_score=False, random_state=None, verbose=0, warm_start=False)</i><br><br>
-							
-							<table class="table-striped" border="1">
-							
-								<tr>
-									<th>Accuracy</th>
-									<td>75.405%</td>
-
-								</tr>
-								<tr>
-									<th>Precision</th>
-									<td>74.917%</td>
-
-								</tr>
-								<tr>
-									<th>Recall</th>
-									<td>71.538%</td>
-
-								</tr>			
-							</table>
 						</div>
 			
 					</li>
 		</ol>
 		
+		
+		<h3>Model Performance Assessments</h3>
+			<ol>
+				<li><b>Confidence Intervals</b>
+					 <p>To calculate the confidence intervals for the mean of accuracy, precision and recall scores, I generated 100 random train-test splits. Next, I used the saved models above (in <em>pickle</em> file type) to predict the results from these test sets. Then, the 90% confidence intervals for the accuracy, precision and recall scores were calculated from these samples.
+
+					 		<table class="table-striped" border="1">
+								<tr>
+									<th>Score</th>
+									<th>Logistic Regression</th>
+									<th>Random Forest Classifier</th>
+						
+								</tr>
+								<tr>
+									<td>Accuracy</td>
+									<td>(0.7662, 0.7764)</td>
+									<td>(0.7547, 0.7678)</td>
+								</tr>
+								
+								<tr>
+									<td>Precision</td>
+									<td>(0.7590, 0.7725)</td>
+									<td>(0.7369, 0.7547)</td>
+								</tr>
+								
+								<tr>
+									<td>Recall</td>
+									<td>(0.6374, 0.6597)</td>
+									<td>(0.6374, 0.6558)</td>
+								</tr>
+							</table>
+				</li><br>
+		
+				<li><b>ROC Curves</b>
+					<p>We can also use the ROC curves to assess our models by their true positive and false positive rates.
+					<img class="img-responsive" src="img/titanic/roc.png" width="500"/>
+					<b><u>Figure</u></b>:<i> ROC curves for logistic and random forest models.</i>
+					</p>
+					<p>
+					Comparing these two models, we can see that the random forest did a phenomenal job for this particular test set. Its ROC curve approaches the top left corner, which is the ideal situation when whe have high true positive rate and low false positive rate. The logistic model also performs well.
+					</p>
+				</li>
+			</ol>
+		
+		
 		<h3>Conclusion</h3>
-		<p>Since a majority of the passengers did not survive, high accuracy for the models is expected. Precision and recall are better scoring criteria for our models. The precision-recall curve and hyper-parameters tuning can also be used to improve the models' efficacy. Nevertheless, these models can be used as t he baselines to improve on for our project. 
+		<p>Since a majority of the passengers did not survive, high accuracy for the models is expected. Both logistic and random forest models work well under our test environment. Also, hyper-parameters tuning can also be used to improve the models' efficacy. Nevertheless, they can be used as the baseline models for our project.
 <!--End presentation-->
 </div>
 
