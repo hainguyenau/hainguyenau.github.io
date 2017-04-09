@@ -1,8 +1,8 @@
 # My Website
-###Introduction
+### Introduction
 This is the first website I ever built. I have no prior experience about creating websites yet, but I have gather some knowledge about HTML, CSS, JQuery and Bootstrap. I will start a crappy website to get more experience and continue to improve it to make it better.
 
-###Contents
+### Contents
 * *Profile*
 
 This section will give some introduction about my background, including my education, skills and my hobbies
