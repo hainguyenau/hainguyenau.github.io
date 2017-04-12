@@ -200,7 +200,7 @@
 					<li>Low-fare: those who paid below the 0.75 quantile of fare</li>
 				</ul>
 	
-			A hypothesis test with p-value of $1.6392e^{-12}$ also supports the conclusion that the surviving proportions between these two groups are not the same, and the high-fare group has a higher probability of surviving. Another possible important feature was probably the the passengers' classes. However, I decided to drop this feature because it could be redundant to the fare feature. Note that by looking at the histograms below. We can see that class 1 had higher fare (further to the right) and class 3 had low fare (further to the left). A hypothesis test between class 2 and 3 with p-value of $8.3042e^{-11}$ suggests that they are class 2 had higher fare than class 3. 
+			A hypothesis test with p-value of $1.6392e^{-12}$ also supports the conclusion that the surviving proportions between these two groups are not the same, and the high-fare group has a higher probability of surviving. Another possible important feature was probably the the passengers' classes. This feature could be redundant to the fare feature because of the correlation coefficient of -0.5495 between them. However, I decided to include both of them into the models in case they are both important. Note that by looking at the histograms below. We can see that class 1 had higher fare (further to the right) and class 3 had low fare (further to the left). A hypothesis test between class 2 and 3 with p-value of $8.3042e^{-11}$ suggests that they are class 2 had higher fare than class 3. 
 			<img class="img-responsive" src="img/titanic/class_hist.png" width="500"/>
 			<b><u>Figure</u></b>:<i>The relationship between classes and fare.</i>
 
@@ -292,14 +292,21 @@
 					<b><u>Figure</u></b>:<i> ROC curves for logistic and random forest models.</i>
 					</p>
 					<p>
-					Comparing these two models, we can see that the random forest did a phenomenal job for this particular test set. Its ROC curve approaches the top left corner, which is the ideal situation when whe have high true positive rate and low false positive rate. The logistic model also performs well.
+					Comparing these two models, we can see that the random forest does a phenomenal job for this particular test set. Its ROC curve approaches the top left corner, which is the ideal situation when whe have high true positive rate and low false positive rate. The logistic model also performs well.
 					</p>
+				</li>
+				
+				<li><b>PR Curve</b>
+					We will also investigate the Precision-Recall curve to see how the classification works. 
+					<img class="img-responsive" src="img/titanic/PR.png" width="500"/>
+					<b><u>Figure</u></b>:<i> PR curves for logistic and random forest models.</i></b><br><br>
+					The logistic model's curve behaves as we expect for a basic model. However, the close-to-perfect PR curve for the random forest model makes me want to reconsider whether the model is overfitting. By looking at the values for the predicted probabilities of this model, I found that these values are rounded in an abnormal way when compared to that of the logistic model. Further studies on this model is necessary to find out what the problem might be.
 				</li>
 			</ol>
 		
 		
 		<h3>Conclusion</h3>
-		<p>Since a majority of the passengers did not survive, high accuracy for the models is expected. Both logistic and random forest models work well under our test environment. Also, hyper-parameters tuning can also be used to improve the models' efficacy. Nevertheless, they can be used as the baseline models for our project.
+		<p>Since a majority of the passengers did not survive, high accuracy for the models is expected. Nevertheless, the classes are not too unbalanced to perform resampling techniques. Both logistic and random forest models work well under our test environment. But the random forest seems to overfit the data and needs to be reconsidered. We can also perform hyper-parameters tuning can also be used to improve the models' efficacy. Nevertheless, they can be used as the baseline models for our project.
 <!--End presentation-->
 </div>
 

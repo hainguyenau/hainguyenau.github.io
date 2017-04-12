@@ -3,7 +3,12 @@ import numpy as np
 import pickle
 
 app = Flask(__name__)
-
+# Load pickle model
+with open(str('log_model.pkl')) as f:
+	clf = pickle.load(f)
+	
+	
+	
 @app.route('/')
 def submission_page():
 	return '''
@@ -25,8 +30,7 @@ def predict():
 	Pclass = request.form['class']
 	fare = request.form['fare']
 	embarked = request.form['embarked']
-	loaded_log_model = pickle.load(open('log_model.pkl', 'rb'))
-	return loaded_log_model.predict_proba(np.array([[17, 1,3,7,0,1]]))
+	return 'hi'
 	
 	
 if __name__ == '__main__':
