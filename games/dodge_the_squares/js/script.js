@@ -8,12 +8,15 @@ var r_move_x = 10,
 function init() {
 	var canvas = document.getElementById("my_canvas");
 	var stage = new createjs.Stage(canvas);
-	var SIZE = 50
+	var SIZE = 100
 	
+
+	// Create enemy
 	
-	// Create rectangle enemy
-	var r = new createjs.Shape();
-	r.graphics.beginFill("blue").rect(0, 0, SIZE, SIZE);
+	// var r = new createjs.Shape();
+	// r.graphics.beginFill("blue").rect(0, 0, SIZE, SIZE);
+	
+	var r = new createjs.Bitmap("assets/ball.png");
 	r.regX = SIZE/2;
 	r.regY = SIZE/2;
 	
@@ -72,12 +75,21 @@ function init() {
 		} 
 
 		
-		// Collision
-		if (r.x == me.x & r.y == me.y) {
+		// Collision with red square 
+		if (Math.abs(r.x - me.x) < SIZE && Math.abs(r.y - me.y) < SIZE) {
 			stage.removeChild(me);
-			// stage.addChild(me);
+			setTimeout(function(){
+				stage.addChild(me);
+			}, 3000);
 		}
 		
+		// Make me bigger if hit
+		
+		
+		// Make blue rect faster over time
+		
+		
+		// Animate me getting scared when the square is near, but not hit
 		stage.update();
 		
 
