@@ -1,0 +1,3 @@
+1. Choose from 50 states (from drop-down menu), or can customize
+2. Change background to day or night modes
+3. Go up a level: increase number of plates on screen
