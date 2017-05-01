@@ -3,7 +3,8 @@
 3. Go up a level: increase number of plates on screen
 4. Extra credit: memorize the month of registration
 5. Challenge: low light condition, smears...
-
+6. Make graphics of car passing by
+7. Memorize car type and color 
 
 // CA
 first = (Math.floor(Math.random()*9)).toString();
