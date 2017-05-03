@@ -1,26 +1,24 @@
+var license;
+
 function init() {
 	var canvas = document.getElementById("my_canvas");
 	var stage = new createjs.Stage(canvas);
 	
 	// Create license plate number
-	var license = createLicense();
-	stage.addChild(license);
-	license.x = Math.random()*(canvas.width-100);
-	license.y = Math.random()*(canvas.height-30);
+	license = createLicense();
+	var licenseGraphic = new createjs.Text(first + letters + nums, "bold 40px Times", "white");
+	stage.addChild(licenseGraphic);
+	licenseGraphic.x = Math.random()*(canvas.width-100);
+	licenseGraphic.y = Math.random()*(canvas.height-30);
 	stage.update();
 
 	// Remove license plate after 3 seconds
 	setTimeout(function(){
-		stage.removeAllChildren();
+		stage.removeChild(licenseGraphic);
 		stage.update();
-		
-		// Test recall
-		var f = document.createElement("form");
-		f.setAttribute('method', 'post');
-		stage.addChild(f);
-		stage.update();
-	}, 1000);
+	}, 2000);
 	
+
 }
 
 function createLicense() {
@@ -35,6 +33,18 @@ function createLicense() {
 		nums += tempNum;
 		console.log(i, tempLetter, tempNum);
 	}
-	return new createjs.Text(first + letters + nums, "bold 30px Times", "white");
+	return first + letters + nums;
+
+}
+
+function show_result(){
+	var answer = document.getElementById("input").value;
+	alert ('Your answer: ' + answer + '\ntrue answer: '+ license);
+	if (answer.toUpperCase() === license) {
+		alert('correct');
+	} else {
+		alert('wrong');
+	}
+
 }
 
