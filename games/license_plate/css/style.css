@@ -4,7 +4,7 @@ body {
 }
 
 #my_canvas {
-	background: #AAA;
+	background-image: url("../img/road.jpg");
 	display: block;
 	margin: 0 auto;
 }
