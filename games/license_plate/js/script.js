@@ -17,7 +17,7 @@ function init() {
 	
 	// show level
 	var LevelText = new createjs.Text("Level: " + level, "bold 20px Times", "white");
-	LevelText.x = 420;
+	LevelText.x = 400;
 	LevelText.y = 10;
 	stage.addChild(LevelText);
 	stage.update()
@@ -40,7 +40,7 @@ function init() {
 		plate.x = licenseGraphic.x;
 		plate.y = licenseGraphic.y;
 		stage.update();
-	},2000);
+	},3000);
 	
 
 	// Remove license plate 2 seconds after license is created
@@ -48,7 +48,7 @@ function init() {
 		stage.removeChild(licenseGraphic);
 		stage.removeChild(plate);
 		stage.update();
-	}, 2000+time);
+	}, 3000+time);
 	
 	// Shorten flashing speed if score is a multiple of 10
 	if (score%10==0 && score!=0){
