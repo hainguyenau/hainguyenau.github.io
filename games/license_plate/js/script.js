@@ -85,6 +85,7 @@ function show_result(){
 		alert('wrong');
 		score --;
 	}
+	document.getElementById("input").value = "";
 	init();
 }
 
