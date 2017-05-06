@@ -1,6 +1,6 @@
 var license;
 var score = 0;
-var time = 5000;
+var time = 4000;
 var rectWidth = 60;
 var rectHeight = 10;
 var level = 1;
@@ -77,15 +77,29 @@ function createLicense() {
 
 function show_result(){
 	var answer = document.getElementById("input").value;
-	alert ('Your answer: ' + answer + '\ntrue answer: '+ license);
+	var result = document.getElementById("result");
 	if (answer.toUpperCase() === license) {
-		alert('correct');
+		var yes = document.createElement('img');
+		yes.setAttribute('src','img/yes.png');
+		yes.setAttribute('width', '80px');
+		result.appendChild(yes);
+		result.classList.add('tada');
 		score = score + 2;
 	} else {
-		alert('wrong');
+		var no = document.createElement('img');
+		no.setAttribute('src','img/no.png');
+		no.setAttribute('width', '80px');
+		result.appendChild(no);
+		result.classList.add('tada');
 		score --;
 	}
+	// Empty input form
 	document.getElementById("input").value = "";
+	
+	setTimeout(function(){
+		result.removeChild(result.lastChild);
+		result.classList.remove('tada');
+	},2000)
 	init();
 }
 
