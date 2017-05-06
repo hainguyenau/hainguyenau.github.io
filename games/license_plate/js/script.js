@@ -4,6 +4,8 @@ var time = 4000;
 var rectWidth = 100;
 var rectHeight = 40;
 var level = 1;
+var SoundYes = new Audio('sounds/yes.mp3');
+var SoundNo = new Audio('sounds/no.mp3');
 function init() {
 	var canvas = document.getElementById("my_canvas");
 	var stage = new createjs.Stage(canvas);
@@ -73,6 +75,7 @@ function init() {
 		result.appendChild(LevelUp);
 		result.classList.add('fadeOutUp');
 		level += 1;
+		score = 0;
 		stage.update();
 		time = 0.7*time;
 		
@@ -108,12 +111,14 @@ function show_result(){
 		yes.setAttribute('width', '70px');
 		result.appendChild(yes);
 		result.classList.add('tada');
+		SoundYes.play();
 		score += 2;
 	} else {
 		var no = document.createElement('img');
 		no.setAttribute('src','img/no.png');
 		no.setAttribute('width', '70px');
 		result.appendChild(no);
+		SoundNo.play();
 		result.classList.add('tada');
 		score -= 2;
 	}
