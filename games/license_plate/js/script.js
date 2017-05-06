@@ -6,26 +6,34 @@ var rectHeight = 40;
 var level = 1;
 var SoundYes = new Audio('sounds/yes.mp3');
 var SoundNo = new Audio('sounds/no.mp3');
+var stage;
+var ScoreText, LevelText;
 function init() {
+	
 	var canvas = document.getElementById("my_canvas");
-	var stage = new createjs.Stage(canvas);
+	stage = new createjs.Stage(canvas);
 	var result = document.getElementById("result");
 	
+
 	// show score
-	var ScoreText = new createjs.Text("Score: "+ score, "bold 20px Times", "white");
+	ScoreText = new createjs.Text("Score: "+ score, "bold 20px Times", "white");
 	ScoreText.x = 10;
 	ScoreText.y = 10;
-	stage.addChild(ScoreText);
-	stage.update();
+
 	// Game Over
 
 	
 	// show level
-	var LevelText = new createjs.Text("Level: " + level, "bold 20px Times", "white");
+	LevelText = new createjs.Text("Level: " + level, "bold 20px Times", "white");
 	LevelText.x = 400;
 	LevelText.y = 10;
-	stage.addChild(LevelText);
-	stage.update()
+	stage.addChild(LevelText, ScoreText);
+	stage.update();
+	
+	// Remove flip effect so we can add back on
+	setTimeout(function(){
+		document.getElementById('MainDiv').classList.remove('flipInX');
+	},1000);
 	
 	// Create license plate number
 	license = createLicense();
@@ -66,26 +74,19 @@ function init() {
 		stage.update();
 	}, 3000+time);
 	
-	// Next level
-	if (score>=10){
-		// Display notification
-		var LevelUp = document.createElement('img');
-		LevelUp.setAttribute('src','img/level_up.png');
-		LevelUp.setAttribute('width', '70px');
-		result.appendChild(LevelUp);
-		result.classList.add('fadeOutUp');
-		level += 1;
-		score = 0;
+	// Level 2
+	if (score>=2){
+		next_level();
+		canvas.style.backgroundImage = "url('img/road2.jpg')";
 		stage.update();
-		time = 0.7*time;
-		
-		// Remove animation class to add next time
-		setTimeout(function(){
-			result.removeChild(result.lastChild);
-			result.classList.remove('fadeOutUp');
-	},3000)
 	}
-
+	
+	// Level 3
+	if (score>=4){
+		next_level();
+		canvas.style.backgroundImage = "url('img/road3.jpg')";
+		stage.update();
+	}
 }
 
 function createLicense() {
@@ -113,6 +114,7 @@ function show_result(){
 		result.classList.add('tada');
 		SoundYes.play();
 		score += 2;
+		
 	} else {
 		var no = document.createElement('img');
 		no.setAttribute('src','img/no.png');
@@ -124,11 +126,32 @@ function show_result(){
 	}
 	// Empty input form
 	document.getElementById("input").value = "";
-	
+	init();
 	setTimeout(function(){
 		result.removeChild(result.lastChild);
 		result.classList.remove('tada');
+		
 	},2000)
-	init();
+	
 }
 
+function next_level(){
+	var LevelUp = document.createElement('img');
+		LevelUp.setAttribute('src','img/level_up.png');
+		LevelUp.setAttribute('width', '70px');
+		result.appendChild(LevelUp);
+		result.classList.add('fadeOutUp');
+		level += 1;
+		score = 0;
+		time = 0.7*time;
+		
+		document.getElementById('MainDiv').classList.add('flipInX');
+		// Remove animation class to add next time
+		setTimeout(function(){
+			result.removeChild(result.lastChild);
+			result.classList.remove('fadeOutUp');	
+			stage.update();
+	},3000);
+		
+		
+}

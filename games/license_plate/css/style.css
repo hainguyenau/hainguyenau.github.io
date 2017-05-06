@@ -4,7 +4,7 @@ body {
 }
 
 #my_canvas {
-	background-image: url("../img/road.jpg");
+	background-image: url("../img/road1.jpg");
 	/* background-attachment: fixed; */
 	background-position: center;
 	background-size: cover;
@@ -13,6 +13,10 @@ body {
 	margin: 0 auto;
 }
 
-.MainDiv {
-	height: 100%;
+/* .MainDiv { */
+	/* height: 100%; */
+/* } */
+
+#result {
+	-webkit-animation-duration: 2s;
 }
