@@ -75,14 +75,14 @@ function init() {
 	}, 3000+time);
 	
 	// Level 2
-	if (score>=2){
+	if (score>=10){
 		next_level();
 		canvas.style.backgroundImage = "url('img/road2.jpg')";
 		stage.update();
 	}
 	
 	// Level 3
-	if (score>=4){
+	if (score>=20){
 		next_level();
 		canvas.style.backgroundImage = "url('img/road3.jpg')";
 		stage.update();
@@ -142,7 +142,7 @@ function next_level(){
 		result.appendChild(LevelUp);
 		result.classList.add('fadeOutUp');
 		level += 1;
-		score = 0;
+		// score = 0;
 		time = 0.7*time;
 		
 		document.getElementById('MainDiv').classList.add('flipInX');
