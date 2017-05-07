@@ -1,6 +1,6 @@
 var license;
 var score = 0;
-var time = 3000;
+var time = 8000;
 var rectWidth = 100;
 var rectHeight = 40;
 var carWidth = 245, carHeight = 196;
@@ -9,6 +9,7 @@ var SoundYes = new Audio('sounds/yes.mp3');
 var SoundNo = new Audio('sounds/no.mp3');
 var stage;
 var ScoreText, LevelText;
+var horizonX = 250, horizonY = 75;
 function init() {
 	
 	var canvas = document.getElementById("my_canvas");
@@ -29,7 +30,7 @@ function init() {
 	LevelText.x = 400;
 	LevelText.y = 10;
 	stage.addChild(LevelText, ScoreText);
-	stage.update();
+	;
 	
 	// Remove flip effect so we can add back on
 	setTimeout(function(){
@@ -46,53 +47,61 @@ function init() {
 		x: carWidth/2,
 		y: carHeight/2
 	})
-
-	// Create plate (drop)
-	// var plate = new createjs.Shape();
-	// plate.graphics.beginStroke("black");
-	// plate.graphics.beginFill("white").drawRoundRect(0, 0, rectWidth, rectHeight, 7);
-	// plate.regX = rectWidth/2;
-	// plate.regY = rectHeight/2;
 	
 	// Create car
-	var car = new createjs.Bitmap('img/car.png');
+	var car = new createjs.Bitmap('img/car'+Math.floor(Math.random()*6).toString()+'.png');
 	car.regX = carWidth/2;
-	car.regY = carHeight/2+28;
-
+	car.regY = carHeight/2+25;
 	
-	setTimeout(function(){
-		stage.addChild(car);
-		stage.addChild(licenseGraphic);
+	stage.addChild(car);
+	stage.addChild(licenseGraphic);
 		
-		licenseGraphic.x = Math.random()*(canvas.width-rectWidth) + rectWidth/2;
-		licenseGraphic.y = Math.random()*(canvas.height-rectHeight) + rectHeight/2;
-		car.x = licenseGraphic.x;
-		car.y = licenseGraphic.y;
+	licenseGraphic.x = Math.random()*(canvas.width-rectWidth) + rectWidth/2;
+	licenseGraphic.y = 310;
+	car.x = licenseGraphic.x;
+	car.y = licenseGraphic.y;
+		// Ticker
+	createjs.Ticker.setFPS(30);
+	createjs.Ticker.addEventListener("tick", handleTick);
+	
+	function handleTick(event) {
+		var distX = licenseGraphic.x - horizonX;
+		var distY = licenseGraphic.y - horizonY;
+		var scale = 0.997;
+		licenseGraphic.x -= distX/(time/1000)/30;
+		licenseGraphic.y -= distY/(time/1000)/30;
+		car.x -= distX/(time/1000)/30;
+		car.y -= distY/(time/1000)/30;
+		licenseGraphic.scaleX *= scale;
+		licenseGraphic.scaleY *= scale;
+		car.scaleX *= scale;
+		car.scaleY *= scale;
 		stage.update();
 
-	},3000);
-	
+	}
 
 	// Remove license plate 2 seconds after license is created
-	setTimeout(function(){
-		stage.removeChild(licenseGraphic);
-		stage.removeChild(car);
-		stage.update();
-	}, 3000+time);
+	// setTimeout(function(){
+		// stage.removeChild(licenseGraphic);
+		// stage.removeChild(car);
+		// ;
+	// }, 3000+time);
 	
 	// Level 2
 	if (score>=10){
 		next_level();
 		canvas.style.backgroundImage = "url('img/road2.jpg')";
-		stage.update();
+		;
 	}
 	
 	// Level 3
 	if (score>=20){
 		next_level();
 		canvas.style.backgroundImage = "url('img/road3.jpg')";
-		stage.update();
+		;
 	}
+	
+
 }
 
 function createLicense() {
@@ -156,8 +165,7 @@ function next_level(){
 		setTimeout(function(){
 			result.removeChild(result.lastChild);
 			result.classList.remove('fadeOutUp');	
-			stage.update();
+			;
 	},3000);
-		
-		
 }
+
