@@ -7,10 +7,15 @@ var carWidth = 245, carHeight = 196;
 var level = 1;
 var SoundYes = new Audio('sounds/yes.mp3');
 var SoundNo = new Audio('sounds/no.mp3');
+var SoundPass = new Audio('sounds/pass.mp3');
+var SoundTheme = new Audio('sounds/theme.mp3')
 var stage;
 var ScoreText, LevelText;
 var horizonX = 250, horizonY = 75;
 function init() {
+	// Play and loop theme sound
+	SoundTheme.play();
+	SoundTheme.loop = true;
 	
 	var canvas = document.getElementById("my_canvas");
 	stage = new createjs.Stage(canvas);
@@ -55,12 +60,14 @@ function init() {
 	
 	stage.addChild(car);
 	stage.addChild(licenseGraphic);
-		
+	
 	licenseGraphic.x = Math.random()*(canvas.width-rectWidth) + rectWidth/2;
 	licenseGraphic.y = 310;
 	car.x = licenseGraphic.x;
 	car.y = licenseGraphic.y;
-		// Ticker
+	
+	SoundPass.play();
+	// Ticker
 	createjs.Ticker.setFPS(30);
 	createjs.Ticker.addEventListener("tick", handleTick);
 	
