@@ -12,6 +12,8 @@ var SoundTheme = new Audio('sounds/theme.mp3')
 var stage;
 var ScoreText, LevelText;
 var horizonX = 250, horizonY = 75;
+var scale = 0.997;
+
 function init() {
 	// Play and loop theme sound
 	SoundTheme.play();
@@ -25,7 +27,7 @@ function init() {
 	// show score
 	ScoreText = new createjs.Text("Score: "+ score, "bold 20px Times", "white");
 	ScoreText.x = 10;
-	ScoreText.y = 10;
+	ScoreText.y = 270;
 
 	// Game Over
 
@@ -33,7 +35,7 @@ function init() {
 	// show level
 	LevelText = new createjs.Text("Level: " + level, "bold 20px Times", "white");
 	LevelText.x = 400;
-	LevelText.y = 10;
+	LevelText.y = 270;
 	stage.addChild(LevelText, ScoreText);
 	;
 	
@@ -44,7 +46,7 @@ function init() {
 	
 	// Create license plate number
 	license = createLicense();
-	var licenseGraphic = new createjs.Text(first + letters + nums, "bold 20px Times", "black");
+	var licenseGraphic = new createjs.Text(first + letters + nums, "bold 18px Times", "black");
 	licenseGraphic.shadow = new createjs.Shadow('#878787', 0.2, 0.7, 2);
 	licenseGraphic.set({
 		textAlign: "center",
@@ -74,7 +76,7 @@ function init() {
 	function handleTick(event) {
 		var distX = licenseGraphic.x - horizonX;
 		var distY = licenseGraphic.y - horizonY;
-		var scale = 0.997;
+		
 		licenseGraphic.x -= distX/(time/1000)/30;
 		licenseGraphic.y -= distY/(time/1000)/30;
 		car.x -= distX/(time/1000)/30;
@@ -95,18 +97,21 @@ function init() {
 	// }, 3000+time);
 	
 	// Level 2
-	if (score>=10){
+	if (score == 10){
+		// Change scale to make animation realistic
+		scale = 0.994;
 		next_level();
-		canvas.style.backgroundImage = "url('img/road2.jpg')";
-		;
+		canvas.style.backgroundImage = "url('img/road2.png')";
+		score = 0;
 	}
 	
 	// Level 3
-	if (score>=20){
-		next_level();
-		canvas.style.backgroundImage = "url('img/road3.jpg')";
-		;
-	}
+	// if (score>=20){
+		// scale = 0.99;
+		// next_level();
+		// canvas.style.backgroundImage = "url('img/road3.jpg')";
+		// ;
+	// }
 	
 
 }
@@ -144,17 +149,17 @@ function show_result(){
 		result.appendChild(no);
 		SoundNo.play();
 		result.classList.add('tada');
-		score -= 2;
+	
 	}
 	// Empty input form
 	document.getElementById("input").value = "";
-	init();
+	
 	setTimeout(function(){
 		result.removeChild(result.lastChild);
 		result.classList.remove('tada');
 		
 	},2000)
-	
+	init();
 }
 
 function next_level(){
@@ -165,7 +170,7 @@ function next_level(){
 		result.classList.add('fadeOutUp');
 		level += 1;
 		// score = 0;
-		time = 0.7*time;
+		time *= 0.6;
 		
 		document.getElementById('MainDiv').classList.add('flipInX');
 		// Remove animation class to add next time
