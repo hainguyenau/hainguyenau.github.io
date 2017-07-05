@@ -99,7 +99,7 @@ function init() {
 	// Level 2
 	if (score == 10){
 		// Change scale to make animation realistic
-		scale = 0.994;
+		scale = 0.9935;
 		next_level();
 		canvas.style.backgroundImage = "url('img/road2.png')";
 		score = 0;
@@ -117,7 +117,7 @@ function init() {
 }
 
 function createLicense() {
-	first = (Math.floor(Math.random()*9)).toString();
+	first = (Math.floor(Math.random()*5)+3).toString();
 	dict = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 	letters = '';
 	nums = ''	
