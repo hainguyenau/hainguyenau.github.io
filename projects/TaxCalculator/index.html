@@ -11,45 +11,49 @@
 				<script type="text/javascript" src="script.js"></script>
 				<script type="text/javascript" src="autoNumeric.js"></script>
 
-        <title>Federal Tax Calculator</title>
+        <title>Income Tax Calculator</title>
     </head>
     <body>
-			<div data-role="page" data-theme="c">
-				<div data-role="header">
-					<h1>Fereal Tax Calculator</h1>
+
+				<div data-role="page" data-theme="c">
+					<div data-role="header">
+						<h1>Income Tax Calculator</h1>
+					</div>
+				
+					<div data-role="main" class="ui-content">
+						<form>
+							<fieldset data-role="controlgroup">
+								<legend>Status:</legend>
+								<input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on" checked="checked">
+								<label for="radio-choice-v-2a">Single</label>
+								<input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off">
+								<label for="radio-choice-v-2b">Married Filing Jointly</label>
+								<input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c" value="other">
+								<label for="radio-choice-v-2c">Married Filing Separately</label>
+							</fieldset>
+						</form>
+						<br>
+						
+						<label for="Income">Total Annual Income:</label>
+							<input id="Income" type="number" step="0.01" value="0" min="0"/>
+							
+						<label for="Deduct">Deductions:</label>
+							<input id="Deduct" type="number" step="0.01" value="0" min="0"/>
+							<button id="btnCalc">Calculate</button>		
+					</div>
 				</div>
 			
-				<div data-role="main" class="ui-content">
-					<form>
-						<fieldset data-role="controlgroup">
-							<legend>Status:</legend>
-							<input type="radio" name="radio-choice-v-2" id="radio-choice-v-2a" value="on" checked="checked">
-							<label for="radio-choice-v-2a">Single</label>
-							<input type="radio" name="radio-choice-v-2" id="radio-choice-v-2b" value="off">
-							<label for="radio-choice-v-2b">Married Filing Jointly</label>
-							<input type="radio" name="radio-choice-v-2" id="radio-choice-v-2c" value="other">
-							<label for="radio-choice-v-2c">Married Filing Separately</label>
-						</fieldset>
-					</form>
-					<br>
-					<label for="Income">Annual Income:</label>
-						<input id="Income" type="number" step="0.01"/>
-						<button id="btnCalc">Calculate</button>		
-						<!-- <div id="Result" data-rel="dialog"></div> -->
-				</div>
-			</div>
 			
-			
-			<div data-role="dialog" id="dialog" data-theme="c">
-				<div data-role="header">
-					<h1>Result</h1>
+				<div data-role="dialog" id="dialog" data-theme="c">
+					<div data-role="header">
+						<h1>Result</h1>
+					</div>
+					<div data-role="main" class="ui-content">
+						<div id="Result"></div>
+					</div>
 				</div>
-				<div data-role="main" class="ui-content">
-					<div id="Result"></div>
-				</div>
-			</div>
 		
-		
+
 
     </body>
 </html>
