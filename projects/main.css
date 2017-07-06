@@ -1,5 +1,6 @@
 body {
-  background-color: #ededed;
+  /* background-color: #ededed; */
+	background: linear-gradient(135deg, white, #c9dfff);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
