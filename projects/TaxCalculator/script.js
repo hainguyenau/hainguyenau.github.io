@@ -88,7 +88,7 @@ $(document).ready(function(){
 		}
 		fedResult = '$'+ fedResult.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		stateResult = '$'+ stateResult.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		document.getElementById('Result').innerHTML = "<br>Fereal Tax: " + "<b>"+fedResult+"</b><br>State Tax: "+ "<b>"+stateResult+"</b>";
+		document.getElementById('Result').innerHTML = "<br>Federal Tax: " + "<b>"+fedResult+"</b><br>State Tax: "+ "<b>"+stateResult+"</b>";
 		$.mobile.navigate( "#dialog", {role: "dialog"});
 		
 	})
