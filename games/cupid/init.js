@@ -89,8 +89,8 @@ function queueLoaded(event)
     // Create cupid spritesheet
     spriteSheet = new createjs.SpriteSheet({
         "images": [queue.getResult('CupidSpriteSheet')],
-        "frames": {"width": 300, "height": 207},
-        "animations": { "flap": [0,1] }
+        "frames": {"width": 368, "height": 288},
+        "animations": { "flap": [0,7] }
     });
 
     // Create hit spritesheet
