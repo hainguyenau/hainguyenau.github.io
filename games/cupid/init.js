@@ -96,7 +96,7 @@ function queueLoaded(event)
     // Create hit spritesheet
     batDeathSpriteSheet = new createjs.SpriteSheet({
     	"images": [queue.getResult('batDeath')],
-    	"frames": {"width": 300, "height" : 207},
+    	"frames": {"width": 368, "height" : 288},
     	"animations": {"die": [0, 3, false, 1 ] }
     });
 	
