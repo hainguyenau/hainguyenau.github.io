@@ -1,8 +1,8 @@
 var context;
 var queue;
 var gameOver;
-var WIDTH = 1000;
-var HEIGHT = 500;
+var WIDTH = 800;
+var HEIGHT = 400;
 var mouseXPosition;
 var mouseYPosition;
 var batImage;
@@ -83,7 +83,7 @@ function queueLoaded(event)
 
     // Ad Timer
     timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "black");
-    timerText.x = 750;
+    timerText.x = 580;
     timerText.y = 10;
     stage.addChild(timerText);
 
