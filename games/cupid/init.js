@@ -2,7 +2,7 @@ var context;
 var queue;
 var gameOver;
 var WIDTH = 1000;
-var HEIGHT = 572;
+var HEIGHT = 500;
 var mouseXPosition;
 var mouseYPosition;
 var batImage;
@@ -194,8 +194,8 @@ function handleMouseDown(event)
 		
 			// Display CrossHair
 			crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
-			crossHair.x = event.clientX-50;
-			crossHair.y = event.clientY-130;
+			crossHair.x = event.clientX-20;
+			crossHair.y = event.clientY-200;
 			stage.addChild(crossHair);
 			createjs.Tween.get(crossHair).to({alpha: 0},1000);
 
