@@ -1,5 +1,6 @@
 var context;
 var queue;
+var gameOver;
 var WIDTH = 1000;
 var HEIGHT = 572;
 var mouseXPosition;
@@ -21,7 +22,9 @@ var timerText;
 var clickable = true;
 
 window.onload = function()
-{				
+{		// Restart game
+		gameOver = false;
+		
     /*
      *      Set up the Canvas with Size and height
      *
@@ -47,7 +50,7 @@ window.onload = function()
      */
     queue.loadManifest([
         {id: 'backgroundImage', src: 'assets/background.jpg'},
-        {id: 'crossHair', src: 'assets/crosshair.png'},
+        {id: 'crossHair', src: 'assets/glove.png'},
         {id: 'shot', src: 'assets/shot.mp3'},
         {id: 'background', src: 'assets/music.mp3'},
         {id: 'gameOverSound', src: 'assets/gameOver.mp3'},
@@ -73,14 +76,14 @@ function queueLoaded(event)
     stage.addChild(backgroundImage);
 
     // Add Score
-    scoreText = new createjs.Text("Score: " + score.toString(), "36px Arial", "#FFF");
+    scoreText = new createjs.Text("Score: " + score.toString(), "36px Arial", "white");
     scoreText.x = 10;
     scoreText.y = 10;
     stage.addChild(scoreText);
 
     // Ad Timer
-    timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "");
-    timerText.x = 750;
+    timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "white");
+    timerText.x = 850;
     timerText.y = 10;
     stage.addChild(timerText);
 
@@ -127,14 +130,16 @@ function queueLoaded(event)
 
 function createEnemy()
 {
-	animation = new createjs.Sprite(spriteSheet, "flap");
-    animation.regX = 99;
-    animation.regY = 200;
-    animation.x = enemyXPos;
-    animation.y = enemyYPos;
-    animation.gotoAndPlay("flap");
-    stage.addChildAt(animation,1);
-		clickable = true;
+	if (gameOver == false) {
+		animation = new createjs.Sprite(spriteSheet, "flap");
+			animation.regX = 99;
+			animation.regY = 200;
+			animation.x = enemyXPos;
+			animation.y = enemyYPos;
+			animation.gotoAndPlay("flap");
+			stage.addChildAt(animation,1);
+			clickable = true;
+	}
 }
 
 function batDeath()
@@ -190,7 +195,7 @@ function handleMouseDown(event)
 			// Display CrossHair
 			crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
 			crossHair.x = event.clientX-50;
-			crossHair.y = event.clientY-235;
+			crossHair.y = event.clientY-200;
 			stage.addChild(crossHair);
 			createjs.Tween.get(crossHair).to({alpha: 0},1000);
 
@@ -212,7 +217,7 @@ function handleMouseDown(event)
 			var distY = Math.abs(shotY - spriteY);
 
 			// Anywhere in the body or head is a hit
-			if(distX < 50 && distY < 70 && clickable==true)
+			if(distX < 60 && distY < 70 && clickable==true)
 			{
 				// Hit
 				stage.removeChild(animation);
@@ -265,6 +270,7 @@ function updateTime()
         createjs.Sound.removeSound("background");
         var si =createjs.Sound.play("gameOverSound");
 		clearInterval(gameTimer);
+		gameOver = true;
 	}
 	else
 	{
