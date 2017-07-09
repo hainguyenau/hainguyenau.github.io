@@ -82,8 +82,8 @@ function queueLoaded(event)
     stage.addChild(scoreText);
 
     // Ad Timer
-    timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "white");
-    timerText.x = 850;
+    timerText = new createjs.Text("Time: " + gameTime.toString(), "36px Arial", "black");
+    timerText.x = 750;
     timerText.y = 10;
     stage.addChild(timerText);
 
@@ -195,7 +195,7 @@ function handleMouseDown(event)
 			// Display CrossHair
 			crossHair = new createjs.Bitmap(queue.getResult("crossHair"));
 			crossHair.x = event.clientX-50;
-			crossHair.y = event.clientY-200;
+			crossHair.y = event.clientY-130;
 			stage.addChild(crossHair);
 			createjs.Tween.get(crossHair).to({alpha: 0},1000);
 
@@ -209,7 +209,7 @@ function handleMouseDown(event)
 			// Obtain Shot position
 			var shotX = Math.round(event.clientX);
 			var shotY = Math.round(event.clientY);
-			var spriteX = Math.round(animation.x);
+			var spriteX = Math.round(animation.x)+50;
 			var spriteY = Math.round(animation.y);
 
 			// Compute the X and Y distance using absolte value
