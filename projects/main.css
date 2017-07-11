@@ -85,3 +85,7 @@ th, td {
 @keyframes run {
 	100% {background-position: -1200px;}
 }
+
+.language-logo {
+	height: 50px;
+}
