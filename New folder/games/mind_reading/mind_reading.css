@@ -1,0 +1,29 @@
+#magician {
+	max-height: 300px;
+	border: 5px outset #a3ffb8;
+	}
+	
+body {
+	background-color: #3d3a05;
+}
+#body-center {
+  text-align: center;
+}
+
+h1, h3 { 
+	color: white;
+	font-family: "Verdana, sans-serif";
+	text-shadow: 2px 2px 2px grey;
+}
+
+img {
+	margin: auto;
+}
+
+button {
+	clear: both;
+}
+
+.sets {
+	width: 800px;
+}

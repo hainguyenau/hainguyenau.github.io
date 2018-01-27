@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Word Sense Disambiguation</title>
+  <!-- metas -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+
+  <!-- link to bootstrap and my css -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css" />
+	<link rel="shortcut icon" type="image/png" href="../img/favicon-32.png"/>
+
+</head>
+
+<body>
+<!--Nav Bar-->
+
+    <nav class="navbar navbar-default" id="body-center">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html"><b>Hai Nguyen Au</b></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="../index.html">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="../profile.html">Profile</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../games.html">Games</a></li>
+        <li><a href="../music.html">Music</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--End navbar>
+
+<!--Header-->
+<div class="container">
+  <div class="page-header">
+    <h1 id="name"><em> Word-Sense Disambiguation</em></h1>
+		<h5>October, 2016</h5><br>
+    <a href="https://github.com/hainguyenau/word_sense" target="_blank"><button type="button" class="btn btn-info">Github Repository</button></a>
+  </div>
+</div>
+<!--End header-->
+
+<!--Begin presentation-->
+<div class="container">
+  <img src="img/galvanize.png" height="50px"/>
+  <h2>Information</h2>
+<p>
+	This is my capstone project at Galvanize Data Science Immersrive - San Francisco (2016).
+</p>
+  <h2>Introduction</h2>
+  <p>Homograph words are words with the same spelling, but can have different meanings. The list of homograph words in English can be found in homograps.md. For example, as an old joke says:
+  <blockquote>
+    <b>Q</b>: Why do you think movie stars are so cool?<br>
+    <b>A</b>: Because they have lots of fans.
+
+  </blockquote>
+  The twist here is that the words "cool" and "fans" have two different meanings. It is fairly simple for human to decide which meaning of a homograph word is used given the context where the word is in. But to train the computer to do the same is not a simple tasks. In Natural Language Processing, this challenge is call "word-sense disambiguation". Several algorithms have been developed, some are simple and some are very sophisticated. In this project, I attempted to explore the word sense disambiguation challenge with different type of models.
+  </p>
+
+
+  <h2>The Data</h2>
+  <p>The dataset I used for this project is obtainedfrom from the Senseval corpus where the meanings of the homographs are labeled in each example.</p>
+
+  <h2>Methods and Results</h2>
+  <h4>Preprocessing of Data</h4>
+  <p>For each homograph, the example sentences and their lables are split into two lists. The documents are then lemmatized and Tf-idf vectorized using scikit-learn libraries. Once the text documents are converted to numeric, For this project, there are two different approaches to classify the meanings of the homographs: semi-supervised and supervised learnings.</p><br>
+
+  <h4>1. <u>Semi-Supervised Learning</u></h4>
+  <p>This approach ignores the labled meanings of the homgraphs in their examples and attempts to classify the meanings using clusterings. The reason behind this is that if there can be words that appear mulitple times, unsupervised cluserings may be able to detect some useful patterns that can help the classification process. Then the labels were used to determine the accuracy, precision and recall rates of the models.</p>
+
+    <ul>
+      <li><b>Kmeans</b>: As the simplest clustering method, Kmeans can takes in the raw dataset and attempts to make a pre-defined number of clusters. In here the number of clusters are set to be the number of different meanings of the word. Unfortunately, the model does not give very meaningful predictions. The figure below shows the result for Kmeans clutering for the dataset of the word "Hard" when projected to two-dimension. We can see right away that the "Curse of Dimensionality" prevents our clusters to separate well.</li><br>
+
+      <img class="img-responsive" src="img/word_sense/kmeans figure.png" alt="k-means"/><br>
+
+      <li><b>Agglomerative Clustering</b>: Since Kmeans can only use Euclidean distances as its affinity, the next logical thing to remedy this problem is to use Hierachical Clustering where cosine similarity or Jaccard similarity can be used. However, this algorithm is very memory-intensive, takes very long to run and does not yield good cross-validation accuracy, precision and recall results for the hyper-parameters I used. Due to the time constraint of this project, I decided to try another model.</li>
+
+      <li><b>Linear Discriminant Analysis</b>: Again, this model is just as memory-intensive as the Agglomerative model. The validation results are similar to that of the Agglomerative model.</li>
+    </ul><br>
+
+    <h4>2. <u>Supervised Learning</u></h4>
+    <p>Since all of the unsupervised methods did not yield good results, I decided to utilize the labels of the datasets to make supervised predictions.</p>
+    <ul>
+      <li><b>Multinomial Naive Bayes</b>: This model is simple, yet has the potential to make good predictions. By adjusing the hyper-parameter alpha for the model, I found that alpha = 0.12 is optimum. The accuracy, precision and recall averages for a few different homographs are shown below.</li></br>
+
+      <table class="table-striped" border="1">
+        <tr>
+          <th> Word </th>
+          <th> Accuracy </th>
+          <th> Precision </th>
+          <th> Recall </th>
+        <tr>
+          <td> "HARD" </td>
+        	<td> 72% </td>
+          <td> 74% </td>
+          <td> 80% </td>
+        </tr>
+        <tr>
+          <td> "INTEREST" </td>
+          <td> 75% </td>
+          <td> 73% </td>
+          <td> 75% </td>
+        </tr>
+        <tr>
+          <td> "LINE" </td>
+          <td> 72% </td>
+          <td> 74% </td>
+          <td> 72% </td>
+        </tr>
+      </table>
+    </ul>
+
+    <p>When compared the base algorithm where we always predict the most common meaning of a word (with accuracy between 51.4% and 57%), this model seems to perform better.</p>
+    <h2>Conclusion</h2>
+    <p>The Multinomial Naive Bayes model is simple, yet effective for the purpose of this project. Since the model can be applied as long as we have a labeled dataset, it can be extended to other languages, even non-latin languages such as Chinese or Japanese. For the time being, this model is quite bulky (we need one model for each word), but it can be improved in the future.</p>
+
+    <h2>References</h2>
+    <p><ol>
+      <li><a href="https://en.wikipedia.org/wiki/Homograph" target="_blank">Homographs</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Word-sense_disambiguation" target="_blank">Word-Sense Disambiguation</a></li>
+      <li><a href="https://www.cs.york.ac.uk/semeval2010_WSI/datasets.html" target="_blank">Semeval2010</a></li>
+      <li><a href="http://www.senseval.org/" target="_blank">SenEval</a></li>
+    </ol></p>
+<!--End presentation-->
+</div>
+
+<!--JQuery and JS links -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

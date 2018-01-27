@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Income Tax Calcultor</title>
+  <!-- metas -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+
+  <!-- link to bootstrap and my css -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css" />
+	<link rel="shortcut icon" type="image/png" href="../img/favicon-32.png"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<!--Nav Bar-->
+
+    <nav class="navbar navbar-default" id="body-center">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html"><b>Hai Nguyen Au</b></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="../index.html">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="../profile.html">Profile</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../games.html">Games</a></li>
+        <li><a href="../music.html">Music</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--End navbar>
+
+<!--Header-->
+<div class="container">
+  <div class="page-header">
+    <h1 id="name"><em>Income Tax Calculator</em></h1>
+		<h5>June, 2017</h5><br>
+    <a href="https://github.com/hainguyenau/Tax_app" target="_blank"><button type="button" class="btn btn-info">Github Repository</button></a>
+  </div>
+</div>
+<!--End header-->
+
+<!--Begin presentation-->
+<div class="container">
+ <h2>Introduction</h2>
+ <p>Since the income of my wife and me fluctuates a lot during this time, we needed a tool to estimate our income tax since our income taxes. With my limited knowledge about how federal and state tax work, I wrote an application that can give us a quick solution. The application can take inputs of our annual income and deductions to calculate the federal and California state tax according to the tax brackets given by the Government. I used simple, yet efficient methods so that when the brackets are updated every year, I can update the new information quickly.</p>
+ 
+ <h2>The Application</h2>
+      <table class="table-striped" border="1">
+        <tr>
+          <td><h4><b><a href="TaxCalculator/index.html">Run the Web App</a><i class="fa fa-globe" aria-hidden="true" style="font-size:20px; color:black"></i></b></h4></td>
+        <tr>
+          <td><h4><b><a href="https://github.com/hainguyenau/Tax_app/tree/master/Tax/Android" target="_blank">Download for Android</a><i class="fa fa-android" aria-hidden="true" style="font-size:20px; color:black"></i></h4></b></td>
+        </tr>
+        <tr>
+          <td><h4><b><a href="#">Download for IOS</a><i class="fa fa-apple" aria-hidden="true" style="font-size:20px; color:black"></i></h4></b>(coming soon)</td>
+        </tr>
+      </table>
+			<br>	
+			Tools used:
+				<b><ul>
+					<li>HTML/CSS/Javascript</li>
+					<li>JQuery Mobile</li>
+					<li>Adobe Phonegap</li>
+				</ul></b>
+ <h2>References</h2>
+
+	<ul>
+		<li><a href="http://www.bankrate.com/finance/taxes/tax-brackets.aspx" target="_blank">Federal 2017 Tax Brackets</a></li>
+		<li><a href="http://www.bankrate.com/finance/taxes/state-taxes-california.aspx" target="_blank">California 2017 Income Tax Brackets</a></li>
+	</ul>
+
+ 
+<!--End presentation-->
+</div>
+
+<!--JQuery and JS links -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

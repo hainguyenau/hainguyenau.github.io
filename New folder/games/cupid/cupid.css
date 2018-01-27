@@ -1,0 +1,13 @@
+h1 {
+	color: black;
+	font-family: "Verdana, sans-serif";
+	text-shadow: 1px 1px 1px grey;
+}
+
+.body-center {
+	text-align: center;
+}
+
+.canvas_div {
+	text-align: left;
+}
