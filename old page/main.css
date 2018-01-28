@@ -1,0 +1,91 @@
+body {
+  background-color: #ededed;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: auto;
+}
+
+#name {
+  color: white;
+}
+
+.container {
+  padding: 20px;
+}
+
+iframe {
+	padding: 20px;
+}
+
+#profile_pix{
+  box-shadow: 10px 10px 5px #ccc;
+}
+
+#name {
+  font-weight: bold;
+  text-shadow: 5px 5px 2px #ccc;
+  color: black;
+}
+
+#body-center {
+  text-align: center;
+}
+
+/* Social media buttons */
+/* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.socialmediaicons .fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+/* .tuxi-canvas { */
+	/* display: inline; */
+/* } */
+
+#back-button {
+	clear: both;
+}
+
+.img-center {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /*max-width: 600px;*/
+}
+
+.alpha-shape {
+	width: 300px;
+	height: 253px;
+	background: url('img/camcos/alpha-sprite.jpg');
+	animation: run 2s steps(4) infinite;
+
+}
+
+@keyframes run {
+	100% {background-position: -1200px;}
+}
+
+.well {
+  background-color: #fffcc5;
+}
