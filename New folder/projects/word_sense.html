@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projects</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">Hai Nguyen Au</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../post.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../projects.html">Projects</a>
+            </li>
+						<li class="nav-item">
+              <a class="nav-link" href="../games.html">Games</a>
+            </li>
+						<li class="nav-item">
+              <a class="nav-link" href="../music.html">Music</a>
+            </li>
+						
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('../img/colors.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h2>Analysis of Color Trend in 2018 Fashion</h2>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projects</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+	<!-- Main Content -->
+<div class="container">
+  <h2>Information</h2>
+<p>
+	This is my capstone project at <a href="https://www.galvanize.com/san-francisco/data-science" target="_blank">Galvanize Data Science Immersrive</a> - San Francisco (2016).
+</p>
+  <h2>Introduction</h2>
+  <p>Homograph words are words with the same spelling, but can have different meanings. The list of homograph words in English can be found in homograps.md. For example, as an old joke says:
+  <blockquote>
+    <b>Q</b>: Why do you think movie stars are so cool?<br>
+    <b>A</b>: Because they have lots of fans.
+
+  </blockquote>
+  The twist here is that the words "cool" and "fans" have two different meanings. It is fairly simple for human to decide which meaning of a homograph word is used given the context where the word is in. But to train the computer to do the same is not a simple tasks. In Natural Language Processing, this challenge is call "word-sense disambiguation". Several algorithms have been developed, some are simple and some are very sophisticated. In this project, I attempted to explore the word sense disambiguation challenge with different type of models.
+  </p>
+
+
+  <h2>The Data</h2>
+  <p>The dataset I used for this project is obtainedfrom from the Senseval corpus where the meanings of the homographs are labeled in each example.</p>
+
+  <h2>Methods and Results</h2>
+  <h4>Preprocessing of Data</h4>
+  <p>For each homograph, the example sentences and their lables are split into two lists. The documents are then lemmatized and Tf-idf vectorized using scikit-learn libraries. Once the text documents are converted to numeric, For this project, there are two different approaches to classify the meanings of the homographs: semi-supervised and supervised learnings.</p><br>
+
+  <h4>1. <u>Semi-Supervised Learning</u></h4>
+  <p>This approach ignores the labled meanings of the homgraphs in their examples and attempts to classify the meanings using clusterings. The reason behind this is that if there can be words that appear mulitple times, unsupervised cluserings may be able to detect some useful patterns that can help the classification process. Then the labels were used to determine the accuracy, precision and recall rates of the models.</p>
+
+    <ul>
+      <li><b>Kmeans</b>: As the simplest clustering method, Kmeans can takes in the raw dataset and attempts to make a pre-defined number of clusters. In here the number of clusters are set to be the number of different meanings of the word. Unfortunately, the model does not give very meaningful predictions. The figure below shows the result for Kmeans clutering for the dataset of the word "Hard" when projected to two-dimension. We can see right away that the "Curse of Dimensionality" prevents our clusters to separate well.</li><br>
+
+      <img class="img-fluid" src="img/word_sense/kmeans figure.png" alt="k-means"/><br>
+
+      <li><b>Agglomerative Clustering</b>: Since Kmeans can only use Euclidean distances as its affinity, the next logical thing to remedy this problem is to use Hierachical Clustering where cosine similarity or Jaccard similarity can be used. However, this algorithm is very memory-intensive, takes very long to run and does not yield good cross-validation accuracy, precision and recall results for the hyper-parameters I used. Due to the time constraint of this project, I decided to try another model.</li>
+
+      <li><b>Linear Discriminant Analysis</b>: Again, this model is just as memory-intensive as the Agglomerative model. The validation results are similar to that of the Agglomerative model.</li>
+    </ul><br>
+
+    <h4>2. <u>Supervised Learning</u></h4>
+    <p>Since all of the unsupervised methods did not yield good results, I decided to utilize the labels of the datasets to make supervised predictions.</p>
+    <ul>
+      <li><b>Multinomial Naive Bayes</b>: This model is simple, yet has the potential to make good predictions. By adjusing the hyper-parameter alpha for the model, I found that alpha = 0.12 is optimum. The accuracy, precision and recall averages for a few different homographs are shown below.</li></br>
+
+      <table class="table-striped" border="1">
+        <tr>
+          <th> Word </th>
+          <th> Accuracy </th>
+          <th> Precision </th>
+          <th> Recall </th>
+        <tr>
+          <td> "HARD" </td>
+        	<td> 72% </td>
+          <td> 74% </td>
+          <td> 80% </td>
+        </tr>
+        <tr>
+          <td> "INTEREST" </td>
+          <td> 75% </td>
+          <td> 73% </td>
+          <td> 75% </td>
+        </tr>
+        <tr>
+          <td> "LINE" </td>
+          <td> 72% </td>
+          <td> 74% </td>
+          <td> 72% </td>
+        </tr>
+      </table>
+    </ul>
+
+    <p>When compared the base algorithm where we always predict the most common meaning of a word (with accuracy between 51.4% and 57%), this model seems to perform better.</p>
+    <h2>Conclusion</h2>
+    <p>The Multinomial Naive Bayes model is simple, yet effective for the purpose of this project. Since the model can be applied as long as we have a labeled dataset, it can be extended to other languages, even non-latin languages such as Chinese or Japanese. For the time being, this model is quite bulky (we need one model for each word), but it can be improved in the future.</p>
+
+    <h2>References</h2>
+    <p><ol>
+      <li><a href="https://en.wikipedia.org/wiki/Homograph" target="_blank">Homographs</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Word-sense_disambiguation" target="_blank">Word-Sense Disambiguation</a></li>
+      <li><a href="https://www.cs.york.ac.uk/semeval2010_WSI/datasets.html" target="_blank">Semeval2010</a></li>
+      <li><a href="http://www.senseval.org/" target="_blank">SenEval</a></li>
+    </ol></p>
+	<!--End main content-->
+</div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/hainguyenau" target="_blank"
+">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/user/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+	
+	
+  </body>
+
+</html>
+
+    <hr>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>

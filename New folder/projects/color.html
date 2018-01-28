@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projects</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">Hai Nguyen Au</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../post.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../projects.html">Projects</a>
+            </li>
+						<li class="nav-item">
+              <a class="nav-link" href="../games.html">Games</a>
+            </li>
+						<li class="nav-item">
+              <a class="nav-link" href="../music.html">Music</a>
+            </li>
+						
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('../img/colors.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h2>Analysis of Color Trend in 2018 Fashion</h2>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projects</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+  <!-- Main Content -->
+	<div class="container">
+
+	<h2>Introduction</h2>
+		<p>In order to get myself familiar with image analyses, I decided to challenge myself with this project. In this project, colors from images downloaded from a retailer's website were analyzed and compared to derive the color trends. This is the first time I use machine learning to work with images so there were a lot to learn. The goal of this project is to study the color trend changes from 2017 to 2018 in the <em>Lemlem Resort</em> fashion collections from <a href="https://www.vogue.com/" target="_blank">Vogue</a>.</p>
+
+	<h2>The Data</h2>
+	<p>Since the images from the website were not easy to download, I wrote a code snippet to scrape the images from their pages. The data collected included:
+		<ul>
+			<li>20 images from the 2017 collection</li>
+			<li>24 images from the 2018 collection</li>
+		</ul>
+	</p>
+	
+	<h2>The Analysis</h2>
+	<p>To put things in perspective, the Red-Green-Blue digital color system has 256x256x256 = 16,777,216 different colors. In order to analyze efficiently, I had to reduce the amount of colors, or group the colors into families. I used these two different approaches to compare the results.</p>
+	
+	<h3>Approach 1: Color Reduction</h3>
+	<p>In this approach, the number of colors in each images were reduced down to a handful of colors. Images were converted by translating pixels through the <em>ADAPTIVE palette</em>. The alpha column was added in order to apply this method. The number of colors were reduced down to 10.</p>
+	
+	<p><img class="img-responsive" src="img/colors/10_colors.JPG" width="600"/></p>
+	<p>To build the dataset for this approach, images were converted to a uniform size of 1333 x 2000 pixels. This is the medium among all the sizes the website provided, so I decided to go with it. There are four columns in the dataset: pixel count, R, G, B, Alpha. The number of rows is the number of colors (10 in our case) multiply by the number of images (20 and 24 for 2017 and 2018 collections respectively). The data was sorted so that the most occurred colors are moved to the top.
+	</p>
+	<p>Then, I created the color palettes to show the most common colors in each collections.</p>
+		
+		<p>
+		<h2>2017</h2>
+		<img class="img-responsive" src="img/colors/2017.JPG" width="600"/>
+			<img class="img-responsive" src="img/colors/2017-basic.png", width="600"/></p>
+		<p>
+		<h2>2018</h2>
+		<img class="img-responsive" src="img/colors/2018.JPG" width="600"/>
+		<img class="img-responsive" src="img/colors/2018-basic.png" width="600"/></p>
+		
+	<p>We can see the important colors in the 2017 collection such as light blue and beige were extracted from the images. Since the background, skin and hair colors occur a lot, we expect that there are lots of similar shades between our clothing's colors. Similarly, we can see the emergence of dark blue in the 2018 collection while light blue is still present in the palette.</p>
+	<p>Some of the advantages of this approach:
+		<ul>
+			<li>Simple and fast</li>
+			<li>Images are processed before dataset is built</li>
+			<li>Capture the general color trends</li>
+		</ul>
+	</p>
+	
+	<p>Nevertheless, this method leaves a lot to be desired. For instance:
+		<ul>
+			<li>Some accent colors are lost.</li>
+			<li>When reducing colors, some strong colors are desaturated </li>
+			<li>Lots of repeating background, skin color</li>
+		</ul>
+	</p>
+	
+	<h3>Approach 2: K-Means Clustering</h3>
+	<p>Next, I targeted to solve the problems from the previous approach. Since there are lots of similar shades from the background and the clothings, I decided to group similar colors so that we can see separate color families more clearly. K-Means is a good approach since we can specify the number of clusters to experiment with.</p>
+	<p>To build the new dataset, I also used the resized images from the previous method. But this time, I eliminated the "pixel count" column since we do not care about the size of the clusters. Also we did not need the alpha channel, so it was eliminated. The number of rows is the sum of number of distinct colors in each image</p>
+	<p>To fit our K-Means model, I decided to use eight clusters. This number was good enough to group up different colors for backgrounds, skin, hair and a few different colors on the clothings. Eight different centers for eight clusters were found to minimize the total distances of all points to their centers.</p>
+	
+		<p>
+		<h2>2017</h2>
+		<img class="img-responsive" src="img/colors/2017.JPG" width="600"/>
+			<img class="img-responsive" src="img/colors/2017-kmeans.png", width="600"/></p>
+		<p>
+		<h2>2018</h2>
+		<img class="img-responsive" src="img/colors/2018.JPG" width="600"/>
+		<img class="img-responsive" src="img/colors/2018-kmeans.png" width="600"/></p>
+		
+		<p>We can see that the colors were grouped up well. We no longer have to go through many similar colors of the background to spot an important color in the fashion. Light blue (and even darker blue) from the 2017 collection were grouped into clusters. Dark blue and light blue from the 2018 collection were also clustered well. Some of the advantages of this method include:
+			<ul>
+				<li>All colors were preserved and used for our clustering algorithm.</li>
+				<li>Size of each color is disregarded. This causes accent colors can emerge. We can see clearly the pink accent color from the 2017 collection, which was not identified by the previous approach.</li>
+				<li>Unimportant colors (background, hair, skin tone, etc.) were grouped up to avoid distraction.</li>
+			</ul>
+		</p>
+		
+		<p>But there are also some limitations with this method:
+			<ul>
+				<li>We cannot find colors that appear in high frequencies, since pixel counts were disregarded.</li>
+				<li>This model is sensitive to the number of cluster chosen. Too many clusters can lead to overfitting and “chopping up” a large group of similar colors.</li>
+			</ul>
+		</p>
+		
+		<h3>Is 2018 Color Trend Darker Than 2017?</h3>
+		<p>From the Red-Green-Blue palette, we define light and dark pixels as follows:
+		
+			<ul>
+				<li>Light pixel: total RGB is 384 or more.</li>
+				<li>Dark pixel: totall RGB is less than 384.</li>
+			</ul> 
+		</p>
+		
+		<p>
+			<img class="img-responsive" src="img/colors/chart.png" width="600"/>
+		</p>
+		<p>Next, we calculated the percentage of light pixels and dark pixels from each of the two collections to compare them side-by-side. The results below show that from 2017 to 2018, dark pixels go from 4.5% to 8.8%, whereas light pixels go from 99.5% to 91.2%. The pixels include all colors from images, but if we assume that the unimportant colors (background, skin tone, hair, etc.) are in similar proportion, then we can safely conclude that the 2018 Lemlem fashion is getting darker.</p>
+		
+	<h2>Conclusion</h2>
+	<p>The results from two different approaches show that in 2017, the Lelem fashion had lots of light blue and pink accent color. But this trend became darker in 2018. The pink accent color was eliminated and darker blue stated to emerge. For fashion retailers who want to keep up to the current trends, we recommend to manufacture more blue clothings and ignore pink accent color for optimum profit.</p>
+		
+<!--End main content-->
+</div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/hainguyenau" target="_blank"
+">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/user/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+	
+	
+  </body>
+
+</html>
+
+    <hr>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
