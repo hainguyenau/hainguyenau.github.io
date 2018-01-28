@@ -115,19 +115,19 @@
 	<h3>Approach 1: Color Reduction</h3>
 	<p>In this approach, the number of colors in each images were reduced down to a handful of colors. Images were converted by translating pixels through the <em>ADAPTIVE palette</em>. The alpha column was added in order to apply this method. The number of colors were reduced down to 10.</p>
 	
-	<p><img class="img-responsive" src="img/colors/10_colors.JPG" width="600"/></p>
+	<p><img class="img-fluid" src="img/colors/10_colors.JPG" width="600"/></p>
 	<p>To build the dataset for this approach, images were converted to a uniform size of 1333 x 2000 pixels. This is the medium among all the sizes the website provided, so I decided to go with it. There are four columns in the dataset: pixel count, R, G, B, Alpha. The number of rows is the number of colors (10 in our case) multiply by the number of images (20 and 24 for 2017 and 2018 collections respectively). The data was sorted so that the most occurred colors are moved to the top.
 	</p>
 	<p>Then, I created the color palettes to show the most common colors in each collections.</p>
 		
 		<p>
 		<h2>2017</h2>
-		<img class="img-responsive" src="img/colors/2017.JPG" width="600"/>
-			<img class="img-responsive" src="img/colors/2017-basic.png", width="600"/></p>
+		<img class="img-fluid" src="img/colors/2017.JPG" width="600"/>
+			<img class="img-fluid" src="img/colors/2017-basic.png", width="600"/></p>
 		<p>
 		<h2>2018</h2>
-		<img class="img-responsive" src="img/colors/2018.JPG" width="600"/>
-		<img class="img-responsive" src="img/colors/2018-basic.png" width="600"/></p>
+		<img class="img-fluid" src="img/colors/2018.JPG" width="600"/>
+		<img class="img-fluid" src="img/colors/2018-basic.png" width="600"/></p>
 		
 	<p>We can see the important colors in the 2017 collection such as light blue and beige were extracted from the images. Since the background, skin and hair colors occur a lot, we expect that there are lots of similar shades between our clothing's colors. Similarly, we can see the emergence of dark blue in the 2018 collection while light blue is still present in the palette.</p>
 	<p>Some of the advantages of this approach:
@@ -153,12 +153,12 @@
 	
 		<p>
 		<h2>2017</h2>
-		<img class="img-responsive" src="img/colors/2017.JPG" width="600"/>
-			<img class="img-responsive" src="img/colors/2017-kmeans.png", width="600"/></p>
+		<img class="img-fluid" src="img/colors/2017.JPG" width="600"/>
+			<img class="img-fluid" src="img/colors/2017-kmeans.png", width="600"/></p>
 		<p>
 		<h2>2018</h2>
-		<img class="img-responsive" src="img/colors/2018.JPG" width="600"/>
-		<img class="img-responsive" src="img/colors/2018-kmeans.png" width="600"/></p>
+		<img class="img-fluid" src="img/colors/2018.JPG" width="600"/>
+		<img class="img-fluid" src="img/colors/2018-kmeans.png" width="600"/></p>
 		
 		<p>We can see that the colors were grouped up well. We no longer have to go through many similar colors of the background to spot an important color in the fashion. Light blue (and even darker blue) from the 2017 collection were grouped into clusters. Dark blue and light blue from the 2018 collection were also clustered well. Some of the advantages of this method include:
 			<ul>
@@ -185,7 +185,7 @@
 		</p>
 		
 		<p>
-			<img class="img-responsive" src="img/colors/chart.png" width="600"/>
+			<img class="img-fluid" src="img/colors/chart.png" width="600"/>
 		</p>
 		<p>Next, we calculated the percentage of light pixels and dark pixels from each of the two collections to compare them side-by-side. The results below show that from 2017 to 2018, dark pixels go from 4.5% to 8.8%, whereas light pixels go from 99.5% to 91.2%. The pixels include all colors from images, but if we assume that the unimportant colors (background, skin tone, hair, etc.) are in similar proportion, then we can safely conclude that the 2018 Lemlem fashion is getting darker.</p>
 		
@@ -245,7 +245,6 @@
 	
   </body>
 
-</html>
 
     <hr>
 

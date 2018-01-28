@@ -8,24 +8,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Projects</title>
+    <title>Income Tax Calculator</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../main.css" />
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-		<!-- Game JS -->
-		<link href="css/animate.css" rel="stylesheet">
-		<script src="js/script.js" type="text/javascript"></script>
-		<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		
     <!-- Custom styles for this template -->
-    <link href="../../css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/clean-blog.min.css" rel="stylesheet">
 
   </head>
 
@@ -66,13 +61,13 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('../img/colors.jpg')">
+    <header class="masthead" style="background-image: url('../img/tax.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="page-heading">
-              <h2>Analysis of Color Trend in 2018 Fashion</h2>
+              <h2>Income Tax Calculator</h2>
               
             </div>
           </div>
@@ -90,41 +85,47 @@
     <title>Projects</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="../../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
 
   </head>
   <!-- Main Content -->
-	<div class="container">
-		<div class="page-header">
-			<h1 id="name">License Plate Memory</h1>
-		</div>
-	</div>
-<!--End header-->
-
-<!--Game-->
-
-	<div id="MainDiv" class="animated flipInX">
-		<canvas id="my_canvas" class="img-responsive" width="500" height="300"></canvas></br>
-	</div>
-	<div class ="form-group">
-			<label for="input">Enter the License Plate Number</label>
-			<input id="input" style="text-transform:uppercase" onblur="this.focus()" autofocus>
-			<input type="button" onclick="show_result()" value="Submit">
-	</div>
 
 	<div class="container">
-		<div id="result" class="img-responsive animated"></div>
-	</div>
-		
+ <h2>Introduction</h2>
+ <p>Since the income of my wife and me fluctuates a lot during this time, we needed a tool to estimate our income tax since our income taxes. With my limited knowledge about how federal and state tax work, I wrote an application that can give us a quick solution. The application can take inputs of our annual income and deductions to calculate the federal and California state tax according to the tax brackets given by the Government. I used simple, yet efficient methods so that when the brackets are updated every year, I can update the new information quickly.</p>
+ 
+ <h2>The Application</h2>
+      <table class="table-striped" border="1">
+        <tr>
+          <td><i class="fa fa-globe" aria-hidden="true" style="font-size:20px; color:black"></i>     <h7><b><a href="TaxCalculator/index.html">Run the Web App</a></b></h7></td>
+        <tr>
+          <td><i class="fa fa-android" aria-hidden="true" style="font-size:20px; color:black"></i>     <h7><b><a href="https://github.com/hainguyenau/Tax_app/tree/master/Tax/Android" target="_blank">Download for Android</a></h7></b></td>
+        </tr>
+      </table>
+			<br>	
+			Tools used:
+				<b><ul>
+					<li>HTML/CSS/Javascript</li>
+					<li>JQuery Mobile</li>
+					<li>Adobe Phonegap</li>
+				</ul></b>
+ <h2>References</h2>
+
+	<ul>
+		<li><a href="http://www.bankrate.com/finance/taxes/tax-brackets.aspx" target="_blank">Federal 2017 Tax Brackets</a></li>
+		<li><a href="http://www.bankrate.com/finance/taxes/state-taxes-california.aspx" target="_blank">California 2017 Income Tax Brackets</a></li>
+	</ul>
+	
 <!--End main content-->
+</div>
 
     <hr>
 
@@ -167,24 +168,23 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="../../js/clean-blog.min.js"></script>
+    <script src="js/clean-blog.min.js"></script>
 	
 	
   </body>
 
-
     <hr>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="../../js/clean-blog.min.js"></script>
+    <script src="../js/clean-blog.min.js"></script>
 
   </body>
 

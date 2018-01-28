@@ -17,7 +17,24 @@
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
+		
+		<!-- LaTEX scripts -->
+		<script type="text/javascript" async
+			src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+			<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+				tex2jax: {
+					inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+					processEscapes: true
+				}
+			});
+		</script>
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		 "HTML-CSS": { linebreaks: { automatic: true } },
+						 SVG: { linebreaks: { automatic: true } }
+		});
+		</script>
     <!-- Custom styles for this template -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
 
@@ -60,13 +77,13 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('../img/colors.jpg')">
+    <header class="masthead" style="background-image: url('../img/galaxy.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="page-heading">
-              <h2>Analysis of Color Trend in 2018 Fashion</h2>
+              <h2>The Geometry and Topology of the Cosmic Web</h2>
               
             </div>
           </div>
@@ -95,10 +112,115 @@
     <link href="../css/clean-blog.min.css" rel="stylesheet">
 
   </head>
+	<!-- Main Content -->
+<div class="container">
+  <h2>Information</h2>
+  <p>This project was a study at San Jose State University in 2014 for the <i>Center for Applied Mathematics, Computation, and Statistics (<b>CAMCOS</b>)</i>. The project was sponsored by <a href="https://www.nasa.gov/" target="_blank">NASA Ames Research Center</a>.</p>
+  <p>
+  Contributors:
+  <ul>
+    <li>Hai Nguyen Au</li>
+    <li>Catherine Boersma</li>
+    <li>Joey Fitch</li>
+    <li>David Goulette</li>
+    <li>Jian-Long Liu</li>
+    <li>Matthew Litrus</li>
+    <li>Brandon Morrison</li>
+    <li><a href="https://www.nasa.gov/centers/ames/research/2007/scargle.html" target="_blank">Jeffrey Scargle</a> (Astrophysicist/Supervisor)</li>
+    <li><a href="http://www.sjsu.edu/math/people/faculty/simic/" target="_blank">Slobodan Simic</a> (Professor/Supervisor)</li>
+  </ul>
+  </p>
 
-  <!-- Main content --> 
+  <h2>Introduction</h2>
+  <p>
+    Given a set of points, how can we determine the geometry and topology of those points?  What shapes do you see?  What if I told you that these dots actually formed letters (obviously with some dots missing)?  With that knowledge, would you be able to identify the letters that these points form? Of course it is almost impossible with so few points. But the more points we have, the easier the task becomes. And at some point, our eyes and brains can link clusters of points to familiar letters that we have seen in our past.
+  </p>
 
-  <!-- End main content -->
+  <p>
+    The question is, how do we train the computer to do the same? To do this, We want to be able to say which points should be connected to one another. We want to identify areas of thick point distributions and classify them separately from thin distributions.  We want to see how many holes are in the data (the N has no holes and the L has two). In this project, since we only have one universe and only one point distribution, we can only use unsupervised learning to make sense of the our data.
+  </p>
+
+  <h2>The Data</h2>
+  <p>
+    The data we are working with is a subset of 134,000 galaxies from the Sloan Digital Sky Survey (SDSS DR7), which is data collected from the 2.5 m telescope at the Apache Point Observatory in New Mexico.  Each object here is an entire galaxy like the milky way, composed of hundreds of billions of stars like our sun.  As we fly through the data, you might get a sense of structure – what some call the “cosmic web”.
+  </p>
+  <h2>Goals</h2>
+  <p>
+    There appear to be over-dense and under-dense regions.  Our goal is to characterize the geometry and topology of this data set is to identify structures.
+  <ol>
+    <li>Partition of the space</li>
+    <li>Grouping</li>
+    <li>Classification of structures using
+      <ul>
+        <li>Clusters</li>
+        <li>Filaments</li>
+        <li>Voids</li>
+      </ul>
+    </li>
+  </ol>
+</p>
+
+<h2>Partition the Space</h2>
+<p>
+  In order to group points together, we need to identify neighboring points. Our first task is partitioning the data space.  To do so, we surround the points with cells. In order to define the density of a point in a point cloud, we first tessellate our data using a Voronoi tessellation. Notice that in regions of high point density, the Voronoi cells have small area.  In the Delaunay triangulation, each vertex is a galaxy.  A Delaunay triangulation puts edges connecting the neighboring galaxies. In graph theory, the Voronoi tessellation is the dual graph of the Delaunay tessellation. When two Voronoi cells border each other, there is an edge between them in the Delaunay tessellation.  In the Voronoi diagram, every galaxy is surrounded by a polygonal cell.  In the Delaunay triangulation, every galaxy is the vertex of a triangle.<br>
+  <img src="img/camcos/voronoid.JPG" class="img-responsive img-center" width="600px"/>
+</p>
+<p>
+  In order to identify areas of high and low density in the data set, we need to define a density function.  In physics, density is the ratio of mass to volume.  Since we assume the galaxy masses are all equal, we assign them a mass of 1 and divide by the volume of the Voronoi cell surrounding the galaxy.
+  $$\rho = \frac{\text{Mass}}{\text{Volume}}$$
+  $$\rho = \frac{1}{\text{Voronoi cell volume}}$$
+  In our efforts to partition the data, group small clusters, and classify structures, we tried many different algorithms.  Our goal in each case was the same: to determine a computationally simple algorithm with few parameters to identify structures.  Initially, we examined Discrete Morse Theory, and then proceeded with variations of HOP, such as JHOP, EHOP, and smooth HOP.  We tried to get the same results from Discrete Morse Theory using a version of HOP called Dimensional HOP and then we looked at alpha shapes and combined them with HOP for a potential new technique to analyze the cosmic web. (For more details about each method, please refer to our <a href="https://github.com/hainguyenau/CAMCOS_2014/blob/master/Geometry_Topology_Cosmic_Web.pdf" target="_blank">full article</a>).<br><br>
+  
+  <img src="img/camcos/methods.png" class="img-responsive" width="600px"/>
+</p>
+<h3>Discrete Morse Theory</h3>
+  <p>
+    In Discrete Morse Theory, we define simplices in different dimensions as follows
+    <ul>
+      <li>0-dimensional: a point</li>
+      <li>1-dimensional: a line segment</li>
+      <li>2-dimensional: a triangle</li>
+      <li>3-dimensioanl: a tetrahedron</li>
+    </ul>
+    The <em>gradient paths</em> arrows from higher density to lower density. Each simplex has at most one arrow, and the gradient paths sequences of simplices along which density is decreasing.
+    <p><img src="img/camcos/DMT.JPG" class="img-responsive" width="500px"/></p>
+    When we apply Discrete Morse Theory on the Sloan Digital Sky Survey Data, we find the points of maximum density, pictured here as red points.  The saddles are yellow and light blue. The minima are dark blue points.  The algorithm partitions the data set into ascending and descending manifolds.  In the example of the donut, we only had two pairs of critical points to cancel.  As you can imagine, the process of cancelling critical points given the complexity of our data in 3D is non-trivial.<br><br>
+    <img src="img/camcos/DMT_result.JPG" class="img-responsive" width="300px"/>
+
+  </p>
+<h3>HOP</h3>
+  <p>
+    HOP is a simple algorithm for grouping data points and observing potential structure in our galaxy data formulated by Eisenstein and Hut in 1997. In the HOP process, we start from a vertex, consider all neighboring points of the chosen vertex, then find the highest-valued neighbor and HOP to that vertex. Using the HOP algorithm, we can identify:
+    <ul>
+      <li>HOP Paths: any chain of HOP arrows that indicate a flow from low density to high density</li>
+      <li>The maxima: points which are higher-valued than all of their neighbors; i.e. the termination of any HOP path</li>
+      <li>Max Classes: a set of vertices who all HOP to the same maximum (including the maximum itself)</li>
+      <li>Boundary points: points on the edge of a max class</li>
+      <li>Bond Edges: edges between 2 points on different boundaries (i.e. in 2 different max classes)</li>
+    </ul>
+      <img src="img/camcos/HOP.JPG" class="img-responsive" width="300px"/><br>
+    HOP is a very simple parameter-free algorithm with several other benefits. It is easy to compute, can allow room for pre-/ post-processing. The algorith provides guaranteed and unique convergence. The paths can be reversed and generalized to any dimension.
+
+
+  </p>
+<h3>&alpha;-shapes</h3>
+  <p>
+    To create an &alpha;-shape, we start with a Voronoi cell (blue area) and the representative data point (red dot). Then we create a disk of radius &alpha;, centerd at the data point in the Voronoi cell (yellow disk). The intersection of the Voronoi cell and the disk of radius &alpha; is the <b>&alpha;-shape</b>.<br><br>
+    <img src="img/camcos/alpha.jpg" class="img-responsive" width="600px"/><br>
+    When the radius &alpha; is large enough, neighboring &alpha;-shapes have intersecting boundaries. When two neighboring &alpha;-shape intersect, we connect the data points with an edge. When three &alpha;-shapes share a point on their boundary, we can fill in the triangle as shown below<br><br>
+    <img src="img/camcos/alpha2.JPG" class="img-responsive" width="300px"/><br>
+    As &alpha; increases, more and more connections over large distances are made. As &alpha; approaches infinity, we recover the full Delaunay triangulation.
+
+    <div class="alpha-shape img"></div>
+
+  </p>
+  <h2>Future Work</h2>
+    <p>
+      Since each algorithm has its benefits and drawbacks, we can find a framework to comparatively analyze the outputs of these algorithms to see which one performs best. With more data coming in, we can also test our algorithms against simulations of the evolution of the galactic distribution and other sky surveys with more data points.
+		
+	<!--End main content-->
+</div>
+
     <hr>
 
     <!-- Footer -->
@@ -148,8 +270,6 @@
 	
 	
   </body>
-
-</html>
 
     <hr>
 

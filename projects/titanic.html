@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">Hai Nguyen Au</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../post.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../projects.html">Projects</a>
+            </li>
+						<li class="nav-item">
+              <a class="nav-link" href="../games.html">Games</a>
+            </li>
+						<li class="nav-item">
+              <a class="nav-link" href="../music.html">Music</a>
+            </li>
+						
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('../img/titanic.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h2>Titanic - Learning from Disasters</h2>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Titanic - Learning from Disasters</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+  <!-- Main Content -->
+<div class="container">
+  <h2>Information</h2>
+  <p>This is my first Kaggle machine learning "competition". My goal is to play with classic data to improve my analytic skills and learn from what others are doing with the same data. Getting experience in the data world nowadays is simple since public data are widely available. Starting from the data from 1912 means I am a little behind compared to other data scientists. But it is still the first step.</p>
+  
+	<h2>Introduction</h2>
+	<p>Titanic is the infamous disaster that everyone has heard about. The blockbuster movie in 1997 attempted to depict the event and became a huge success. But there are still many mysteries around this tragedy that were left unanswered. This project is not about trying to find new information that has been avading scientists for more than a century, but is an attempt to give me a better picture about the demographics of those whose lives were taken by the event, and those lucky ones who survived. There are two major goals of this project:
+		<ol>
+			<li>Use statistics to explorer the features that might effect the chance of survival among the passengers.</li>
+			<li>Use machine learning to construct models that can classify the probabilities of surviving using the important features found above.</li>
+		</ol>
+	
+	<h2>The Data</h2>
+		<table class="table-striped" border="1">
+			<tr>
+				<th>Variable</th>
+				<th>Definition</th>
+			</tr>
+			<tr>
+				<td>survival</td>
+				<td>Survival	(0 = No, 1 = Yes)</td>
+			</tr>		
+				<tr>
+				<td>pclass</td>
+				<td>Ticket class	(1 = 1st, 2 = 2nd, 3 = 3rd)</td>
+			</tr>
+					<tr>
+				<td>sex</td>
+				<td>Sex</td>
+			</tr>
+			<tr>
+				<td>Age</td>
+				<td>Age in years</td>
+			</tr>
+			<tr>
+				<td>sibsp	</td>
+				<td>Number of siblings / spouses aboard the Titanic</td>
+			</tr>
+			<tr>
+				<td>parch</td>
+				<td>Number of parents / children aboard the Titanic</td>
+			</tr>
+			<tr>
+				<td>ticket</td>
+				<td>Ticket number</td>
+			</tr>
+			<tr>
+				<td>fare</td>
+				<td>Passenger fare</td>
+			</tr>
+			<tr>
+				<td>cabin</td>
+				<td>Cabin number</td>
+			</tr>
+			<tr>
+				<td>embarked</td>
+				<td>Port of Embarkation (C = Cherbourg, Q = Queenstown, S = Southampton)</td>
+			</tr>
+		</table>
+
+  <h2>Exploratory Data Analysis</h2>
+		<p>
+			First, we look at the scatter plots between all variables to see if there are any apparent relationship among the raw variables.
+			<p></p><img class="img-fluid" src="img/titanic/scatter_plot.png" width="500"/></p>
+			
+			The plots do not show any paraticularly strong relationship between any pair of variables. The diagonal histograms gives us the distributions of each variable of the dataset. We will look more into this.
+		</p>
+	<h2>The Age Effect</h2>
+		<p>Usually when accidents like these happens, we would expect that young children and the elders are the first to be saved and have higher chance of surviving. Below are the histogram of the distribution of the passengers' ages on the ship.
+			<p></p><img class="img-fluid" src="img/titanic/age_hist.png" width="500"/></p>
+			<b><u>Figure</u></b>:<i>The distribution of age among passengers.</i>
+		</p>
+		
+		<p>
+		We can see that the majoraty of the passengers are adults from around 17 to 50 years of age. Consequently, there are more adults died in the accident than children and elders, as shown by the high density in this age group for both the survivors and non-survivors.
+			<p></p><img class="img-fluid" src="img/titanic/age_plot.png" width="500"/></p>
+			<b><u>Figure</u></b>:<i>The effect of different age on survival rates.</i>
+			</p>
+		<p>
+		To explore in more details, I divided the passengers into four different age groups and calculted the survival rates for each group:
+			
+			<table class="table-striped" border="1">
+				<tr>
+					<th>Group</th>
+					<th>Age Range</th>
+					<th>Survival Rate</th>
+					<th>Size</th>
+				</tr>
+				<tr>
+					<td>Children</td>
+					<td>< 18</td>
+					<td>0.53982</td>
+					<td>113</td>
+				<tr>
+					<td>Younger Adults</td>
+					<td>18-30</td>
+					<td>0.35473</td>
+					<td>296</td>
+				</tr>
+				<tr>
+					<td>Older Adults</td>
+					<td>30-50</td>
+					<td>0.42324</td>
+					<td>241</td>
+				</tr>
+				<tr>
+					<td>Elders</td>
+					<td>> 50</td>
+					<td>0.34375</td>
+					<td>64</td>
+				</tr>
+			</table>
+			
+			From this table, there are some differences between the groups. However, we need to take into account the differences in sizes of the groups. To determine if the survival proportions of these groups are from the same popluation, I performed a one-way F-test. The resulting p-value of 0.00061 suggests that these groups don't have the same survivla rates. Children had a higher chanced to be saved. Older adults were also more likely to save themselves. Younger adults had a lower chance to survive, probably because they were likely to sarcrifice themselves to save others. The elders were also had a lower survival rate, which makes sense in situations like this.
+		</p>
+		
+		<h2>The Fare Effect</h2>
+		<p>
+			It is a common belief that passengers who paid more in fare stayed in locations that were easier to escape. The histogram and violin plot below show the distribution of fare among all passengers. The calculated median fare was $14.45 while the mean fare was $32.20. 
+			<p></p><img class="img-fluid" src="img/titanic/fare_all.png" width="500"/></p>
+			<p></p><img class="img-fluid" src="img/titanic/fare_violin.png" width="500"/></p>
+			<b><u>Figure</u></b>:<i>The distribution of fare among passengers.</i>
+			</p>
+			
+			<p>
+			By comparing the survivors and non-survivors, we can see that hypothesis could be true. We can see that people who died during the accident (red) paid lower fare than those who survived (green).
+			<p></p><img class="img-fluid" src="img/titanic/fare_hist.png" width="500"/></p>
+			<b><u>Figure</u></b>:<i>The effect fare on survival rates.</i>
+			</p>
+			<p>
+			Next, I separated the passengers into two groups:
+				<ul>
+					<li>High-fare: those who paid above the 0.75 quantile of fare</li>
+					<li>Low-fare: those who paid below the 0.75 quantile of fare</li>
+				</ul>
+	
+			A hypothesis test with p-value of $1.6392e^{-12}$ also supports the conclusion that the surviving proportions between these two groups are not the same, and the high-fare group has a higher probability of surviving. Another possible important feature was probably the the passengers' classes. This feature could be redundant to the fare feature because of the correlation coefficient of -0.5495 between them. However, I decided to include both of them into the models in case they are both important. Note that by looking at the histograms below. We can see that class 1 had higher fare (further to the right) and class 3 had low fare (further to the left). A hypothesis test between class 2 and 3 with p-value of $8.3042e^{-11}$ suggests that they are class 2 had higher fare than class 3. 
+			<p><img class="img-fluid" src="img/titanic/class_hist.png" width="500"/></p>
+			<b><u>Figure</u></b>:<i>The relationship between classes and fare.</i>
+
+ 		</p>
+		
+		<h2>The Gender Effect</h2>
+		<p>
+			Next, we will look at the theory that female passengers are more likely to survive than male passengers. Just like most people, I had a strong belief for this theory. But let us verify it using data. Again, I plotted the histograms for male and female susvivors. It is apparent that the rate of surviving female passengers is significantly higher than that of male. A hypothesis test with p-value of $1.4061e^{-69}$ strongly suggests this.</p>
+			<p></p><img class="img-fluid" src="img/titanic/gender.png" width="500"/></p>
+			<b><u>Figure</u></b>:<i>The effect of different genders on survival rates.</i>
+		</p>
+		
+		<h2>The Embarked Effect</h2>
+		<p>
+			The last feature we will consider is the "Port of Embarkation". According to return route of the Titanic, it was going from Southampton - to Cherbourg - to Queenstown - to New York. I suspected that order of ports of embarkation can have significant effect to the passengers' fates since it could influence the locations on the ship of the passengers. The histograms  of three groups of embarkations are shown. We can immediately see that the number of passengers decreases by the order of embarkation. Southampton have the most passengers, then Cherbourg, and finally Queenstown. 
+			<p></p><img class="img-fluid" src="img/titanic/route.JPG" width="600"/>
+			<img class="img-fluid" src="img/titanic/embarked.png" width="600"/></p>
+			<b><u>Figure</u></b>:<i>The effect of different ports of embarkation on survival rates.</i>
+		</p>
+		<p>
+			If we look at the survival rate for each port of embakation, we can see that Cherbourg passengers have a higher chance of surviving than those who were from the other two ports. I performed a one-way F-test on all three groups. The obtained p-value of $1.5143e^{-6}$ confirms that there is a discrepancy between the three groups. Next, I performed another F-test on the first and last two ports: Southampton and Queenstown to find if the two groups have the same survival rates as their histograms imply. The resulting p-value of $0.3582$ suggests that is likely to be true. So, it could be the case that passengers who were "squeezed" in the middle of the voyage might have a better chance of surviving. I do not have a good explanation for this.
+		</p>
+		
+		<h2>The Models</h2>
+		<p>I constructed two basic models to classify whether a passenger survived using five features:
+			<ul>
+				<li>Age</li>
+				<li>Sex (dummified)</li>
+				<li>Passenger Class</li>
+				<li>Fare</li>
+				<li>Port of Embarkation (dummified)</li>
+			</ul>
+			The dataset was splitted into a training set and test set by the ratio of 3:1. The models' average scores for accuracy, precision and recall were obtained by using 3-fold cross validation.
+		</p>
+		<ol>
+					<li><b>Logistic Regression</b>
+						<div class="well">
+							<i>(C=1.0, class_weight=None, dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1, penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+							verbose=0, warm_start=False)</i><br><br>
+							
+
+						</div>
+					</li>
+					
+					<li><b>Random Forest Classifier</b>
+						<div class="well">
+							<i>(bootstrap=True, class_weight=None, criterion='gini', max_depth=None, max_features='auto', max_leaf_nodes=None, min_samples_leaf=1, min_samples_split=2, min_weight_fraction_leaf=0.0, n_estimators=10, n_jobs=1, oob_score=False, random_state=None, verbose=0, warm_start=False)</i><br><br>
+						</div>
+			
+					</li>
+		</ol>
+		
+		
+		<h2>Model Performance Assessments</h2>
+			<ol>
+				<li><b>Confidence Intervals</b>
+					 <p>To calculate the confidence intervals for the mean of accuracy, precision and recall scores, I generated 100 random train-test splits. Next, I used the saved models above (in <em>pickle</em> file type) to predict the results from these test sets. Then, the 90% confidence intervals for the accuracy, precision and recall scores were calculated from these samples.
+
+					 		<table class="table-striped" border="1">
+								<tr>
+									<th>Score</th>
+									<th>Logistic Regression</th>
+									<th>Random Forest Classifier</th>
+						
+								</tr>
+								<tr>
+									<td>Accuracy</td>
+									<td>(0.7662, 0.7764)</td>
+									<td>(0.7547, 0.7678)</td>
+								</tr>
+								
+								<tr>
+									<td>Precision</td>
+									<td>(0.7590, 0.7725)</td>
+									<td>(0.7369, 0.7547)</td>
+								</tr>
+								
+								<tr>
+									<td>Recall</td>
+									<td>(0.6374, 0.6597)</td>
+									<td>(0.6374, 0.6558)</td>
+								</tr>
+							</table>
+				</li><br>
+		
+				<li><b>ROC Curves</b>
+					<p>We can also use the ROC curves to assess our models by their true positive and false positive rates.
+					<p></p><img class="img-fluid" src="img/titanic/roc.png" width="500"/></p>
+					<b><u>Figure</u></b>:<i> ROC curves for logistic and random forest models.</i>
+					</p>
+					<p>
+					Comparing these two models, we can see that the random forest does a phenomenal job for this particular test set. Its ROC curve approaches the top left corner, which is the ideal situation when whe have high true positive rate and low false positive rate. The logistic model also performs well.
+					</p>
+				</li>
+				
+				<li><b>PR Curve</b>
+					We will also investigate the Precision-Recall curve to see how the classification works. 
+					<p></p><img class="img-fluid" src="img/titanic/PR.png" width="500"/></p>
+					<b><u>Figure</u></b>:<i> PR curves for logistic and random forest models.</i></b><br><br>
+					The logistic model's curve behaves as we expect for a basic model. However, the close-to-perfect PR curve for the random forest model makes me want to reconsider whether the model is overfitting. By looking at the values for the predicted probabilities of this model, I found that these values are rounded in an abnormal way when compared to that of the logistic model. Further studies on this model is necessary to find out what the problem might be.
+				</li>
+			</ol>
+		
+		
+		<h2>Conclusion</h2>
+		<p>Since a majority of the passengers did not survive, high accuracy for the models is expected. Nevertheless, the classes are not too unbalanced to perform resampling techniques. Both logistic and random forest models work well under our test environment. But the random forest seems to overfit the data and needs to be reconsidered. We can also perform hyper-parameters tuning can also be used to improve the models' efficacy. Nevertheless, they can be used as the baseline models for our project.
+		
+<!--End main content-->
+</div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/hainguyenau" target="_blank"
+">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/user/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+	
+	
+  </body>
+
+
+    <hr>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
