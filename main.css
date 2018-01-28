@@ -2,3 +2,15 @@ th, td {
     padding: 15px;
     text-align: left;
 }
+
+.alpha-shape {
+	width: 300px;
+	height: 253px;
+	background: url('projects/img/camcos/alpha-sprite.jpg');
+	animation: run 2s steps(4) infinite;
+
+}
+
+@keyframes run {
+	100% {background-position: -1200px;}
+}
