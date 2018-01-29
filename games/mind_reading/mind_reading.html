@@ -18,7 +18,7 @@
 
   <!-- link to bootstrap and my css -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="shortcut icon" type="image/png" href="../../img/favicon-32.png"/>
+	<link rel="shortcut icon" type="image/png" href="../../img/favicon.png"/>
 
 	<!-- Custom styles for this template -->
 	<link href="../../css/clean-blog.min.css" rel="stylesheet">	
@@ -30,10 +30,10 @@
 	<link rel="stylesheet" href="mind_reading.css" />
 </head>
 
-<body class="body-center">
+<body>
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
+      <div class="container" class="body-center">
         <a class="navbar-brand" href="../../index.html">Hai Nguyen Au</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
@@ -57,7 +57,7 @@
               <a class="nav-link" href="../../games.html">Games</a>
             </li>
 						<li class="nav-item">
-              <a class="nav-link" href="../../music.html">Music</a>
+              <a class="nav-link" href="../../videos.html">Videos</a>
             </li>
 						
           </ul>
@@ -75,18 +75,60 @@
 <!--Game-->
 
 <div class="container" id="cards">
-	<h3>Choose one card and memorize it!!!</h3>
-	<br>
+	<div class ="blink_me"><h3>Choose one card and memorize it!!!</h3></div>
 	<img class="img-responsive sets" src="set1.jpg"/><br>
-	<h3>When you are ready,<br>click on the Magician.</h3>
+	<div class="blink_me"><h3>When you are ready,<br>click on the Magician.</h3></div>
 	<img id="magician" class="img-responsive" src="magician.jpg"/><br>
 	
 </div>
 
 <!-- Audio -->
+<audio autoplay loop>
+	<source src="background.mp3" type="audio/mp3">
+</audio>
 <!-- Sound -->
 <audio id="mysterious" src="mysterious.mp3" type="audio/mp3"></audio> 
 
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/hainguyenau" target="_blank"
+">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/user/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 </body>
     <hr>
 

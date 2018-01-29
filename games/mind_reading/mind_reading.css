@@ -6,7 +6,7 @@
 body {
 	background-image: url('background.jpg');
 }
-#body-center {
+#cards {
   text-align: center;
 }
 
@@ -31,3 +31,12 @@ button {
 .masthead {
 	height: 60px;
 }
+
+.blink_me {
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
