@@ -16,105 +16,107 @@ th, td {
 }
 
 // Youtube playlist on Music page
-.vid-container {
-	position: relative;
-	padding-bottom: 52%;
-	padding-top: 30px; 
-	height: 0; 
+html {
+  background: #FFF;
+  padding-top: 30px;
 }
 
-.vid-container iframe,
-.vid-container object,
-.vid-container embed {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+body {
+  width: 940px;
+  margin: 0 auto;
 }
 
-.vid-list-container {
-	width: 92%;
-	overflow: hidden;
-	margin-top: 20px;
-	margin-left:4%;
-	padding-bottom: 20px;
+#ypt_wrapper {
+  width: 100%;
+  background: #FFF;
+  //color: #000;
+  overflow: hidden;
+  max-width: 100%;
+  box-shadow: 0px 8px 13px rgba(0,0,0,0.5);
+  margin-bottom: 1em;
 }
 
-.vid-list {
-	width: 1344px;
-	position: relative;
-	top:0;
-	left: 0;
+#ypt_thumbs {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 20%;
+  background: #000;
+  margin: 0;
+  padding: 0;
+  height: 0;
 }
 
-.vid-item {
-	display: block;
-	width: 148px;
-	height: 148px;
-	float: left;
-	margin: 0;
-	padding: 10px;
+#ypt_thumbs li {
+  list-style: none;
+  margin: 0;
+  position: relative;
+  font-size: 0;
 }
 
-.thumb {
-	overflow:hidden;
-	height: 84px;
+#ypt_thumbs li img{
+  width: 100%;
 }
 
-.thumb img {
-	width: 100%;
-	position: relative;
-	top: -13px;
+#ypt_thumbs li p {
+  font-family: arial;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  padding: 5%;
+  margin: 0;
 }
 
-.vid-item .desc {
-	color: #21A1D2;
-	font-size: 15px;
-	margin-top:5px;
+#ypt_thumbs li:hover p {
+  display: block;
+  cursor: pointer;
 }
 
-.arrows {
-	position:relative;
-	width: 100%;
+#ypt_thumbs .ypt-now-playing p {
+  display: block;
 }
 
-.arrow-left {
-	color: #fff;
-	position: absolute;
-	background: #777;
-	padding: 15px;
-	left: -25px;
-	top: -130px;
-	z-index: 99;
-	cursor: pointer;
+#ypt_thumbs .ypt-now-playing > span::after {
+  content: "\25b6  Now playing"; /* A traingle pointing right */
+  margin-top: -1em;
+  display: block;
+  width: 100%;
+  padding: 5%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  font-size: 10px;
 }
 
-.arrow-right {
-	color: #fff;
-	position: absolute;
-	background: #777;
-	padding: 15px;
-	right: -25px;
-	top: -130px;
-	z-index:100;
-	cursor: pointer;
+#ypt_wrapper .video {
+  position: relative;
+  width: 80%;
+  /*height: 0;*/
+  padding-bottom: 48.4%;
+  float: left;
 }
 
-@media (max-width: 624px) {
-	.arrows {
-		position:relative;
-		margin: 0 auto;
-		width:96px;
-	}
-	.arrow-left {
-		left: 0;
-		top: -20px;
-	}
-
-	.arrow-right {
-		right: 0;
-		top: -20px;
-	}
+#ypt_wrapper .video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  float:left;
 }
+
+@media only screen and (max-width : 400px) {
+  #ypt_thumbs {
+    display: none;
+  }
+  #ypt_wrapper .video {
+    width: 100%;
+    padding-bottom: 56.25%;
+  }
+}
+
 
