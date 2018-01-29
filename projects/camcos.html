@@ -37,7 +37,7 @@
 		</script>
     <!-- Custom styles for this template -->
     <link href="../css/clean-blog.min.css" rel="stylesheet">
-		<link href="../main.css" rel="stylesheet">
+		<!-- <link href="../main.css" rel="stylesheet"> -->
 
   </head>
 
@@ -164,7 +164,7 @@
 <h2>Partition the Space</h2>
 <p>
   In order to group points together, we need to identify neighboring points. Our first task is partitioning the data space.  To do so, we surround the points with cells. In order to define the density of a point in a point cloud, we first tessellate our data using a Voronoi tessellation. Notice that in regions of high point density, the Voronoi cells have small area.  In the Delaunay triangulation, each vertex is a galaxy.  A Delaunay triangulation puts edges connecting the neighboring galaxies. In graph theory, the Voronoi tessellation is the dual graph of the Delaunay tessellation. When two Voronoi cells border each other, there is an edge between them in the Delaunay tessellation.  In the Voronoi diagram, every galaxy is surrounded by a polygonal cell.  In the Delaunay triangulation, every galaxy is the vertex of a triangle.<br>
-  <img src="img/camcos/voronoid.JPG" class="img-fluid img-center" width="600px"/>
+  <img src="img/camcos/voronoid.JPG" class="img-fluid" width="600px"/>
 </p>
 <p>
   In order to identify areas of high and low density in the data set, we need to define a density function.  In physics, density is the ratio of mass to volume.  Since we assume the galaxy masses are all equal, we assign them a mass of 1 and divide by the volume of the Voronoi cell surrounding the galaxy.
