@@ -1,10 +1,10 @@
 #magician {
 	max-height: 300px;
-	border: 5px outset #a3ffb8;
+	border: 5px outset white;
 	}
 	
 body {
-	background-color: #3d3a05;
+	background-image: url('background.jpg');
 }
 #body-center {
   text-align: center;
@@ -26,4 +26,8 @@ button {
 
 .sets {
 	width: 800px;
+}
+
+.masthead {
+	height: 60px;
 }

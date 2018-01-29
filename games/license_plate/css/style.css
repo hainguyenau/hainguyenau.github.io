@@ -20,3 +20,8 @@ body {
 #result {
 	-webkit-animation-duration: 2s;
 }
+
+.masthead {
+	height: 60px;
+	
+}
