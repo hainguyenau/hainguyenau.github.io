@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Twitter Sentiment Analysis</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
+    <!-- Custom fonts for this template -->
+
+		<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">Hai Nguyen Au</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../post.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../projects.html">Projects</a>
+            </li>
+						<li class="nav-item">
+              <a class="nav-link" href="../games.html">Games</a>
+            </li>
+						<li class="nav-item">
+              <a class="nav-link" href="../videos.html">Videos</a>
+            </li>
+						
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('../img/twitter.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h2>Twitter Sentiment Analysis</h2>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projects</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+  <!-- Main Content -->
+	<div class="container">
+
+	<h2>Introduction</h2>
+		<p>Twitter so far has been one of the most used social media in the world. From celebrities to politicians, to normal citizens like you and I are using it to convey what we think to others. The most important advantage that Twitter has over other tools is that users are only allowed to post short conversations (or tweets). That is why there are so much values in these posts that we can draw from. Data miners often look at public tweets and analyze their sentiments to have a good insight of the public opinions toward a person, a company, a product an event, and many more. This has proven to be an effective way to help steer businesses to directions that satisfy the most customers.</p>
+		<p>In this project, I will build a web application that leverages Natural Language Processing to classify whether a tweet has a positive or negative sentiment. The app can also allows users to search for any topic of interest.</p>
+
+	<h2>The Data</h2>
+		<p>Since tweets are short sentences, the training dataset I used include 5,300 positive and 5,300 negative short reviews.</p>
+	
+	<h2>Training the Data</h2>
+		<p>Reviews in the training sets were vectorized using Tf-idf algorithm. Stop words (words that are not informative such as "the", "a", "I", etc.) were removed before training. Finally, a Multinomial Naive Bayes was fit into the labeled data. For each new sentence, the model calculates the probabilities of the sentence being "positive" or "negative". The default cutoff probability to be 0.5 as followed.</p>
+		<p><img class="img-fluid" src="img/twitter/train.jpg"/></p>
+		
+		<p>For the first tweet: "I hate this product. It is terrible", our model identifies the probability of it being positive is 18.05% and the probability of it being negative is 81.94%. Therefore, it is labeled as "negative". Similarly, the next tweet: "I love learning data science a lot." is labeled as "positive" since it is 58.01% being positive and 41.99% beging negative. The predictions are far from perfect, but for our purpose, they can be very useful. The model was then saved for implementation in our application later on.</p>
+	<h2>Sentiment Analysis of Streamming Tweets</h2>
+		<p>First, I obtained the free API that Twitter provides. This allows users to stream thousands of tweets per day in real time. These streamed tweets are then passed into our model to make appropriate predictions. To avoid duplicate retweets (users posting popular tweets on their page), I turned this off so we only use original tweets.</p>
+	
+	<h2>The Web Application</h2>
+		<p>When run on our local host, the interface of the app is very simple. The user can enter any topic they want and submit.</p>
+		<p><img class="img-fluid" src="img/twitter/home.jpg"/></p>
+		<b><em>Figure:</em></b> Homepage.
+		</p>
+		
+		<p>Once the topic is submitted, the application will display the five most recent tweets on that topic (this number can be changed). Each tweet (along with its owner and timestamp) is analyzed and the sentiments are predicted whether it is <b>"positive"</b> or <b>"negative"</b>. The probabilities are also shown to clarify the confidence of our predictions.</p>
+
+		<p><img class="img-fluid" src="img/twitter/result.jpg"/></p>
+		<p><b><em>Figure: </em></b>Result page</p>
+	
+		<p>A sample topic of "messi" (the soccer superstar) was entered. We can see that the accuracy of the predictions is decent. For example, our model can identify positive patterns such as "best ever goal scoring season" or "wonderful player" and predicted positive sentiments with high probabilities. "Egotistical" was also recognized and pull the prediction toward the negative direction. However, when tweets contain both positive and negative words like in the tweet with both "won" and "sad", our model is confused and gave similar probabilities. Similarly with informative tweets and without clear sentiment values.</p>
+	<h2>Conclusion</h2>
+	<p>We can absolutely improve our model if a more relevant dataset is available, preferably a dataset with real tweets. With better training, the application can be very versatile. In the meantime, it is doing a decent job of classifying tweets with clear sentiments.</p>
+		
+<!--End main content-->
+</div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/hainguyenau" target="_blank"
+">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.youtube.com/user/hainguyenau" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+	
+	
+  </body>
+
+
+    <hr>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
