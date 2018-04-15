@@ -109,7 +109,7 @@
 	
 	<h2>Training the Data</h2>
 		<p>Reviews in the training sets were vectorized using Tf-idf algorithm. Stop words (words that are not informative such as "the", "a", "I", etc.) were removed before training. Finally, a Multinomial Naive Bayes was fit into the labeled data. For each new sentence, the model calculates the probabilities of the sentence being "positive" or "negative". The default cutoff probability to be 0.5 as followed.</p>
-		<p><img class="img-fluid" src="img/twitter/train.jpg"/></p>
+		<p><img class="img-fluid" src="img/twitter/train.JPG"/></p>
 		
 		<p>For the first tweet: "I hate this product. It is terrible", our model identifies the probability of it being positive is 18.05% and the probability of it being negative is 81.94%. Therefore, it is labeled as "negative". Similarly, the next tweet: "I love learning data science a lot." is labeled as "positive" since it is 58.01% being positive and 41.99% beging negative. The predictions are far from perfect, but for our purpose, they can be very useful. The model was then saved for implementation in our application later on.</p>
 	<h2>Sentiment Analysis of Streamming Tweets</h2>
@@ -117,7 +117,7 @@
 	
 	<h2>The Web Application</h2>
 		<p>When run on our local host, the interface of the app is very simple. The user can enter any topic they want and submit.</p>
-		<p><img class="img-fluid" src="img/twitter/home.jpg"/></p>
+		<p><img class="img-fluid" src="img/twitter/home.JPG"/></p>
 		<b><em>Figure:</em></b> Homepage.
 		</p>
 		
