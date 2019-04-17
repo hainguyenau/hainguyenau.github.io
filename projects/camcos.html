@@ -17,7 +17,7 @@
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-		
+
 		<!-- LaTEX scripts -->
 		<script type="text/javascript" async
 			src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -37,7 +37,7 @@
 		</script>
     <!-- Custom styles for this template -->
     <link href="../css/clean-blog.min.css" rel="stylesheet">
-		<!-- <link href="../main.css" rel="stylesheet"> -->
+		<link href="main.css" rel="stylesheet">
 
   </head>
 
@@ -71,7 +71,7 @@
 						<li class="nav-item">
               <a class="nav-link" href="../videos.html">Videos</a>
             </li>
-						
+
           </ul>
         </div>
       </div>
@@ -85,7 +85,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="page-heading">
               <h2>The Geometry and Topology of the Cosmic Web</h2>
-              
+
             </div>
           </div>
         </div>
@@ -120,6 +120,8 @@
   <p>
   Contributors:
   <ul>
+    <li><a href="http://www.sjsu.edu/math/people/faculty/simic/" target="_blank">Slobodan Simic</a> (Mathematics Professor/Supervisor)</li>
+    <li><a href="https://www.nasa.gov/centers/ames/research/2007/scargle.html" target="_blank">Jeffrey Scargle</a> (Astrophysicist/Supervisor)</li>
     <li>Hai Nguyen Au</li>
     <li>Catherine Boersma</li>
     <li>Joey Fitch</li>
@@ -127,8 +129,6 @@
     <li>Jian-Long Liu</li>
     <li>Matthew Litrus</li>
     <li>Brandon Morrison</li>
-    <li><a href="https://www.nasa.gov/centers/ames/research/2007/scargle.html" target="_blank">Jeffrey Scargle</a> (Astrophysicist/Supervisor)</li>
-    <li><a href="http://www.sjsu.edu/math/people/faculty/simic/" target="_blank">Slobodan Simic</a> (Professor/Supervisor)</li>
   </ul>
   </p>
 
@@ -171,7 +171,7 @@
   $$\rho = \frac{\text{Mass}}{\text{Volume}}$$
   $$\rho = \frac{1}{\text{Voronoi cell volume}}$$
   In our efforts to partition the data, group small clusters, and classify structures, we tried many different algorithms.  Our goal in each case was the same: to determine a computationally simple algorithm with few parameters to identify structures.  Initially, we examined Discrete Morse Theory, and then proceeded with variations of HOP, such as JHOP, EHOP, and smooth HOP.  We tried to get the same results from Discrete Morse Theory using a version of HOP called Dimensional HOP and then we looked at alpha shapes and combined them with HOP for a potential new technique to analyze the cosmic web. (For more details about each method, please refer to our <a href="https://github.com/hainguyenau/CAMCOS_2014/blob/master/Geometry_Topology_Cosmic_Web.pdf" target="_blank">full article</a>).<br><br>
-  
+
   <img src="img/camcos/methods.png" class="img-fluid" width="600px"/>
 </p>
 <h3>Discrete Morse Theory</h3>
@@ -212,13 +212,13 @@
     <img src="img/camcos/alpha2.JPG" class="img-fluid" width="300px"/><br>
     As &alpha; increases, more and more connections over large distances are made. As &alpha; approaches infinity, we recover the full Delaunay triangulation.
 
-    <div class="alpha-shape img"></div>
+    <div class="alpha-shape"></div>
 
   </p>
   <h2>Future Work</h2>
     <p>
       Since each algorithm has its benefits and drawbacks, we can find a framework to comparatively analyze the outputs of these algorithms to see which one performs best. With more data coming in, we can also test our algorithms against simulations of the evolution of the galactic distribution and other sky surveys with more data points.
-		
+
 	<!--End main content-->
 </div>
 
@@ -268,8 +268,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="../js/clean-blog.min.js"></script>
-	
-	
+
+
   </body>
 
     <hr>
